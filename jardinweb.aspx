@@ -18,15 +18,15 @@
                         <asp:Label ID="lblIdJardin" runat="server" Text="Id Jardin"></asp:Label>
                         <asp:TextBox ID="txtIdJardin" runat="server" CssClass="form-control"></asp:TextBox>
                     </div>
-                    <div class="row">
+                    <div class="row mt-2">
                         <asp:Label ID="Label2" runat="server" Text="Nombre"></asp:Label>
                         <asp:TextBox ID="txtNombre" runat="server" CssClass="form-control"></asp:TextBox>
                     </div>
-                    <div class="row">
+                    <div class="row mt-2">
                         <asp:Label ID="Label3" runat="server" Text="Dirección"></asp:Label>
                         <asp:TextBox ID="txtDireccion" runat="server" CssClass="form-control"></asp:TextBox>
                     </div>
-                    <div class="row">
+                    <div class="row mt-2">
                         <asp:Label ID="Label4" runat="server" Text="Estado"></asp:Label>
                         <asp:DropDownList ID="ddlEstado" runat="server" CssClass="form-control">
                             <asp:ListItem>Aprobado</asp:ListItem>
@@ -35,10 +35,10 @@
                         </asp:DropDownList>
                     </div>
                 </div>
-                <asp:Label ID="lblMensaje" runat="server" Text=""></asp:Label>
-                <div class="mt-2">
+                <asp:Label ID="lblMensaje" runat="server" Text="" CssClass="text-danger fw-medium"></asp:Label>
+                <div class="mt-3">
                     <asp:Button ID="btnRegistrar" runat="server" Text="Registrar" CssClass="btn btn-success" OnClick="btnRegistrar_Click" />
-                    <asp:Button ID="btnEditar" runat="server" Text="Editar" CssClass="btn btn-primary" OnClick="btnEditar_Click" Visible="False" />
+                    <asp:Button ID="btnEditar" runat="server" Text="Editar" CssClass="btn btn-success" OnClick="btnEditar_Click" Visible="False" />
                     <asp:Button ID="btnVolver" runat="server" Text="Volver" CssClass="btn btn-primary" OnClick="btnVolver_Click" />
                 </div>
             </asp:Panel>

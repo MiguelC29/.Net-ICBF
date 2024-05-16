@@ -1,0 +1,110 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 14, 8.625" name="ORM">
+  <DataContextMoniker Name="/ORMDataContext" />
+  <nestedChildShapes>
+    <classShape Id="93aba7d8-ab4d-4345-9ea0-e6ae5bea91ff" absoluteBounds="6.25, 3.625, 2, 1.7708968098958322">
+      <DataClassMoniker Name="/ORMDataContext/Acudientes" />
+      <nestedChildShapes>
+        <elementListCompartment Id="e3571502-04d5-4f84-b623-048bd95cba69" absoluteBounds="6.265, 4.085, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="00c72265-d65d-4a61-9e09-eac27147f349" absoluteBounds="3.5, 3.625, 2, 1.7708968098958322">
+      <DataClassMoniker Name="/ORMDataContext/Usuarios" />
+      <nestedChildShapes>
+        <elementListCompartment Id="a3d6545c-6bae-459d-8113-d439a5d35660" absoluteBounds="3.515, 4.085, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="b4696940-f06c-4db2-bd32-dead9db72ac1" absoluteBounds="11.75, 2.25, 2, 1.5785953776041666">
+      <DataClassMoniker Name="/ORMDataContext/Asistencias" />
+      <nestedChildShapes>
+        <elementListCompartment Id="53565700-a8ab-46bc-950a-122e123f9b24" absoluteBounds="11.765, 2.71, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="aa50ab60-e525-484f-b4db-d686dddffe8b" absoluteBounds="11.75, 4.625, 2, 2.1554996744791666">
+      <DataClassMoniker Name="/ORMDataContext/AvancesAcademicos" />
+      <nestedChildShapes>
+        <elementListCompartment Id="e491f659-90d7-4300-904e-b6dde04f5625" absoluteBounds="11.765, 5.085, 1.9700000000000002, 1.5954996744791665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="6474be0b-098d-4ecf-9f71-184bbee24dd6" absoluteBounds="0.75, 3.625, 2, 1.7708968098958322">
+      <DataClassMoniker Name="/ORMDataContext/DatosBasicos" />
+      <nestedChildShapes>
+        <elementListCompartment Id="5d491b2d-c477-4d0c-9241-2d934fb87522" absoluteBounds="0.765, 4.085, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="07e366d7-c886-41fb-978a-ff5fd64e4cad" absoluteBounds="6.25, 0.75, 2, 1.1939925130208335">
+      <DataClassMoniker Name="/ORMDataContext/EPS" />
+      <nestedChildShapes>
+        <elementListCompartment Id="7b78d2f3-dfe2-4173-924f-33f656b54c77" absoluteBounds="6.265, 1.21, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="c99c9c03-54a1-4b1e-9b33-31cc57b09b78" absoluteBounds="6.25, 6.75, 2, 1.5785953776041666">
+      <DataClassMoniker Name="/ORMDataContext/Jardines" />
+      <nestedChildShapes>
+        <elementListCompartment Id="e34fd134-4687-413c-be23-01efb0fc2cfc" absoluteBounds="6.265, 7.21, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="c626d15b-23a0-4a83-8168-05a478deb41a" absoluteBounds="9, 3.125, 2, 2.732403971354167">
+      <DataClassMoniker Name="/ORMDataContext/Ninos" />
+      <nestedChildShapes>
+        <elementListCompartment Id="c95ce408-65bf-4e40-b615-2f367e4e7c34" absoluteBounds="9.015, 3.585, 1.9700000000000002, 2.1724039713541665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(5.5 : 4.51044840494792); (6.25 : 4.51044840494792)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/ORMDataContext/Usuarios/Usuarios_Acudientes" />
+      <nodes>
+        <classShapeMoniker Id="00c72265-d65d-4a61-9e09-eac27147f349" />
+        <classShapeMoniker Id="93aba7d8-ab4d-4345-9ea0-e6ae5bea91ff" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.75 : 4.51044840494792); (3.5 : 4.51044840494792)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/ORMDataContext/DatosBasicos/DatosBasicos_Usuarios" />
+      <nodes>
+        <classShapeMoniker Id="6474be0b-098d-4ecf-9f71-184bbee24dd6" />
+        <classShapeMoniker Id="00c72265-d65d-4a61-9e09-eac27147f349" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(11 : 3.47679768880208); (11.75 : 3.47679768880208)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/ORMDataContext/Ninos/Ninos_Asistencias" />
+      <nodes>
+        <classShapeMoniker Id="c626d15b-23a0-4a83-8168-05a478deb41a" />
+        <classShapeMoniker Id="b4696940-f06c-4db2-bd32-dead9db72ac1" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(11 : 5.24120198567708); (11.75 : 5.24120198567708)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/ORMDataContext/Ninos/Ninos_AvancesAcademicos" />
+      <nodes>
+        <classShapeMoniker Id="c626d15b-23a0-4a83-8168-05a478deb41a" />
+        <classShapeMoniker Id="aa50ab60-e525-484f-b4db-d686dddffe8b" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(8.25 : 4.51044840494792); (9 : 4.51044840494792)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/ORMDataContext/Acudientes/Acudientes_Ninos" />
+      <nodes>
+        <classShapeMoniker Id="93aba7d8-ab4d-4345-9ea0-e6ae5bea91ff" />
+        <classShapeMoniker Id="c626d15b-23a0-4a83-8168-05a478deb41a" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(1.75 : 3.625); (1.75 : 3.3749995); (9 : 3.3749995)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/ORMDataContext/DatosBasicos/DatosBasicos_Ninos" />
+      <nodes>
+        <classShapeMoniker Id="6474be0b-098d-4ecf-9f71-184bbee24dd6" />
+        <classShapeMoniker Id="c626d15b-23a0-4a83-8168-05a478deb41a" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(8.25 : 1.34699625651042); (10 : 1.34699625651042); (10 : 3.125)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/ORMDataContext/EPS/EPS_Ninos" />
+      <nodes>
+        <classShapeMoniker Id="07e366d7-c886-41fb-978a-ff5fd64e4cad" />
+        <classShapeMoniker Id="c626d15b-23a0-4a83-8168-05a478deb41a" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(8.25 : 7.53929768880208); (10 : 7.53929768880208); (10 : 5.85740397135417)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/ORMDataContext/Jardines/Jardines_Ninos" />
+      <nodes>
+        <classShapeMoniker Id="c99c9c03-54a1-4b1e-9b33-31cc57b09b78" />
+        <classShapeMoniker Id="c626d15b-23a0-4a83-8168-05a478deb41a" />
+      </nodes>
+    </associationConnector>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>

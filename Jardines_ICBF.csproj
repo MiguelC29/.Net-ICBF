@@ -68,9 +68,19 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="img\delete.png" />
+    <Content Include="img\edit.png" />
+    <Content Include="jardinweb.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="jardinweb.aspx.cs">
+      <DependentUpon>jardinweb.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="jardinweb.aspx.designer.cs">
+      <DependentUpon>jardinweb.aspx</DependentUpon>
+    </Compile>
     <Compile Include="modelo\JardinDAO.cs" />
     <Compile Include="ORM.designer.cs">
       <AutoGen>True</AutoGen>
@@ -96,9 +106,7 @@
       <DependentUpon>Web.config</DependentUpon>
     </None>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="img\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
   </ItemGroup>

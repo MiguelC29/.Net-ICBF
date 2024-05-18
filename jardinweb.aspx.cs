@@ -37,28 +37,12 @@ namespace Jardines_ICBF
             btnEditar.Visible = btn_Editar;
         }
 
-        public void visibilidadIdJardin(bool lbl_IdJardin, bool txt_IdJardin)
-        {
-            lblIdJardin.Visible = lbl_IdJardin;
-            txtIdJardin.Visible = txt_IdJardin;
-        }
-
         public void limpiarCampos()
         {
             txtIdJardin.Text = string.Empty;
             txtNombre.Text = string.Empty;
             txtDireccion.Text = string.Empty;
             ddlEstado.SelectedIndex = 0;
-        }
-
-        protected void btnNuevo_Click(object sender, EventArgs e)
-        {
-            visibilidadPaneles(true, false);
-            visibilidadBotones(true, false);
-            visibilidadIdJardin(false, false);
-            limpiarCampos();
-            lblTitulo.Text = "Registrar Jardín";
-            lblMensaje.Text = "";
         }
 
         protected void gdvJardines_RowCommand(object sender, GridViewCommandEventArgs e)
@@ -77,9 +61,8 @@ namespace Jardines_ICBF
                 txtIdJardin.ReadOnly = true;
                 visibilidadPaneles(true, false);
                 visibilidadBotones(false, true);
-                visibilidadIdJardin(true, true);
-                lblMensaje.Text = "";
                 lblTitulo.Text = "Editar Jardín";
+                lblMensaje.Text = "";
 
                 txtIdJardin.Text = gdvJardines.Rows[indice].Cells[0].Text;
                 txtNombre.Text = gdvJardines.Rows[indice].Cells[1].Text;
@@ -88,11 +71,19 @@ namespace Jardines_ICBF
             }
         }
 
+        protected void btnNuevo_Click(object sender, EventArgs e)
+        {
+            visibilidadPaneles(true, false);
+            visibilidadBotones(true, false);
+            limpiarCampos();
+            lblTitulo.Text = "Registrar Jardín";
+            lblMensaje.Text = "";
+        }
+
         protected void btnRegistrar_Click(object sender, EventArgs e)
         {
             JardinDAO jardinDAO = new JardinDAO();
             Jardines jardin = new Jardines();
-            //jardin.idJardin = int.Parse(txtIdJardin.Text);
             jardin.nombre = txtNombre.Text;
             jardin.direccion = txtDireccion.Text;
             jardin.estado = ddlEstado.Text;
@@ -128,7 +119,7 @@ namespace Jardines_ICBF
         protected void btnVolver_Click(object sender, EventArgs e)
         {
             visibilidadPaneles(false, true);
-            limpiarCampos();
+            //limpiarCampos();
         }
     }
 }

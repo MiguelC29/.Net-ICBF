@@ -14,10 +14,8 @@
             <asp:Panel ID="PanelRegistro" runat="server" Visible="False">
                 <h1><asp:Label ID="lblTitulo" runat="server" Text=""></asp:Label></h1>
                 <div class="container">
-                    <div class="row">
-                        <asp:Label ID="lblIdJardin" runat="server" Text="Id Jardin"></asp:Label>
-                        <asp:TextBox ID="txtIdJardin" runat="server" CssClass="form-control"></asp:TextBox>
-                    </div>
+                    <asp:TextBox ID="txtIdJardin" runat="server" CssClass="form-control" Visible="False"></asp:TextBox>
+                    
                     <div class="row mt-2">
                         <asp:Label ID="Label2" runat="server" Text="Nombre"></asp:Label>
                         <asp:TextBox ID="txtNombre" runat="server" CssClass="form-control"></asp:TextBox>

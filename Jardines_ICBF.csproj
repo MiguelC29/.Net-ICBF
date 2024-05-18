@@ -81,7 +81,11 @@
     <Compile Include="jardinweb.aspx.designer.cs">
       <DependentUpon>jardinweb.aspx</DependentUpon>
     </Compile>
+    <Compile Include="modelo\AcudientesDAO.cs" />
+    <Compile Include="modelo\DatosBasicosDAO.cs" />
     <Compile Include="modelo\JardinDAO.cs" />
+    <Compile Include="modelo\NinioDAO.cs" />
+    <Compile Include="modelo\UsuariosDAO.cs" />
     <Compile Include="ORM.designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

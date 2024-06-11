@@ -55,8 +55,8 @@ namespace Jardines_ICBF.modelo
 
         public void eliminar(int idJardin)
         {
-            Jardines jardineEliminar = consultarJardinId(idJardin);
-            BD.Jardines.DeleteOnSubmit(jardineEliminar);
+            Jardines jardinEliminar = consultarJardinId(idJardin);
+            BD.Jardines.DeleteOnSubmit(jardinEliminar);
             BD.SubmitChanges();
         }
     }

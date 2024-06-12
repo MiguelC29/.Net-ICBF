@@ -1,0 +1,31 @@
+﻿@page
+@model ICBFApp.Pages.EPS.IndexModel
+@{
+}
+
+<br />
+<h2>Lista de EPS</h2>
+<a class="btn btn-primary btn-sm" href="/EPS/Create">Nueva EPS</a>
+
+<table class="table">
+    <thead>
+        <tr>
+            <td>ID</td>
+            <td>Nombre</td>
+            <td>Acciones</td>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.listEPS)
+        {
+            <tr>
+                <td>@item.idEps</td>
+                <td>@item.nombre</td>
+                <td>
+                    <a class="btn btn-primary btn-sm" href="/EPS/Edit?idEps=@item.idEps">Editar</a>
+                    <a class="btn btn-danger btn-sm" href="/EPS/Delete?idEps=@item.idEps">Borrar</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

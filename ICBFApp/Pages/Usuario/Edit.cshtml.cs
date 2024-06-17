@@ -13,6 +13,8 @@ namespace ICBFApp.Pages.Usuario
         public List<TipoDocInfo> tipoDocInfo { get; set; } = new List<TipoDocInfo>();
         public UsuarioInfo usuarioInfo = new UsuarioInfo();
         public DatosBasicosInfo datosBasicos = new DatosBasicosInfo();
+        public TipoDocInfo tipoDocInfoSelected = new TipoDocInfo();
+        public RolInfo rolinfoSelected = new RolInfo();
         public string errorMessage = "";
         public string successMessage = "";
 
@@ -41,31 +43,30 @@ namespace ICBFApp.Pages.Usuario
                         {
                             if (reader.Read())
                             {
-                                TipoDocInfo tipoDocInfo = new TipoDocInfo();
-                                tipoDocInfo.idTipoDoc = reader.GetInt32(1).ToString();
-                                tipoDocInfo.idTipoDoc = reader.GetString(2);
+                                tipoDocInfoSelected.idTipoDoc = reader.GetInt32(1).ToString();
+                                tipoDocInfoSelected.tipo = reader.GetString(2);
 
                                 datosBasicos.idDatosBasicos = "" + reader.GetInt32(3);
                                 datosBasicos.identificacion = reader.GetString(4);
                                 datosBasicos.nombres = reader.GetString(5);
-                                datosBasicos.fechaNacimiento = reader.GetDateTime(6).Date.ToString();//
+                                datosBasicos.fechaNacimiento = reader.GetDateTime(6).Date.ToString("yyyy-MM-dd");//
                                 datosBasicos.celular = reader.GetString(7);
                                 datosBasicos.direccion = reader.GetString(8);
-                                datosBasicos.tipoDoc = tipoDocInfo;
+                                datosBasicos.tipoDoc = tipoDocInfoSelected;
 
-                                RolInfo rolinfo = new RolInfo();
-                                rolinfo.idRol = reader.GetInt32(9).ToString();
-                                rolinfo.nombre = reader.GetString(10);
+                                rolinfoSelected.idRol = reader.GetInt32(9).ToString();
+                                rolinfoSelected.nombre = reader.GetString(10);
 
                                 usuarioInfo.idUsuario = "" + reader.GetInt32(0);
                                 usuarioInfo.datosBasicos = datosBasicos;
-                                usuarioInfo.rol = rolinfo;
+                                usuarioInfo.rol = rolinfoSelected;
                             }
                         }
                     }
-                    String sqlRoles = "SELECT * from roles";
+                    String sqlRoles = "SELECT * from roles WHERE idRol != @idRol";
                     using (SqlCommand command = new SqlCommand(sqlRoles, connection))
                     {
+                        command.Parameters.AddWithValue("@idRol", rolinfoSelected.idRol);
                         using (SqlDataReader reader = command.ExecuteReader())
                         {
                             // Verificar si hay filas en el resultado antes de intentar leer
@@ -96,9 +97,10 @@ namespace ICBFApp.Pages.Usuario
                         }
                     }
 
-                    String sqlTiposDoc = "SELECT * from tipoDocumento";
+                    String sqlTiposDoc = "SELECT * from tipoDocumento WHERE idTipoDoc != @idTipoDoc";
                     using (SqlCommand command = new SqlCommand(sqlTiposDoc, connection))
                     {
+                        command.Parameters.AddWithValue("@idTipoDoc", tipoDocInfoSelected.idTipoDoc);
                         using (SqlDataReader reader = command.ExecuteReader())
                         {
                             // Verificar si hay filas en el resultado antes de intentar leer

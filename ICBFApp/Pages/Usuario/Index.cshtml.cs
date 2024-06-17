@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using System.Data;
 using System.Data.SqlClient;
 using static ICBFApp.Pages.Rol.IndexModel;
+using static ICBFApp.Pages.TipoDocumento.IndexModel;
 
 namespace ICBFApp.Pages.Usuario
 {
@@ -21,10 +22,12 @@ namespace ICBFApp.Pages.Usuario
                 using (SqlConnection connection = new SqlConnection(connectionString))
                 {
                     connection.Open();
-                    String sqlSelect = "SELECT u.idDatosBasicos, nombres, fechaNacimiento, celular, direccion, u.idRol, r.nombre, idUsuario " +
+                    String sqlSelect = "SELECT d.idTipoDocumento, t.tipo, u.idDatosBasicos, identificacion, nombres, fechaNacimiento, celular, direccion, u.idRol, r.nombre, idUsuario " +
                         "FROM usuarios as u " +
                         "INNER JOIN Roles as r ON u.idRol = r.idRol " +
-                        "INNER JOIN DatosBasicos as d ON u.idDatosBasicos = d.idDatosBasicos;";
+                        "INNER JOIN DatosBasicos as d ON u.idDatosBasicos = d.idDatosBasicos " +
+                        "INNER JOIN TipoDocumento as t ON d.idTipoDocumento = t.idTipoDoc;";
+
                     using (SqlCommand command = new SqlCommand(sqlSelect, connection))
                     {
                         using (SqlDataReader reader = command.ExecuteReader())
@@ -34,22 +37,28 @@ namespace ICBFApp.Pages.Usuario
                             {
                                 while (reader.Read())
                                 {
-                                    DatosBasicos datosBasicos = new DatosBasicos();
-                                    datosBasicos.idDatosBasicos = reader.GetInt32(0).ToString();
-                                    datosBasicos.nombres = reader.GetString(1);
-                                    datosBasicos.fechaNacimiento = reader.GetDateTime(2).Date.ToShortDateString();
-                                    datosBasicos.celular = reader.GetString(3);
-                                    datosBasicos.direccion = reader.GetString(4);
+                                    TipoDocInfo tipoDocInfo = new TipoDocInfo();
+                                    tipoDocInfo.idTipoDoc = reader.GetInt32(0).ToString();
+                                    tipoDocInfo.tipo = reader.GetString(1).ToString();
+
+                                    DatosBasicosInfo datosBasicos = new DatosBasicosInfo();
+                                    datosBasicos.idDatosBasicos = reader.GetInt32(2).ToString();
+                                    datosBasicos.tipoDoc = tipoDocInfo;
+                                    datosBasicos.identificacion = reader.GetString(3);
+                                    datosBasicos.nombres = reader.GetString(4);
+                                    datosBasicos.fechaNacimiento = reader.GetDateTime(5).Date.ToShortDateString();
+                                    datosBasicos.celular = reader.GetString(6);
+                                    datosBasicos.direccion = reader.GetString(7);
 
                                     RolInfo rol = new RolInfo();
-                                    rol.idRol = reader.GetInt32(5).ToString();
-                                    rol.nombre = reader.GetString(6);
+                                    rol.idRol = reader.GetInt32(8).ToString();
+                                    rol.nombre = reader.GetString(9);
 
                                     UsuarioInfo usuarioInfo = new UsuarioInfo();
-                                    usuarioInfo.idUsuario = reader.GetInt32(7).ToString();
+                                    usuarioInfo.idUsuario = reader.GetInt32(10).ToString();
                                     usuarioInfo.datosBasicos = datosBasicos;
                                     usuarioInfo.rol = rol;
-                                    
+
                                     listUsuario.Add(usuarioInfo);
                                 }
                             }
@@ -71,18 +80,20 @@ namespace ICBFApp.Pages.Usuario
         {
             public string idUsuario { get; set; }
             public string nombreUsuario { get; set; }
-            public string clave { get; set; }
-            public DatosBasicos datosBasicos { get; set; }
+            public string correo { get; set; }
+            public DatosBasicosInfo datosBasicos { get; set; }
             public RolInfo rol { get; set; }
         }
 
-        public class DatosBasicos
+        public class DatosBasicosInfo
         {
             public string idDatosBasicos { get; set; }
+            public string identificacion { get; set; }
             public string nombres { get; set; }
             public string fechaNacimiento { get; set; }
-            public string celular {  get; set; }
-            public string direccion { get; set;}
+            public string celular { get; set; }
+            public string direccion { get; set; }
+            public TipoDocInfo tipoDoc { get; set; }
         }
     }
 }

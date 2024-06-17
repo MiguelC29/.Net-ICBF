@@ -1,14 +1,13 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using System.Data.SqlClient;
-using System.Numerics;
 using static ICBFApp.Pages.Rol.IndexModel;
 using static ICBFApp.Pages.TipoDocumento.IndexModel;
 using static ICBFApp.Pages.Usuario.IndexModel;
+using System.Data.SqlClient;
 
 namespace ICBFApp.Pages.Usuario
 {
-    public class CreateModel : PageModel
+    public class EditModel : PageModel
     {
         public List<RolInfo> rolInfo { get; set; } = new List<RolInfo>();
         public List<TipoDocInfo> tipoDocInfo { get; set; } = new List<TipoDocInfo>();
@@ -23,11 +22,47 @@ namespace ICBFApp.Pages.Usuario
 
         public void OnGet()
         {
+            String idUsuario = Request.Query["id"];
             try
             {
                 using (SqlConnection connection = new SqlConnection(connectionString))
                 {
                     connection.Open();
+                    String sqlUsuario = "SELECT idUsuario, d.idTipoDocumento, t.tipo, u.idDatosBasicos, identificacion, nombres, fechaNacimiento, celular, direccion, u.idRol, r.nombre, idUsuario " +
+                        "FROM usuarios as u " +
+                        "INNER JOIN Roles as r ON u.idRol = r.idRol " +
+                        "INNER JOIN DatosBasicos as d ON u.idDatosBasicos = d.idDatosBasicos " +
+                        "INNER JOIN TipoDocumento as t ON d.idTipoDocumento = t.idTipoDoc " +
+                        "WHERE idUsuario = @idUsuario;";
+                    using (SqlCommand command = new SqlCommand(sqlUsuario, connection))
+                    {
+                        command.Parameters.AddWithValue("@idUsuario", idUsuario);
+                        using (SqlDataReader reader = command.ExecuteReader())
+                        {
+                            if (reader.Read())
+                            {
+                                TipoDocInfo tipoDocInfo = new TipoDocInfo();
+                                tipoDocInfo.idTipoDoc = reader.GetInt32(1).ToString();
+                                tipoDocInfo.idTipoDoc = reader.GetString(2);
+
+                                datosBasicos.idDatosBasicos = "" + reader.GetInt32(3);
+                                datosBasicos.identificacion = reader.GetString(4);
+                                datosBasicos.nombres = reader.GetString(5);
+                                datosBasicos.fechaNacimiento = reader.GetDateTime(6).Date.ToString();//
+                                datosBasicos.celular = reader.GetString(7);
+                                datosBasicos.direccion = reader.GetString(8);
+                                datosBasicos.tipoDoc = tipoDocInfo;
+
+                                RolInfo rolinfo = new RolInfo();
+                                rolinfo.idRol = reader.GetInt32(9).ToString();
+                                rolinfo.nombre = reader.GetString(10);
+
+                                usuarioInfo.idUsuario = "" + reader.GetInt32(0);
+                                usuarioInfo.datosBasicos = datosBasicos;
+                                usuarioInfo.rol = rolinfo;
+                            }
+                        }
+                    }
                     String sqlRoles = "SELECT * from roles";
                     using (SqlCommand command = new SqlCommand(sqlRoles, connection))
                     {
@@ -52,7 +87,8 @@ namespace ICBFApp.Pages.Usuario
                                         Console.WriteLine("List item - id: {0}, nombreRol: {1}", rol.idRol, rol.nombre);
                                     }
                                 }
-                            } else
+                            }
+                            else
                             {
                                 Console.WriteLine("No hay filas en el resultado.");
                                 Console.WriteLine("No se encontraron datos en la tabla roles.");
@@ -138,26 +174,13 @@ namespace ICBFApp.Pages.Usuario
                 using (SqlConnection connection = new SqlConnection(connectionString))
                 {
                     connection.Open();
-                    String sqlExists = "SELECT COUNT(*) FROM usuarios as u " +
-                        "INNER JOIN DatosBasicos as d ON u.idDatosBasicos = d.idDatosBasicos " +
-                        "WHERE d.identificacion = @identificacion;";
+                    string idDatosBasicos = Request.Form["idDatosBasicos"];
+                    string idUsuario = Request.Form["idUsuario"];
 
-                    using (SqlCommand commandCheck = new SqlCommand(sqlExists, connection))
-                    {
-                        commandCheck.Parameters.AddWithValue("@identificacion", identificacion);
-
-                        int count = (int)commandCheck.ExecuteScalar();
-                        if (count > 0)
-                        {
-                            errorMessage = "El usuario " + nombres + " con identificación " + identificacion + " ya existe. " +
-                                           "Verifique la información e intente de nuevo";
-                            return;
-                        }
-                    }
-                    String sqlInsert = "INSERT INTO DatosBasicos" +
-                        "(identificacion, nombres, fechaNacimiento, celular, direccion, idTipoDocumento)" +
-                        "VALUES" +
-                        "(@identificacion, @nombres, @fechaNacimiento, @celular, @direccion, @tipoDocumento)";
+                    String sqlInsert = "UPDATE DatosBasicos SET " +
+                        "identificacion = @identificacion, nombres = @nombres, fechaNacimiento = @fechaNacimiento, " +
+                        "celular = @celular, direccion = @direccion, idTipoDocumento = @tipoDocumento " +
+                        "WHERE idDatosBasicos = @idDatosBasicos";
 
                     using (SqlCommand command = new SqlCommand(sqlInsert, connection))
                     {
@@ -167,38 +190,24 @@ namespace ICBFApp.Pages.Usuario
                         command.Parameters.AddWithValue("@celular", celular);
                         command.Parameters.AddWithValue("@direccion", direccion);
                         command.Parameters.AddWithValue("@tipoDocumento", tipoDocId);
-                        //command.Parameters.AddWithValue("@rolId", rolId);
+                        command.Parameters.AddWithValue("@idDatosBasicos", idDatosBasicos);
 
                         command.ExecuteNonQuery();
                     }
 
-                    String sqlSelectDatosBasicos = "SELECT TOP 1 idDatosBasicos FROM DatosBasicos ORDER BY idDatosBasicos DESC";
-
-                    using (SqlCommand command2 = new SqlCommand(sqlSelectDatosBasicos, connection))
-                    {
-                        using (SqlDataReader reader = command2.ExecuteReader())
-                        {
-                            // Validar si hay datos
-                            if (reader.Read())
-                            {
-                                datosBasicos.idDatosBasicos = reader.GetInt32(0).ToString();
-                            }
-                        }
-                    }
-
-                    String sqlInsertUsuario = "INSERT INTO usuarios (idDatosBasicos, idRol)" +
-                            "VALUES (@datosBasicos, @rol);";
+                    String sqlInsertUsuario = "UPDATE usuarios SET idDatosBasicos = @datosBasicos, idRol = @rol " +
+                            "WHERE idUsuario = @idUsuario;";
 
                     using (SqlCommand command2 = new SqlCommand(sqlInsertUsuario, connection))
                     {
-                        command2.Parameters.AddWithValue("@datosBasicos", datosBasicos.idDatosBasicos);
+                        command2.Parameters.AddWithValue("@datosBasicos", idDatosBasicos);
                         command2.Parameters.AddWithValue("@rol", rolId);
+                        command2.Parameters.AddWithValue("@idUsuario", idUsuario);
 
                         command2.ExecuteNonQuery();
                     }
                 }
-                successMessage = "Usuario creado exitosamente";
-                //Response.Redirect("/Persona/Index");
+                successMessage = "Usuario Editado exitosamente";
                 RedirectToPage("/Usuario/Index");
             }
             catch (Exception ex)

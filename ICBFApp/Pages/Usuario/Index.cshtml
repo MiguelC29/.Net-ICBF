@@ -10,6 +10,8 @@
     <thead>
         <tr>
             <td>ID</td>
+            <td>Tipo Documento</td>
+            <td>Identificación</td>
             <td>Nombres</td>
             <td>Fecha de Nacimiento</td>
             <td>Celular</td>
@@ -23,6 +25,8 @@
         {
             <tr>
                 <td>@item.idUsuario</td>
+                <td>@item.datosBasicos.tipoDoc.tipo</td>
+                <td>@item.datosBasicos.identificacion</td>
                 <td>@item.datosBasicos.nombres</td>
                 <td>@item.datosBasicos.fechaNacimiento</td>
                 <td>@item.datosBasicos.celular</td>

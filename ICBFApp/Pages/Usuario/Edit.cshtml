@@ -1,10 +1,10 @@
 ﻿@page
-@model ICBFApp.Pages.Usuario.CreateModel
+@model ICBFApp.Pages.Usuario.EditModel
 @{
 }
 
 <br>
-<h2>Agregar Nueva Usuario</h2>
+<h2>Editar Usuario</h2>
 
 @* Muestra mensaje de error al no completar todos los campos del formulario *@
 @if (Model.errorMessage.Length > 0)
@@ -29,7 +29,8 @@
 }
 
 <form method="POST">
-
+    <input type="hidden" class="form-control" name="idUsuario" value="@Model.usuarioInfo.idUsuario" />
+    <input type="hidden" class="form-control" name="idDatosBasicos" value="@Model.datosBasicos.idDatosBasicos" />
     @* Método para mostrar los tipos de documento de la base de datos en el formulario de usuarios *@
     <div class="row mb-3">
         <label class="col-form-label-sm col-form-label" for="rol">Seleccione un Rol</label>

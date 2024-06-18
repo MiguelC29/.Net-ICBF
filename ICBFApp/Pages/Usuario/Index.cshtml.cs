@@ -1,6 +1,4 @@
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using System.Data;
 using System.Data.SqlClient;
 using static ICBFApp.Pages.Rol.IndexModel;
 using static ICBFApp.Pages.TipoDocumento.IndexModel;

@@ -54,6 +54,7 @@ namespace ICBFApp.Pages.Usuario
 
                                     UsuarioInfo usuarioInfo = new UsuarioInfo();
                                     usuarioInfo.idUsuario = reader.GetInt32(10).ToString();
+                                    usuarioInfo.edad = calcularEdad(reader.GetDateTime(5).Date.ToShortDateString());
                                     usuarioInfo.datosBasicos = datosBasicos;
                                     usuarioInfo.rol = rol;
 
@@ -74,11 +75,34 @@ namespace ICBFApp.Pages.Usuario
             }
         }
 
+        public int calcularEdad(string fechaNacimientoStr)
+        {
+            DateTime fechaNacimiento;
+            bool isValidDate = DateTime.TryParse(fechaNacimientoStr, out fechaNacimiento);
+
+            if (!isValidDate)
+            {
+                throw new ArgumentException("La fecha de nacimiento no está en un formato válido.");
+            }
+
+            DateTime today = DateTime.Today;
+            int age = today.Year - fechaNacimiento.Year;
+
+            // Comprueba si el cumpleaños aún no ha ocurrido en el año actual
+            if (fechaNacimiento.Date > today.AddYears(-age))
+            {
+                age--;
+            }
+
+            return age;
+        }
+
         public class UsuarioInfo
         {
             public string idUsuario { get; set; }
             public string nombreUsuario { get; set; }
             public string correo { get; set; }
+            public int edad { get; set; }
             public DatosBasicosInfo datosBasicos { get; set; }
             public RolInfo rol { get; set; }
         }

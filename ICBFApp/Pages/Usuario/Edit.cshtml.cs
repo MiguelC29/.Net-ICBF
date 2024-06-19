@@ -62,7 +62,7 @@ namespace ICBFApp.Pages.Usuario
                             }
                         }
                     }
-                    String sqlRoles = "SELECT * from roles WHERE idRol != @idRol";
+                    String sqlRoles = "SELECT * FROM roles;";
                     using (SqlCommand command = new SqlCommand(sqlRoles, connection))
                     {
                         command.Parameters.AddWithValue("@idRol", rolinfoSelected.idRol);
@@ -96,7 +96,7 @@ namespace ICBFApp.Pages.Usuario
                         }
                     }
 
-                    String sqlTiposDoc = "SELECT * from tipoDocumento WHERE idTipoDoc != @idTipoDoc";
+                    String sqlTiposDoc = "SELECT * FROM tipoDocumento WHERE tipo != 'NIUP';";
                     using (SqlCommand command = new SqlCommand(sqlTiposDoc, connection))
                     {
                         command.Parameters.AddWithValue("@idTipoDoc", tipoDocInfoSelected.idTipoDoc);
@@ -149,6 +149,7 @@ namespace ICBFApp.Pages.Usuario
             string rolIdString = Request.Form["rol"];
             int rolId;
             int tipoDocId;
+            int edad = calcularEdad(fechaNacimiento);
 
             if (string.IsNullOrEmpty(identificacion) || string.IsNullOrEmpty(nombres)
                 || string.IsNullOrEmpty(fechaNacimiento) || string.IsNullOrEmpty(celular)
@@ -167,6 +168,12 @@ namespace ICBFApp.Pages.Usuario
             if (!int.TryParse(tipoDocIdString, out tipoDocId))
             {
                 errorMessage = "Tipo Documento inválido seleccionado";
+                return;
+            }
+
+            if (edad < 18)
+            {
+                errorMessage = "Debe ser mayor de edad";
                 return;
             }
 
@@ -215,6 +222,28 @@ namespace ICBFApp.Pages.Usuario
             {
                 errorMessage = ex.Message;
             }
+        }
+
+        public int calcularEdad(string fechaNacimientoStr)
+        {
+            DateTime fechaNacimiento;
+            bool isValidDate = DateTime.TryParse(fechaNacimientoStr, out fechaNacimiento);
+
+            if (!isValidDate)
+            {
+                throw new ArgumentException("La fecha de nacimiento no está en un formato válido.");
+            }
+
+            DateTime today = DateTime.Today;
+            int age = today.Year - fechaNacimiento.Year;
+
+            // Comprueba si el cumpleaños aún no ha ocurrido en el año actual
+            if (fechaNacimiento.Date > today.AddYears(-age))
+            {
+                age--;
+            }
+
+            return age;
         }
     }
 }

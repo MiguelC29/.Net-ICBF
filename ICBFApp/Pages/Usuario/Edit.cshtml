@@ -37,10 +37,16 @@
         <div class="col-sm-6">
             <select id="tipoDocumento" name="tipoDocumento" class="form-control">
                 <option value="">Seleccione un Tipo de Documento</option>
-                <option value="@Model.tipoDocInfoSelected.idTipoDoc" selected>@Model.tipoDocInfoSelected.tipo</option>
                 @foreach (var tipoDoc in Model.tipoDocInfo)
                 {
-                    <option value="@tipoDoc.idTipoDoc">@tipoDoc.tipo</option>
+                    if (tipoDoc.idTipoDoc.Trim().Equals(Model.tipoDocInfoSelected.idTipoDoc.Trim(), StringComparison.OrdinalIgnoreCase))
+                    {
+                        <option value="@tipoDoc.idTipoDoc" selected>@tipoDoc.tipo</option>
+                    }
+                    else
+                    {
+                        <option value="@tipoDoc.idTipoDoc">@tipoDoc.tipo</option>
+                    }
                 }
             </select>
         </div>
@@ -87,10 +93,16 @@
         <div class="col-sm-6">
             <select id="rol" name="rol" class="form-control">
                 <option value="">Seleccione un Rol</option>
-                <option value="@Model.rolinfoSelected.idRol" selected>@Model.rolinfoSelected.nombre</option>
                 @foreach (var rol in Model.rolInfo)
                 {
-                    <option value="@rol.idRol">@rol.nombre</option>
+                    if (rol.idRol.Trim().Equals(Model.rolinfoSelected.idRol.Trim(), StringComparison.OrdinalIgnoreCase))
+                    {
+                        <option value="@rol.idRol" selected>@rol.nombre</option>
+                    }
+                    else
+                    {
+                        <option value="@rol.idRol">@rol.nombre</option>
+                    }
                 }
             </select>
         </div>

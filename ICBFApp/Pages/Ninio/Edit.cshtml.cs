@@ -23,9 +23,9 @@ namespace ICBFApp.Pages.Ninio
         public string errorMessage = "";
         public string successMessage = "";
 
-        String connectionString = "Data Source=PC-MIGUEL-C\\SQLEXPRESS;Initial Catalog=db_ICBF;Integrated Security=True;";
+        //String connectionString = "Data Source=PC-MIGUEL-C\\SQLEXPRESS;Initial Catalog=db_ICBF;Integrated Security=True;";
         //String connectionString = "RUTA ANGEL";
-        //String connectionString = "RUTA SENA";
+        String connectionString = "Data Source=BOGAPRCSFFSD108\\SQLEXPRESS;Initial Catalog=db_ICBF;Integrated Security=True";
 
         public void OnGet()
         {
@@ -199,6 +199,132 @@ namespace ICBFApp.Pages.Ninio
                 Console.WriteLine("Exception: " + ex.ToString());
                 errorMessage = ex.Message;
             }
+        }
+
+        public void OnPost()
+        {
+            string identificacion = Request.Form["identificacion"];
+            string nombres = Request.Form["nombres"];
+            string fechaNacimiento = Request.Form["fechaNacimiento"];
+            string ciudadNacimiento = Request.Form["ciudadNacimiento"];
+            string celular = Request.Form["celular"];
+            string direccion = Request.Form["direccion"];
+            string tipoSangre = Request.Form["tipoSangre"];
+            string acudienteIdString = Request.Form["acudiente"];
+            string jardinIdString = Request.Form["jardin"];
+            string epsIdString = Request.Form["eps"];
+            int epsId;
+            int acudienteId;
+            int jardinId;
+            int tipoDocId = 3;
+            int edad = calcularEdad(fechaNacimiento);
+
+            if (string.IsNullOrEmpty(identificacion) || string.IsNullOrEmpty(nombres) || string.IsNullOrEmpty(fechaNacimiento)
+                || string.IsNullOrEmpty(ciudadNacimiento) || string.IsNullOrEmpty(celular) || string.IsNullOrEmpty(direccion)
+                || string.IsNullOrEmpty(tipoSangre))
+            {
+                errorMessage = "Todos los campos son obligatorios";
+                return;
+            }
+
+            if (!int.TryParse(acudienteIdString, out acudienteId))
+            {
+                errorMessage = "Acudiente inválido seleccionado";
+                return;
+            }
+
+            if (!int.TryParse(jardinIdString, out jardinId))
+            {
+                errorMessage = "Jardín inválido seleccionado";
+                return;
+            }
+
+            if (!int.TryParse(epsIdString, out epsId))
+            {
+                errorMessage = "EPS inválido seleccionado";
+                return;
+            }
+
+            if (edad > 5)
+            {
+                errorMessage = "La edad máxima permitida que es de 5 años";
+                return;
+            }
+
+            try
+            {
+                using (SqlConnection connection = new SqlConnection(connectionString))
+                {
+                    connection.Open();
+                    string idDatosBasicos = Request.Form["idDatosBasicos"];
+                    string idNino = Request.Form["idNino"];
+                    string idAcudiente = Request.Form["idAcudiente"];
+                    string idJardin = Request.Form["idJardin"];
+                    string idEps = Request.Form["idEps"];
+
+                    String sqlUpdate = "UPDATE DatosBasicos SET " +
+                        "identificacion = @identificacion, nombres = @nombres, fechaNacimiento = @fechaNacimiento, " +
+                        "celular = @celular, direccion = @direccion, idTipoDocumento = @tipoDocumento " +
+                        "WHERE idDatosBasicos = @idDatosBasicos";
+
+                    using (SqlCommand command = new SqlCommand(sqlUpdate, connection))
+                    {
+                        command.Parameters.AddWithValue("@identificacion", identificacion);
+                        command.Parameters.AddWithValue("@nombres", nombres);
+                        command.Parameters.AddWithValue("@fechaNacimiento", fechaNacimiento);
+                        command.Parameters.AddWithValue("@celular", celular);
+                        command.Parameters.AddWithValue("@direccion", direccion);
+                        command.Parameters.AddWithValue("@tipoDocumento", tipoDocId);
+                        command.Parameters.AddWithValue("@idDatosBasicos", idDatosBasicos);
+
+                        command.ExecuteNonQuery();
+                    }
+
+                    String sqlUpdateNino = "UPDATE ninos SET tipoSangre = @tipoSangre, ciudadNacimiento = @ciudadNacimiento, " +
+                        "idJardin = @idJardin, idUsuario = @idAcudiente, idDatosBasicos = @idDatosBasicos, idEps = @idEps " +
+                            "WHERE idNino = @idNino;"; 
+                    using (SqlCommand command2 = new SqlCommand(sqlUpdateNino, connection))
+                    {
+                        command2.Parameters.AddWithValue("@tipoSangre", tipoSangre);
+                        command2.Parameters.AddWithValue("@ciudadNacimiento", ciudadNacimiento);
+                        command2.Parameters.AddWithValue("@idJardin", idJardin);
+                        command2.Parameters.AddWithValue("@idAcudiente", idAcudiente);
+                        command2.Parameters.AddWithValue("@idDatosBasicos", idDatosBasicos);
+                        command2.Parameters.AddWithValue("@idEps", idEps);
+                        command2.Parameters.AddWithValue("@idNino", idNino);
+
+                        command2.ExecuteNonQuery();
+                    }
+                }
+                successMessage = "Niño Editado exitosamente";
+                RedirectToPage("/Ninio/Index");
+            }
+            catch (Exception ex)
+            {
+                errorMessage = ex.Message;
+            }
+        }
+
+        public int calcularEdad(string fechaNacimientoStr)
+        {
+            DateTime fechaNacimiento;
+            bool isValidDate = DateTime.TryParse(fechaNacimientoStr, out fechaNacimiento);
+
+            if (!isValidDate)
+            {
+                throw new ArgumentException("La fecha de nacimiento no está en un formato válido.");
+            }
+
+            DateTime today = DateTime.Today;
+            int age = today.Year - fechaNacimiento.Year;
+
+            // Comprueba si el cumpleaños aún no ha ocurrido en el año actual
+            if (fechaNacimiento.Date > today.AddYears(-age))
+            {
+                age--;
+            }
+
+            return age;
         }
     }
 }

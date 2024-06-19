@@ -31,18 +31,27 @@
 <form method="POST">
     <input type="hidden" class="form-control" name="idNino" value="@Model.ninio.idNinio" />
     <input type="hidden" class="form-control" name="idDatosBasicos" value="@Model.datosBasicos.idDatosBasicos" />
+    <input type="hidden" class="form-control" name="idAcudiente" value="@Model.acudienteSelected.idUsuario" />
+    <input type="hidden" class="form-control" name="idJardin" value="@Model.jardinSelected.idJardin" />
+    <input type="hidden" class="form-control" name="idEps" value="@Model.epsSelected.idEps" />
     @* Método para mostrar los tipos de sangre de la base de datos en el formulario de niños *@
     <div class="row mb-3">
         <label class="col-form-label-sm col-form-label" for="tipoSangre">Tipo de Sangre</label>
         <div class="col-sm-6">
-            <select id="tipoSangre" name="tipoSangre" class="form-control">
-                <option value="">Seleccione un Tipo de Sangre</option>
-                <option value="@Model.ninio.tipoSangre" selected>@Model.ninio.tipoSangre</option>
-                @foreach (var tipoSangre in Model.listaTiposSangre)
+        <select id="tipoSangre" name="tipoSangre" class="form-control">
+            <option value="">Seleccione un Tipo de Sangre</option>
+            @foreach (var tipoSangre in Model.listaTiposSangre)
+            {
+                if (tipoSangre.Trim().Equals(Model.ninio.tipoSangre.Trim(), StringComparison.OrdinalIgnoreCase))
+                {
+                    <option value="@tipoSangre" selected>@tipoSangre</option>
+                }
+                else
                 {
                     <option value="@tipoSangre">@tipoSangre</option>
                 }
-            </select>
+    }
+</select>
         </div>
     </div>
 

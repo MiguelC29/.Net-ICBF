@@ -1,0 +1,55 @@
+﻿@page
+@using System.Data.SqlClient;
+
+@{
+    try
+    {
+        String idNinio = Request.Query["id"];
+        String connectionString = "Data Source=PC-MIGUEL-C\\SQLEXPRESS;Initial Catalog=db_ICBF;Integrated Security=True;";
+        //String connectionString = "Data Source=DESKTOP-FO2357P\\SQLEXPRESS;Initial Catalog=db_ICBF;Integrated Security=True;";
+        //String connectionString = "RUTA SENA";
+
+        using (SqlConnection connection = new SqlConnection(connectionString))
+        {
+            connection.Open();
+
+            String sqlSelect = "SELECT idDatosBasicos FROM Ninos WHERE idNino = @idNino";
+            using (SqlCommand selectCommand = new SqlCommand(sqlSelect, connection))
+            {
+                selectCommand.Parameters.AddWithValue("@idNino", idNinio);
+                using (SqlDataReader reader = selectCommand.ExecuteReader())
+                {
+                    // Validar si hay datos
+                    if (reader.Read())
+                    {
+                        // Mover el cursor al primer registro
+                        int idDatos = reader.GetInt32(0);
+                        reader.Close();
+                        String sqlDelete = "DELETE FROM DatosBasicos WHERE idDatosBasicos = @idDatosBasicos";
+                        //ESTO PORQUE TENEMOS EL DELETE CASCADE, POR LO TANTO SI LO BORRO DE LA TABLA DATOS BASICOS
+                        // AUTOMATICAMENTE SE BORRA DE LA TABLA USUARIOS
+                        using (SqlCommand command = new SqlCommand(sqlDelete, connection))
+                        {
+                            command.Parameters.AddWithValue("@idDatosBasicos", idDatos);
+                            using (SqlDataReader reader2 = command.ExecuteReader())
+                            {
+                                if (reader2.Read())
+                                {
+                                    command.Parameters.AddWithValue("@idDatosBasicos", idDatos);
+                                    command.ExecuteNonQuery();
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+    }
+    catch (Exception ex)
+    {
+
+    }
+
+    Response.Redirect("/Ninio/Index");
+}

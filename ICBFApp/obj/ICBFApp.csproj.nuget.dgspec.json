@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\.net\\.Net-ICBF\\ICBFApp\\ICBFApp.csproj": {}
+    "C:\\Users\\migue\\source\\repos\\.Net-ICBF\\ICBFApp\\ICBFApp.csproj": {}
   },
   "projects": {
-    "C:\\.net\\.Net-ICBF\\ICBFApp\\ICBFApp.csproj": {
+    "C:\\Users\\migue\\source\\repos\\.Net-ICBF\\ICBFApp\\ICBFApp.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\.net\\.Net-ICBF\\ICBFApp\\ICBFApp.csproj",
+        "projectUniqueName": "C:\\Users\\migue\\source\\repos\\.Net-ICBF\\ICBFApp\\ICBFApp.csproj",
         "projectName": "ICBFApp",
-        "projectPath": "C:\\.net\\.Net-ICBF\\ICBFApp\\ICBFApp.csproj",
-        "packagesPath": "C:\\Users\\AdminSena\\.nuget\\packages\\",
-        "outputPath": "C:\\.net\\.Net-ICBF\\ICBFApp\\obj\\",
+        "projectPath": "C:\\Users\\migue\\source\\repos\\.Net-ICBF\\ICBFApp\\ICBFApp.csproj",
+        "packagesPath": "C:\\Users\\migue\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\migue\\source\\repos\\.Net-ICBF\\ICBFApp\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\AdminSena\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\migue\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -61,24 +61,6 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "downloadDependencies": [
-            {
-              "name": "Microsoft.AspNetCore.App.Ref",
-              "version": "[6.0.29, 6.0.29]"
-            },
-            {
-              "name": "Microsoft.NETCore.App.Host.win-x64",
-              "version": "[6.0.29, 6.0.29]"
-            },
-            {
-              "name": "Microsoft.NETCore.App.Ref",
-              "version": "[6.0.29, 6.0.29]"
-            },
-            {
-              "name": "Microsoft.WindowsDesktop.App.Ref",
-              "version": "[6.0.29, 6.0.29]"
-            }
-          ],
           "frameworkReferences": {
             "Microsoft.AspNetCore.App": {
               "privateAssets": "none"

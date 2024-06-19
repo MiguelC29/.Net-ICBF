@@ -1,0 +1,108 @@
+﻿@page
+@model ICBFApp.Pages.Usuario.EditModel
+@{
+}
+
+<br>
+<h2>Editar Usuario</h2>
+
+@* Muestra mensaje de error al no completar todos los campos del formulario *@
+@if (Model.errorMessage.Length > 0)
+{
+    <div class="alert alert-warning alert-dismissible fade show" role="alert">
+        <strong>@Model.errorMessage</strong>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="close"></button>
+    </div>
+}
+
+@* Muestra mensaje de éxito al agregar un nuevo usuario *@
+@if (Model.successMessage.Length > 0)
+{
+    <div class="row mb-3">
+        <div class="col-sm-9">
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                <strong>@Model.successMessage</strong>
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="close"></button>
+            </div>
+        </div>
+    </div>
+}
+
+<form method="POST">
+    <input type="hidden" class="form-control" name="idUsuario" value="@Model.usuarioInfo.idUsuario" />
+    <input type="hidden" class="form-control" name="idDatosBasicos" value="@Model.datosBasicos.idDatosBasicos" />
+    @* Método para mostrar los tipos de documento de la base de datos en el formulario de usuarios *@
+    <div class="row mb-3">
+        <label class="col-form-label-sm col-form-label" for="rol">Seleccione un Rol</label>
+        <div class="col-sm-6">
+            <select id="rol" name="tipoDocumento" class="form-control">
+                <option value="">Seleccione un Tipo de Documento</option>
+                <option value="@Model.tipoDocInfoSelected.idTipoDoc" selected>@Model.tipoDocInfoSelected.tipo</option>
+                @foreach (var tipoDoc in Model.tipoDocInfo)
+                {
+                    <option value="@tipoDoc.idTipoDoc">@tipoDoc.tipo</option>
+                }
+            </select>
+        </div>
+    </div>
+
+    <div class="row mb-3">
+        <label class="col-form-label-sm col-form-label">Identificación</label>
+        <div class="col-sm-6">
+            <input type="number" class="form-control" name="identificacion" value="@Model.datosBasicos.identificacion">
+        </div>
+    </div>
+
+    <div class="row mb-3">
+        <label class="col-form-label-sm col-form-label">Nombres</label>
+        <div class="col-sm-6">
+            <input type="text" class="form-control" name="nombres" value="@Model.datosBasicos.nombres">
+        </div>
+    </div>
+
+    <div class="row mb-3">
+        <label class="col-form-label-sm col-form-label">Fecha de Nacimiento</label>
+        <div class="col-sm-6">
+            <input type="date" class="form-control" name="fechaNacimiento" value="@Model.datosBasicos.fechaNacimiento">
+        </div>
+    </div>
+
+    <div class="row mb-3">
+        <label class="col-form-label-sm col-form-label">Teléfono</label>
+        <div class="col-sm-6">
+            <input type="tel" class="form-control" name="celular" value="@Model.datosBasicos.celular">
+        </div>
+    </div>
+
+    <div class="row mb-3">
+        <label class="col-form-label-sm col-form-label">Dirección</label>
+        <div class="col-sm-6">
+            <input type="text" class="form-control" name="direccion" value="@Model.datosBasicos.direccion">
+        </div>
+    </div>
+
+    @* Método para mostrar los roles de la base de datos en el formulario de personas *@
+    <div class="row mb-3">
+        <label class="col-form-label-sm col-form-label" for="rol">Seleccione un Rol</label>
+        <div class="col-sm-6">
+            <select id="rol" name="rol" class="form-control">
+                <option value="">Seleccione un Rol</option>
+                <option value="@Model.rolinfoSelected.idRol" selected>@Model.rolinfoSelected.nombre</option>
+                @foreach (var rol in Model.rolInfo)
+                {
+                    <option value="@rol.idRol">@rol.nombre</option>
+                }
+            </select>
+        </div>
+    </div>
+
+    <div class="row mb-3">
+        <div class="offset-sm-3 col-sm-3 d-grid">
+            <button type="submit" class="btn btn-primary">Agregar</button>
+        </div>
+        <div class="col-sm-3 d-grid">
+            <a class="btn btn-outline-primary" href="/Usuario/Index" role="button">Cancelar</a>
+        </div>
+    </div>
+
+</form>

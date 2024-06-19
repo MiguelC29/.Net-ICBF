@@ -1,0 +1,48 @@
+﻿@page
+@model ICBFApp.Pages.Ninio.IndexModel
+@{
+}
+<br />
+<h2>Lista de Niños</h2>
+<a class="btn btn-primary btn-sm" href="/Ninio/Create">Nuevo Niño</a>
+
+<table class="table">
+    <thead>
+        <tr>
+            <td>ID</td>
+            <td>Tipo Documento</td>
+            <td>Identificación</td>
+            <td>Nombres</td>
+            <td>Fecha de Nacimiento</td>
+            <td>Edad</td>
+            <td>Ciudad de Nacimiento</td>
+            <td>Tipo de Sangre</td>
+            <td>Acudiente</td>
+            <td>EPS</td>
+            <td>Jardin</td>
+            <td>Acciones</td>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.listNinio)
+        {
+            <tr>
+                <td>@item.idNinio</td>
+                <td>@item.datosBasicos.tipoDoc.tipo</td>
+                <td>@item.datosBasicos.identificacion</td>
+                <td>@item.datosBasicos.nombres</td>
+                <td>@item.datosBasicos.fechaNacimiento</td>
+                <td>@item.edad</td>
+                <td>@item.ciudadNacimiento</td>
+                <td>@item.tipoSangre</td>
+                <td>@item.acudiente.datosBasicos.nombres</td>
+                <td>@item.eps.nombre</td>
+                <td>@item.jardin.nombre</td>
+                <td>
+                    <a class="btn btn-primary btn-sm" href="/Ninio/Edit?id=@item.idNinio">Editar</a>
+                    <a class="btn btn-danger btn-sm" href="/Ninio/Delete?id=@item.idNinio">Borrar</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

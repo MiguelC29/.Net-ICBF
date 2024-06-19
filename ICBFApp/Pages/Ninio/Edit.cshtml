@@ -15,7 +15,7 @@
     </div>
 }
 
-@* Muestra mensaje de éxito al agregar un nuevo niño *@
+@* Muestra mensaje de éxito al editar los datos del niño *@
 @if (Model.successMessage.Length > 0)
 {
     <div class="row mb-3">
@@ -31,9 +31,6 @@
 <form method="POST">
     <input type="hidden" class="form-control" name="idNino" value="@Model.ninio.idNinio" />
     <input type="hidden" class="form-control" name="idDatosBasicos" value="@Model.datosBasicos.idDatosBasicos" />
-    <input type="hidden" class="form-control" name="idAcudiente" value="@Model.acudienteSelected.idUsuario" />
-    <input type="hidden" class="form-control" name="idJardin" value="@Model.jardinSelected.idJardin" />
-    <input type="hidden" class="form-control" name="idEps" value="@Model.epsSelected.idEps" />
     @* Método para mostrar los tipos de sangre de la base de datos en el formulario de niños *@
     <div class="row mb-3">
         <label class="col-form-label-sm col-form-label" for="tipoSangre">Tipo de Sangre</label>
@@ -42,7 +39,7 @@
             <option value="">Seleccione un Tipo de Sangre</option>
             @foreach (var tipoSangre in Model.listaTiposSangre)
             {
-                if (tipoSangre.Trim().Equals(Model.ninio.tipoSangre.Trim(), StringComparison.OrdinalIgnoreCase))
+                if (tipoSangre.Trim().Equals(Model.ninio.tipoSangre?.Trim(), StringComparison.OrdinalIgnoreCase))
                 {
                     <option value="@tipoSangre" selected>@tipoSangre</option>
                 }
@@ -50,8 +47,8 @@
                 {
                     <option value="@tipoSangre">@tipoSangre</option>
                 }
-    }
-</select>
+            }
+        </select>
         </div>
     </div>
 
@@ -97,46 +94,64 @@
         </div>
     </div>
 
-    @* Método para mostrar los roles de la base de datos en el formulario de personas *@
+    @* Método para mostrar los acudientes de la base de datos en el formulario de niños *@
     <div class="row mb-3">
         <label class="col-form-label-sm col-form-label" for="acudiente">Acudiente</label>
         <div class="col-sm-6">
             <select id="acudiente" name="acudiente" class="form-control">
                 <option value="">Seleccione el acudiente</option>
-                <option value="@Model.acudienteSelected.idUsuario" selected>@Model.acudienteSelected.datosBasicos.identificacion</option>
                 @foreach (var acudiente in Model.listaAcudientes)
                 {
-                    <option value="@acudiente.idUsuario">@acudiente.datosBasicos.identificacion</option>
+                    if (acudiente.datosBasicos.identificacion.Trim().Equals(Model.acudienteSelected.datosBasicos.identificacion.Trim(), StringComparison.OrdinalIgnoreCase))
+                    {
+                        <option value="@acudiente.idUsuario" selected>@acudiente.datosBasicos.identificacion</option>
+                    }
+                    else
+                    {
+                        <option value="@acudiente.idUsuario">@acudiente.datosBasicos.identificacion</option>
+                    }
                 }
             </select>
         </div>
     </div>
 
-    @* Método para mostrar los roles de la base de datos en el formulario de personas *@
+    @* Método para mostrar los jardines de la base de datos en el formulario de niños *@
     <div class="row mb-3">
         <label class="col-form-label-sm col-form-label" for="jardin">Jardín</label>
         <div class="col-sm-6">
             <select id="jardin" name="jardin" class="form-control">
                 <option value="">Seleccione un Jardín</option>
-                <option value="@Model.jardinSelected.idJardin" selected>@Model.jardinSelected.nombre</option>
                 @foreach (var jardin in Model.listaJardines)
                 {
-                    <option value="@jardin.idJardin">@jardin.nombre</option>
+                    if (jardin.idJardin.Trim().Equals(Model.jardinSelected.idJardin.Trim(), StringComparison.OrdinalIgnoreCase))
+                    {
+                        <option value="@jardin.idJardin" selected>@jardin.nombre</option>
+                    }
+                    else
+                    {
+                        <option value="@jardin.idJardin">@jardin.nombre</option>
+                    }
                 }
             </select>
         </div>
     </div>
 
-    @* Método para mostrar los roles de la base de datos en el formulario de personas *@
+    @* Método para mostrar las eps de la base de datos en el formulario de niños *@
     <div class="row mb-3">
         <label class="col-form-label-sm col-form-label" for="eps">EPS</label>
         <div class="col-sm-6">
             <select id="eps" name="eps" class="form-control">
                 <option value="">Seleccione una EPS</option>
-                <option value="@Model.epsSelected.idEps" selected>@Model.epsSelected.nombre</option>
                 @foreach (var eps in Model.listaEps)
                 {
-                    <option value="@eps.idEps">@eps.nombre</option>
+                    if (eps.idEps.Trim().Equals(Model.epsSelected.idEps.Trim(), StringComparison.OrdinalIgnoreCase))
+                    {
+                        <option value="@eps.idEps" selected>@eps.nombre</option>
+                    }
+                    else
+                    {
+                        <option value="@eps.idEps">@eps.nombre</option>
+                    }
                 }
             </select>
         </div>

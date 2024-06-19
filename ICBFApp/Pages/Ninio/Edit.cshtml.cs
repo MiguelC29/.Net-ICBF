@@ -3,7 +3,6 @@ using System.Data.SqlClient;
 using static ICBFApp.Pages.EPS.IndexModel;
 using static ICBFApp.Pages.Jardin.IndexModel;
 using static ICBFApp.Pages.Ninio.IndexModel;
-using static ICBFApp.Pages.Rol.IndexModel;
 using static ICBFApp.Pages.Usuario.IndexModel;
 
 namespace ICBFApp.Pages.Ninio
@@ -13,7 +12,7 @@ namespace ICBFApp.Pages.Ninio
         public List<JardinInfo> listaJardines { get; set; } = new List<JardinInfo>();
         public List<UsuarioInfo> listaAcudientes { get; set; } = new List<UsuarioInfo>();
         public List<EPSInfo> listaEps { get; set; } = new List<EPSInfo>();
-        public string[] listaTiposSangre { get; set; } = new string[] { "O+", "O-", "A+", "A-", "AB+", "AB-" }; //revisar el selected
+        public string[] listaTiposSangre { get; set; } = new string[] { "O+", "O-", "A+", "A-", "AB+", "AB-" };
         public NinioInfo ninio = new NinioInfo();
         public DatosBasicosInfo datosBasicos = new DatosBasicosInfo();
         public EPSInfo epsSelected = new EPSInfo();
@@ -23,9 +22,9 @@ namespace ICBFApp.Pages.Ninio
         public string errorMessage = "";
         public string successMessage = "";
 
-        //String connectionString = "Data Source=PC-MIGUEL-C\\SQLEXPRESS;Initial Catalog=db_ICBF;Integrated Security=True;";
+        String connectionString = "Data Source=PC-MIGUEL-C\\SQLEXPRESS;Initial Catalog=db_ICBF;Integrated Security=True;";
         //String connectionString = "RUTA ANGEL";
-        String connectionString = "Data Source=BOGAPRCSFFSD108\\SQLEXPRESS;Initial Catalog=db_ICBF;Integrated Security=True";
+        //String connectionString = "Data Source=BOGAPRCSFFSD108\\SQLEXPRESS;Initial Catalog=db_ICBF;Integrated Security=True";
 
         public void OnGet()
         {
@@ -76,7 +75,6 @@ namespace ICBFApp.Pages.Ninio
 
                                 ninio.idNinio = "" + reader.GetInt32(13);
                                 ninio.ciudadNacimiento = reader.GetString(14);
-                                //ninio.tipoSangre = rolinfoSelected;// FALTA EXCLUIR DEL SELECTED EL VALOR DADO O DE LA LISTA
                                 ninio.tipoSangre = reader.GetString(15);
                                 ninio.datosBasicos = datosBasicos;
                                 ninio.jardin = jardinSelected;
@@ -86,7 +84,7 @@ namespace ICBFApp.Pages.Ninio
                         }
                     }
 
-                    String sqlEps = "SELECT idEps, nombre from eps WHERE idEps != @idEps";
+                    String sqlEps = "SELECT idEps, nombre FROM eps;";
                     using (SqlCommand command = new SqlCommand(sqlEps, connection))
                     {
                         command.Parameters.AddWithValue("@idEps", epsSelected.idEps);
@@ -120,7 +118,7 @@ namespace ICBFApp.Pages.Ninio
                         }
                     }
 
-                    String sqlJardines = "SELECT idJardin, nombre FROM jardines WHERE idJardin != @idJardin";
+                    String sqlJardines = "SELECT idJardin, nombre FROM jardines;";
                     using (SqlCommand command = new SqlCommand(sqlJardines, connection))
                     {
                         command.Parameters.AddWithValue("@idJardin", jardinSelected.idJardin);
@@ -157,10 +155,9 @@ namespace ICBFApp.Pages.Ninio
                     String sqlAcudiente = "SELECT idUsuario, identificacion FROM Usuarios as u " +
                         "INNER JOIN DatosBasicos as d ON u.idDatosBasicos = d.idDatosBasicos " +
                         "INNER JOIN Roles as r ON u.idRol = r.idRol " +
-                        "WHERE r.nombre = 'Acudiente' AND idUsuario != @idUsuario;";
+                        "WHERE r.nombre = 'Acudiente';";
                     using (SqlCommand command = new SqlCommand(sqlAcudiente, connection))
                     {
-                        command.Parameters.AddWithValue("@idUsuario", acudienteSelected.idUsuario);
                         using (SqlDataReader reader = command.ExecuteReader())
                         {
                             // Verificar si hay filas en el resultado antes de intentar leer
@@ -258,9 +255,6 @@ namespace ICBFApp.Pages.Ninio
                     connection.Open();
                     string idDatosBasicos = Request.Form["idDatosBasicos"];
                     string idNino = Request.Form["idNino"];
-                    string idAcudiente = Request.Form["idAcudiente"];
-                    string idJardin = Request.Form["idJardin"];
-                    string idEps = Request.Form["idEps"];
 
                     String sqlUpdate = "UPDATE DatosBasicos SET " +
                         "identificacion = @identificacion, nombres = @nombres, fechaNacimiento = @fechaNacimiento, " +
@@ -287,10 +281,10 @@ namespace ICBFApp.Pages.Ninio
                     {
                         command2.Parameters.AddWithValue("@tipoSangre", tipoSangre);
                         command2.Parameters.AddWithValue("@ciudadNacimiento", ciudadNacimiento);
-                        command2.Parameters.AddWithValue("@idJardin", idJardin);
-                        command2.Parameters.AddWithValue("@idAcudiente", idAcudiente);
+                        command2.Parameters.AddWithValue("@idJardin", jardinId);
+                        command2.Parameters.AddWithValue("@idAcudiente", acudienteId);
                         command2.Parameters.AddWithValue("@idDatosBasicos", idDatosBasicos);
-                        command2.Parameters.AddWithValue("@idEps", idEps);
+                        command2.Parameters.AddWithValue("@idEps", epsId);
                         command2.Parameters.AddWithValue("@idNino", idNino);
 
                         command2.ExecuteNonQuery();

@@ -3,16 +3,16 @@
   "WorkspaceRootPath": "C:\\Users\\migue\\source\\repos\\.Net-ICBF\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{97F72541-A725-45DF-A516-6EB1E50A0C83}|ICBFApp\\ICBFApp.csproj|c:\\users\\migue\\source\\repos\\.net-icbf\\icbfapp\\pages\\ninio\\delete.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{97F72541-A725-45DF-A516-6EB1E50A0C83}|ICBFApp\\ICBFApp.csproj|solutionrelative:icbfapp\\pages\\ninio\\delete.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{97F72541-A725-45DF-A516-6EB1E50A0C83}|ICBFApp\\ICBFApp.csproj|c:\\users\\migue\\source\\repos\\.net-icbf\\icbfapp\\pages\\ninio\\edit.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{97F72541-A725-45DF-A516-6EB1E50A0C83}|ICBFApp\\ICBFApp.csproj|solutionrelative:icbfapp\\pages\\ninio\\edit.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{97F72541-A725-45DF-A516-6EB1E50A0C83}|ICBFApp\\ICBFApp.csproj|c:\\users\\migue\\source\\repos\\.net-icbf\\icbfapp\\pages\\ninio\\create.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{97F72541-A725-45DF-A516-6EB1E50A0C83}|ICBFApp\\ICBFApp.csproj|solutionrelative:icbfapp\\pages\\ninio\\create.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{97F72541-A725-45DF-A516-6EB1E50A0C83}|ICBFApp\\ICBFApp.csproj|c:\\users\\migue\\source\\repos\\.net-icbf\\icbfapp\\pages\\ninio\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{97F72541-A725-45DF-A516-6EB1E50A0C83}|ICBFApp\\ICBFApp.csproj|solutionrelative:icbfapp\\pages\\ninio\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{97F72541-A725-45DF-A516-6EB1E50A0C83}|ICBFApp\\ICBFApp.csproj|c:\\users\\migue\\source\\repos\\.net-icbf\\icbfapp\\pages\\ninio\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{97F72541-A725-45DF-A516-6EB1E50A0C83}|ICBFApp\\ICBFApp.csproj|solutionrelative:icbfapp\\pages\\ninio\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     }
   ],
   "DocumentGroupContainers": [
@@ -22,7 +22,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 8,
+          "SelectedChildIndex": 9,
           "Children": [
             {
               "$type": "Bookmark",
@@ -58,28 +58,28 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "Delete.cshtml",
-              "DocumentMoniker": "C:\\Users\\migue\\source\\repos\\.Net-ICBF\\ICBFApp\\Pages\\Ninio\\Delete.cshtml",
-              "RelativeDocumentMoniker": "ICBFApp\\Pages\\Ninio\\Delete.cshtml",
-              "ToolTip": "C:\\Users\\migue\\source\\repos\\.Net-ICBF\\ICBFApp\\Pages\\Ninio\\Delete.cshtml",
-              "RelativeToolTip": "ICBFApp\\Pages\\Ninio\\Delete.cshtml",
-              "ViewState": "AQIAAB4AAAAAAAAAAAAAADMAAAAFAAAA",
+              "DocumentIndex": 2,
+              "Title": "Edit.cshtml",
+              "DocumentMoniker": "C:\\Users\\migue\\source\\repos\\.Net-ICBF\\ICBFApp\\Pages\\Ninio\\Edit.cshtml",
+              "RelativeDocumentMoniker": "ICBFApp\\Pages\\Ninio\\Edit.cshtml",
+              "ToolTip": "C:\\Users\\migue\\source\\repos\\.Net-ICBF\\ICBFApp\\Pages\\Ninio\\Edit.cshtml",
+              "RelativeToolTip": "ICBFApp\\Pages\\Ninio\\Edit.cshtml",
+              "ViewState": "AQIAAFIAAAAAAAAAAAAmwGAAAABkAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-06-19T02:29:41.021Z",
+              "WhenOpened": "2024-06-19T03:11:31.06Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "Create.cshtml",
-              "DocumentMoniker": "C:\\Users\\migue\\source\\repos\\.Net-ICBF\\ICBFApp\\Pages\\Ninio\\Create.cshtml",
-              "RelativeDocumentMoniker": "ICBFApp\\Pages\\Ninio\\Create.cshtml",
-              "ToolTip": "C:\\Users\\migue\\source\\repos\\.Net-ICBF\\ICBFApp\\Pages\\Ninio\\Create.cshtml",
-              "RelativeToolTip": "ICBFApp\\Pages\\Ninio\\Create.cshtml",
-              "ViewState": "AQIAAHIAAAAAAAAAAAAAAHoAAAA0AAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-06-19T02:14:35.767Z",
+              "DocumentIndex": 0,
+              "Title": "Edit.cshtml.cs",
+              "DocumentMoniker": "C:\\Users\\migue\\source\\repos\\.Net-ICBF\\ICBFApp\\Pages\\Ninio\\Edit.cshtml.cs",
+              "RelativeDocumentMoniker": "ICBFApp\\Pages\\Ninio\\Edit.cshtml.cs",
+              "ToolTip": "C:\\Users\\migue\\source\\repos\\.Net-ICBF\\ICBFApp\\Pages\\Ninio\\Edit.cshtml.cs",
+              "RelativeToolTip": "ICBFApp\\Pages\\Ninio\\Edit.cshtml.cs",
+              "ViewState": "AQIAADcAAAAAAAAAAAAUwEkAAABEAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-19T02:41:45.296Z",
               "EditorCaption": ""
             },
             {
@@ -90,7 +90,7 @@
               "RelativeDocumentMoniker": "ICBFApp\\Pages\\Ninio\\Create.cshtml.cs",
               "ToolTip": "C:\\Users\\migue\\source\\repos\\.Net-ICBF\\ICBFApp\\Pages\\Ninio\\Create.cshtml.cs",
               "RelativeToolTip": "ICBFApp\\Pages\\Ninio\\Create.cshtml.cs",
-              "ViewState": "AQIAAKsAAAAAAAAAAAAqwLgAAAANAAAA",
+              "ViewState": "AQIAAF4AAAAAAAAAAAAcwH0AAAAhAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-06-18T23:40:15.958Z",
               "EditorCaption": ""

@@ -62,7 +62,7 @@ namespace ICBFApp.Pages.Ninio
                         }
                     }
 
-                    String sqlEps = "SELECT idEps, nombre from eps";
+                    String sqlEps = "SELECT idEps, nombre FROM eps";
                     using (SqlCommand command = new SqlCommand(sqlEps, connection))
                     {
                         using (SqlDataReader reader = command.ExecuteReader())

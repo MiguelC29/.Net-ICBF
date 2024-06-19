@@ -3,6 +3,10 @@
   "WorkspaceRootPath": "B:\\Projectos\\.net\\.Net-ICBF\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{97F72541-A725-45DF-A516-6EB1E50A0C83}|ICBFApp\\ICBFApp.csproj|b:\\projectos\\.net\\.net-icbf\\icbfapp\\pages\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{97F72541-A725-45DF-A516-6EB1E50A0C83}|ICBFApp\\ICBFApp.csproj|solutionrelative:icbfapp\\pages\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{97F72541-A725-45DF-A516-6EB1E50A0C83}|ICBFApp\\ICBFApp.csproj|b:\\projectos\\.net\\.net-icbf\\icbfapp\\pages\\tipodocumento\\delete.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{97F72541-A725-45DF-A516-6EB1E50A0C83}|ICBFApp\\ICBFApp.csproj|solutionrelative:icbfapp\\pages\\tipodocumento\\delete.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
@@ -86,7 +90,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 8,
+          "SelectedChildIndex": 9,
           "Children": [
             {
               "$type": "Bookmark",
@@ -110,7 +114,11 @@
             },
             {
               "$type": "Bookmark",
-              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+              "Name": "ST:128:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:129:0:{75188d03-9892-4ae2-abf1-207126247ce5}"
             },
             {
               "$type": "Bookmark",
@@ -123,6 +131,19 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "_Layout.cshtml",
+              "DocumentMoniker": "B:\\Projectos\\.net\\.Net-ICBF\\ICBFApp\\Pages\\Shared\\_Layout.cshtml",
+              "RelativeDocumentMoniker": "ICBFApp\\Pages\\Shared\\_Layout.cshtml",
+              "ToolTip": "B:\\Projectos\\.net\\.Net-ICBF\\ICBFApp\\Pages\\Shared\\_Layout.cshtml",
+              "RelativeToolTip": "ICBFApp\\Pages\\Shared\\_Layout.cshtml",
+              "ViewState": "AQIAAAYAAAAAAAAAAAAAACEAAAAtAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-06-19T00:50:34.324Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
               "Title": "Delete.cshtml",
               "DocumentMoniker": "B:\\Projectos\\.net\\.Net-ICBF\\ICBFApp\\Pages\\TipoDocumento\\Delete.cshtml",
               "RelativeDocumentMoniker": "ICBFApp\\Pages\\TipoDocumento\\Delete.cshtml",
@@ -135,7 +156,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 9,
               "Title": "Create.cshtml",
               "DocumentMoniker": "B:\\Projectos\\.net\\.Net-ICBF\\ICBFApp\\Pages\\TipoDocumento\\Create.cshtml",
               "RelativeDocumentMoniker": "ICBFApp\\Pages\\TipoDocumento\\Create.cshtml",
@@ -143,12 +164,11 @@
               "RelativeToolTip": "ICBFApp\\Pages\\TipoDocumento\\Create.cshtml",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAUAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-06-19T00:11:31.418Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-06-19T00:11:31.418Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 11,
               "Title": "Index.cshtml.cs",
               "DocumentMoniker": "B:\\Projectos\\.net\\.Net-ICBF\\ICBFApp\\Pages\\TipoDocumento\\Index.cshtml.cs",
               "RelativeDocumentMoniker": "ICBFApp\\Pages\\TipoDocumento\\Index.cshtml.cs",
@@ -156,12 +176,11 @@
               "RelativeToolTip": "ICBFApp\\Pages\\TipoDocumento\\Index.cshtml.cs",
               "ViewState": "AQIAAAsAAAAAAAAAAAAQwCIAAAAhAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-19T00:04:10.879Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-06-19T00:04:10.879Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "Edit.cshtml",
               "DocumentMoniker": "B:\\Projectos\\.net\\.Net-ICBF\\ICBFApp\\Pages\\EPS\\Edit.cshtml",
               "RelativeDocumentMoniker": "ICBFApp\\Pages\\EPS\\Edit.cshtml",
@@ -169,12 +188,11 @@
               "RelativeToolTip": "ICBFApp\\Pages\\EPS\\Edit.cshtml",
               "ViewState": "AQIAAA0AAAAAAAAAAAAIwBMAAABaAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-06-18T23:44:47.067Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-06-18T23:44:47.067Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 17,
+              "DocumentIndex": 18,
               "Title": "Create.cshtml.cs",
               "DocumentMoniker": "B:\\Projectos\\.net\\.Net-ICBF\\ICBFApp\\Pages\\Usuario\\Create.cshtml.cs",
               "RelativeDocumentMoniker": "ICBFApp\\Pages\\Usuario\\Create.cshtml.cs",
@@ -182,12 +200,11 @@
               "RelativeToolTip": "ICBFApp\\Pages\\Usuario\\Create.cshtml.cs",
               "ViewState": "AQIAAIkAAAAAAAAAAAAIwAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-18T23:40:02.947Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-06-18T23:40:02.947Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 16,
+              "DocumentIndex": 17,
               "Title": "Create.cshtml",
               "DocumentMoniker": "B:\\Projectos\\.net\\.Net-ICBF\\ICBFApp\\Pages\\Rol\\Create.cshtml",
               "RelativeDocumentMoniker": "ICBFApp\\Pages\\Rol\\Create.cshtml",
@@ -195,12 +212,11 @@
               "RelativeToolTip": "ICBFApp\\Pages\\Rol\\Create.cshtml",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-06-18T23:33:17.489Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-06-18T23:33:17.489Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 10,
               "Title": "Create.cshtml",
               "DocumentMoniker": "B:\\Projectos\\.net\\.Net-ICBF\\ICBFApp\\Pages\\EPS\\Create.cshtml",
               "RelativeDocumentMoniker": "ICBFApp\\Pages\\EPS\\Create.cshtml",
@@ -208,12 +224,11 @@
               "RelativeToolTip": "ICBFApp\\Pages\\EPS\\Create.cshtml",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAUAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-06-18T23:00:17.49Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-06-18T23:00:17.49Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 7,
               "Title": "Create.cshtml.cs",
               "DocumentMoniker": "B:\\Projectos\\.net\\.Net-ICBF\\ICBFApp\\Pages\\EPS\\Create.cshtml.cs",
               "RelativeDocumentMoniker": "ICBFApp\\Pages\\EPS\\Create.cshtml.cs",
@@ -221,12 +236,11 @@
               "RelativeToolTip": "ICBFApp\\Pages\\EPS\\Create.cshtml.cs",
               "ViewState": "AQIAAAsAAAAAAAAAAAAQwBUAAAAMAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-18T23:04:51.333Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-06-18T23:04:51.333Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 6,
               "Title": "Edit.cshtml.cs",
               "DocumentMoniker": "B:\\Projectos\\.net\\.Net-ICBF\\ICBFApp\\Pages\\EPS\\Edit.cshtml.cs",
               "RelativeDocumentMoniker": "ICBFApp\\Pages\\EPS\\Edit.cshtml.cs",
@@ -234,12 +248,11 @@
               "RelativeToolTip": "ICBFApp\\Pages\\EPS\\Edit.cshtml.cs",
               "ViewState": "AQIAAFEAAAAAAAAAAAAowHQAAAAyAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-18T23:15:15.132Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-06-18T23:15:15.132Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 8,
               "Title": "Create.cshtml.cs",
               "DocumentMoniker": "B:\\Projectos\\.net\\.Net-ICBF\\ICBFApp\\Pages\\TipoDocumento\\Create.cshtml.cs",
               "RelativeDocumentMoniker": "ICBFApp\\Pages\\TipoDocumento\\Create.cshtml.cs",
@@ -247,12 +260,11 @@
               "RelativeToolTip": "ICBFApp\\Pages\\TipoDocumento\\Create.cshtml.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAAAIAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-19T00:14:02.156Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-06-19T00:14:02.156Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "Delete.cshtml",
               "DocumentMoniker": "B:\\Projectos\\.net\\.Net-ICBF\\ICBFApp\\Pages\\EPS\\Delete.cshtml",
               "RelativeDocumentMoniker": "ICBFApp\\Pages\\EPS\\Delete.cshtml",
@@ -260,12 +272,11 @@
               "RelativeToolTip": "ICBFApp\\Pages\\EPS\\Delete.cshtml",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAACMAAAAkAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-06-18T23:52:53.756Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-06-18T23:52:53.756Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "Edit.cshtml",
               "DocumentMoniker": "B:\\Projectos\\.net\\.Net-ICBF\\ICBFApp\\Pages\\TipoDocumento\\Edit.cshtml",
               "RelativeDocumentMoniker": "ICBFApp\\Pages\\TipoDocumento\\Edit.cshtml",
@@ -273,12 +284,11 @@
               "RelativeToolTip": "ICBFApp\\Pages\\TipoDocumento\\Edit.cshtml",
               "ViewState": "AQIAAAkAAAAAAAAAAAAAABoAAAAKAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-06-19T00:11:53.984Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-06-19T00:11:53.984Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 5,
               "Title": "Edit.cshtml.cs",
               "DocumentMoniker": "B:\\Projectos\\.net\\.Net-ICBF\\ICBFApp\\Pages\\TipoDocumento\\Edit.cshtml.cs",
               "RelativeDocumentMoniker": "ICBFApp\\Pages\\TipoDocumento\\Edit.cshtml.cs",
@@ -286,12 +296,11 @@
               "RelativeToolTip": "ICBFApp\\Pages\\TipoDocumento\\Edit.cshtml.cs",
               "ViewState": "AQIAAC4AAAAAAAAAAAAgwFEAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-19T00:21:55.225Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-06-19T00:21:55.225Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 15,
+              "DocumentIndex": 16,
               "Title": "Edit.cshtml.cs",
               "DocumentMoniker": "B:\\Projectos\\.net\\.Net-ICBF\\ICBFApp\\Pages\\Usuario\\Edit.cshtml.cs",
               "RelativeDocumentMoniker": "ICBFApp\\Pages\\Usuario\\Edit.cshtml.cs",
@@ -299,12 +308,11 @@
               "RelativeToolTip": "ICBFApp\\Pages\\Usuario\\Edit.cshtml.cs",
               "ViewState": "AQIAAE0AAAAAAAAAAAAwwC8AAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-18T23:50:27.859Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-06-18T23:50:27.859Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 15,
               "Title": "Edit.cshtml.cs",
               "DocumentMoniker": "B:\\Projectos\\.net\\.Net-ICBF\\ICBFApp\\Pages\\Jardin\\Edit.cshtml.cs",
               "RelativeDocumentMoniker": "ICBFApp\\Pages\\Jardin\\Edit.cshtml.cs",
@@ -312,12 +320,11 @@
               "RelativeToolTip": "ICBFApp\\Pages\\Jardin\\Edit.cshtml.cs",
               "ViewState": "AQIAAAsAAAAAAAAAAAAQwAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-18T23:51:37.763Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-06-18T23:51:37.763Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 13,
               "Title": "Index.cshtml",
               "DocumentMoniker": "B:\\Projectos\\.net\\.Net-ICBF\\ICBFApp\\Pages\\TipoDocumento\\Index.cshtml",
               "RelativeDocumentMoniker": "ICBFApp\\Pages\\TipoDocumento\\Index.cshtml",
@@ -325,12 +332,11 @@
               "RelativeToolTip": "ICBFApp\\Pages\\TipoDocumento\\Index.cshtml",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAA0AAAAZAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-06-18T23:53:57.797Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-06-18T23:53:57.797Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 18,
+              "DocumentIndex": 19,
               "Title": "Create.cshtml.cs",
               "DocumentMoniker": "B:\\Projectos\\.net\\.Net-ICBF\\ICBFApp\\Pages\\Rol\\Create.cshtml.cs",
               "RelativeDocumentMoniker": "ICBFApp\\Pages\\Rol\\Create.cshtml.cs",
@@ -338,12 +344,11 @@
               "RelativeToolTip": "ICBFApp\\Pages\\Rol\\Create.cshtml.cs",
               "ViewState": "AQIAAB4AAAAAAAAAAAAowCUAAAASAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-18T23:28:17.551Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-06-18T23:28:17.551Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 14,
               "Title": "Index.cshtml",
               "DocumentMoniker": "B:\\Projectos\\.net\\.Net-ICBF\\ICBFApp\\Pages\\EPS\\Index.cshtml",
               "RelativeDocumentMoniker": "ICBFApp\\Pages\\EPS\\Index.cshtml",
@@ -351,12 +356,11 @@
               "RelativeToolTip": "ICBFApp\\Pages\\EPS\\Index.cshtml",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAUAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-06-18T23:11:39.515Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-06-18T23:11:39.515Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 12,
               "Title": "Index.cshtml.cs",
               "DocumentMoniker": "B:\\Projectos\\.net\\.Net-ICBF\\ICBFApp\\Pages\\EPS\\Index.cshtml.cs",
               "RelativeDocumentMoniker": "ICBFApp\\Pages\\EPS\\Index.cshtml.cs",
@@ -364,8 +368,7 @@
               "RelativeToolTip": "ICBFApp\\Pages\\EPS\\Index.cshtml.cs",
               "ViewState": "AQIAABAAAAAAAAAAAAAgwCUAAAAxAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-18T23:05:06.867Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-06-18T23:05:06.867Z"
             }
           ]
         }

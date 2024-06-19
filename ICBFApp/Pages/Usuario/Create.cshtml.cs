@@ -167,7 +167,6 @@ namespace ICBFApp.Pages.Usuario
                         command.Parameters.AddWithValue("@celular", celular);
                         command.Parameters.AddWithValue("@direccion", direccion);
                         command.Parameters.AddWithValue("@tipoDocumento", tipoDocId);
-                        //command.Parameters.AddWithValue("@rolId", rolId);
 
                         command.ExecuteNonQuery();
                     }

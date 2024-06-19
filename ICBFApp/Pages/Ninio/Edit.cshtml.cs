@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using System.Data.SqlClient;
 using static ICBFApp.Pages.EPS.IndexModel;
@@ -198,7 +199,7 @@ namespace ICBFApp.Pages.Ninio
             }
         }
 
-        public void OnPost()
+        public IActionResult OnPost()
         {
             string identificacion = Request.Form["identificacion"];
             string nombres = Request.Form["nombres"];
@@ -221,31 +222,31 @@ namespace ICBFApp.Pages.Ninio
                 || string.IsNullOrEmpty(tipoSangre))
             {
                 errorMessage = "Todos los campos son obligatorios";
-                return;
+                return Page();
             }
 
             if (!int.TryParse(acudienteIdString, out acudienteId))
             {
                 errorMessage = "Acudiente inválido seleccionado";
-                return;
+                return Page();
             }
 
             if (!int.TryParse(jardinIdString, out jardinId))
             {
                 errorMessage = "Jardín inválido seleccionado";
-                return;
+                return Page();
             }
 
             if (!int.TryParse(epsIdString, out epsId))
             {
                 errorMessage = "EPS inválido seleccionado";
-                return;
+                return Page();
             }
 
             if (edad > 5)
             {
                 errorMessage = "La edad máxima permitida que es de 5 años";
-                return;
+                return Page();
             }
 
             try
@@ -290,12 +291,13 @@ namespace ICBFApp.Pages.Ninio
                         command2.ExecuteNonQuery();
                     }
                 }
-                successMessage = "Niño Editado exitosamente";
-                RedirectToPage("/Ninio/Index");
+                TempData["SuccessMessage"] = "Niño Editado exitosamente";
+                return RedirectToPage("/Ninio/Index");
             }
             catch (Exception ex)
             {
                 errorMessage = ex.Message;
+                return Page();
             }
         }
 

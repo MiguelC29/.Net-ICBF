@@ -2,6 +2,9 @@
 @using System.Data.SqlClient;
 
 @{
+    string successMessage = "";
+    string errorMessage = "";
+
     try
     {
         String idUsuario = Request.Query["id"];
@@ -37,6 +40,7 @@
                                 {
                                     command.Parameters.AddWithValue("@idDatosBasicos", idDatos);
                                     command.ExecuteNonQuery();
+                                    successMessage = "Usuario eliminado exitosamente.";
                                 }
                             }
                         }
@@ -48,7 +52,16 @@
     }
     catch (Exception ex)
     {
+        errorMessage = "Error al eliminar el usuario: " + ex.Message;
+    }
 
+    if (!string.IsNullOrEmpty(successMessage))
+    {
+        TempData["SuccessMessage"] = successMessage;
+    }
+    else if (!string.IsNullOrEmpty(errorMessage))
+    {
+        TempData["ErrorMessage"] = errorMessage;
     }
 
     Response.Redirect("/Usuario/Index");

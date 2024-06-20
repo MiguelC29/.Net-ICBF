@@ -1,10 +1,10 @@
 ﻿@page
-@model ICBFApp.Pages.Usuario.CreateModel
+@model ICBFApp.Pages.Ninio.CreateModel
 @{
 }
 
 <br>
-<h2>Agregar Nuevo Usuario</h2>
+<h2>Agregar Nuevo Niño</h2>
 
 @* Muestra mensaje de error al no completar todos los campos del formulario *@
 @if (Model.errorMessage.Length > 0)
@@ -15,7 +15,7 @@
     </div>
 }
 
-@* Muestra mensaje de éxito al agregar un nuevo usuario *@
+@* Muestra mensaje de éxito al agregar un nuevo niño *@
 @if (Model.successMessage.Length > 0)
 {
     <div class="row mb-3">
@@ -30,15 +30,15 @@
 
 <form method="POST">
 
-    @* Método para mostrar los tipos de documento de la base de datos en el formulario de usuarios *@
+    @* Método para mostrar los tipos de sangre de la base de datos en el formulario de niños *@
     <div class="row mb-3">
-        <label class="col-form-label-sm col-form-label" for="rol">Tipo de Documento</label>
+        <label class="col-form-label-sm col-form-label" for="tipoSangre">Tipo de Sangre</label>
         <div class="col-sm-6">
-            <select id="tipoDocumento" name="tipoDocumento" class="form-control">
-                <option value="">Seleccione un Tipo de Documento</option>
-                @foreach (var tipoDoc in Model.tipoDocInfo)
+            <select id="tipoSangre" name="tipoSangre" class="form-control">
+                <option value="">Seleccione un Tipo de Sangre</option>
+                @foreach (var tipoSangre in Model.listaTiposSangre)
                 {
-                    <option value="@tipoDoc.idTipoDoc">@tipoDoc.tipo</option>
+                    <option value="@tipoSangre">@tipoSangre</option>
                 }
             </select>
         </div>
@@ -66,6 +66,13 @@
     </div>
 
     <div class="row mb-3">
+        <label class="col-form-label-sm col-form-label">Ciudad de Nacimiento</label>
+        <div class="col-sm-6">
+            <input type="text" class="form-control" name="ciudadNacimiento" value="@Model.ninio.ciudadNacimiento">
+        </div>
+    </div>
+
+    <div class="row mb-3">
         <label class="col-form-label-sm col-form-label">Teléfono</label>
         <div class="col-sm-6">
             <input type="tel" class="form-control" name="celular" value="@Model.datosBasicos.celular">
@@ -81,13 +88,41 @@
 
     @* Método para mostrar los roles de la base de datos en el formulario de personas *@
     <div class="row mb-3">
-        <label class="col-form-label-sm col-form-label" for="rol">Rol</label>
+        <label class="col-form-label-sm col-form-label" for="acudiente">Acudiente</label>
         <div class="col-sm-6">
-            <select id="rol" name="rol" class="form-control">
-                <option value="">Seleccione un Rol</option>
-                @foreach (var rol in Model.rolInfo)
+            <select id="acudiente" name="acudiente" class="form-control">
+                <option value="">Seleccione el acudiente</option>
+                @foreach (var acudiente in Model.listaAcudientes)
                 {
-                    <option value="@rol.idRol">@rol.nombre</option>
+                    <option value="@acudiente.idUsuario">@acudiente.datosBasicos.identificacion</option>
+                }
+            </select>
+        </div>
+    </div>
+
+    @* Método para mostrar los roles de la base de datos en el formulario de personas *@
+    <div class="row mb-3">
+        <label class="col-form-label-sm col-form-label" for="jardin">Jardín</label>
+        <div class="col-sm-6">
+            <select id="jardin" name="jardin" class="form-control">
+                <option value="">Seleccione un Jardín</option>
+                @foreach (var jardin in Model.listaJardines)
+                {
+                    <option value="@jardin.idJardin">@jardin.nombre</option>
+                }
+            </select>
+        </div>
+    </div>
+
+    @* Método para mostrar los roles de la base de datos en el formulario de personas *@
+    <div class="row mb-3">
+        <label class="col-form-label-sm col-form-label" for="eps">EPS</label>
+        <div class="col-sm-6">
+            <select id="eps" name="eps" class="form-control">
+                <option value="">Seleccione una EPS</option>
+                @foreach (var eps in Model.listaEps)
+                {
+                    <option value="@eps.idEps">@eps.nombre</option>
                 }
             </select>
         </div>
@@ -98,7 +133,7 @@
             <button type="submit" class="btn btn-primary">Agregar</button>
         </div>
         <div class="col-sm-3 d-grid">
-            <a class="btn btn-outline-primary" href="/Usuario/Index" role="button">Cancelar</a>
+            <a class="btn btn-outline-primary" href="/Ninio/Index" role="button">Cancelar</a>
         </div>
     </div>
 

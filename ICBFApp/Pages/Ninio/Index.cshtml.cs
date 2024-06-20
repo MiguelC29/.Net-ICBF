@@ -11,14 +11,19 @@ namespace ICBFApp.Pages.Ninio
     {
 
         public List<NinioInfo> listNinio = new List<NinioInfo>();
+        public string SuccessMessage { get; set; }
 
         public void OnGet()
         {
+            if (TempData.ContainsKey("SuccessMessage"))
+            {
+                SuccessMessage = TempData["SuccessMessage"] as string;
+            }
             try
             {
                 String connectionString = "Data Source=PC-MIGUEL-C\\SQLEXPRESS;Initial Catalog=db_ICBF;Integrated Security=True;";
                 //String connectionString = "RUTA ANGEL";
-                //String connectionString = "RUTA SENA";
+                //String connectionString = "Data Source=BOGAPRCSFFSD108\\SQLEXPRESS;Initial Catalog=db_ICBF;Integrated Security=True";
 
                 using (SqlConnection connection = new SqlConnection(connectionString))
                 {

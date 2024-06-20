@@ -1,7 +1,5 @@
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using System.Data.SqlClient;
-using System.Numerics;
 using static ICBFApp.Pages.Rol.IndexModel;
 using static ICBFApp.Pages.TipoDocumento.IndexModel;
 using static ICBFApp.Pages.Usuario.IndexModel;
@@ -19,7 +17,7 @@ namespace ICBFApp.Pages.Usuario
 
         String connectionString = "Data Source=PC-MIGUEL-C\\SQLEXPRESS;Initial Catalog=db_ICBF;Integrated Security=True;";
         //String connectionString = "RUTA ANGEL";
-        //String connectionString = "RUTA SENA";
+        //String connectionString = "Data Source=BOGAPRCSFFSD108\\SQLEXPRESS;Initial Catalog=db_ICBF;Integrated Security=True";
 
         public void OnGet()
         {
@@ -60,7 +58,7 @@ namespace ICBFApp.Pages.Usuario
                         }
                     }
 
-                    String sqlTiposDoc = "SELECT * from tipoDocumento";
+                    String sqlTiposDoc = "SELECT * FROM tipoDocumento WHERE tipo != 'NIUP';";
                     using (SqlCommand command = new SqlCommand(sqlTiposDoc, connection))
                     {
                         using (SqlDataReader reader = command.ExecuteReader())
@@ -112,6 +110,7 @@ namespace ICBFApp.Pages.Usuario
             string rolIdString = Request.Form["rol"];
             int rolId;
             int tipoDocId;
+            int edad = calcularEdad(fechaNacimiento);
 
             if (string.IsNullOrEmpty(identificacion) || string.IsNullOrEmpty(nombres)
                 || string.IsNullOrEmpty(fechaNacimiento) || string.IsNullOrEmpty(celular)
@@ -130,6 +129,12 @@ namespace ICBFApp.Pages.Usuario
             if (!int.TryParse(tipoDocIdString, out tipoDocId))
             {
                 errorMessage = "Tipo Documento inválido seleccionado";
+                return;
+            }
+
+            if (edad < 18)
+            {
+                errorMessage = "Debe ser mayor de edad";
                 return;
             }
 
@@ -167,7 +172,6 @@ namespace ICBFApp.Pages.Usuario
                         command.Parameters.AddWithValue("@celular", celular);
                         command.Parameters.AddWithValue("@direccion", direccion);
                         command.Parameters.AddWithValue("@tipoDocumento", tipoDocId);
-                        //command.Parameters.AddWithValue("@rolId", rolId);
 
                         command.ExecuteNonQuery();
                     }
@@ -205,6 +209,28 @@ namespace ICBFApp.Pages.Usuario
             {
                 errorMessage = ex.Message;
             }
+        }
+
+        public int calcularEdad(string fechaNacimientoStr)
+        {
+            DateTime fechaNacimiento;
+            bool isValidDate = DateTime.TryParse(fechaNacimientoStr, out fechaNacimiento);
+
+            if (!isValidDate)
+            {
+                throw new ArgumentException("La fecha de nacimiento no está en un formato válido.");
+            }
+
+            DateTime today = DateTime.Today;
+            int age = today.Year - fechaNacimiento.Year;
+
+            // Comprueba si el cumpleaños aún no ha ocurrido en el año actual
+            if (fechaNacimiento.Date > today.AddYears(-age))
+            {
+                age--;
+            }
+
+            return age;
         }
     }
 }

@@ -1,4 +1,3 @@
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using System.Data.SqlClient;
 using static ICBFApp.Pages.EPS.IndexModel;
@@ -13,9 +12,9 @@ namespace ICBFApp.Pages.EPS
         public string errorMessage = "";
         public string successMessage = "";
         
-        //(RUTA MIGUEL)String connectionString = "Data Source=PC-MIGUEL-C\\SQLEXPRESS;Initial Catalog=db_ICBF;Integrated Security=True;";
-        String connectionString = "Data Source=DESKTOP-FO2357P\\SQLEXPRESS;Initial Catalog=db_ICBF_final;Integrated Security=True;";
-        //String connectionString = "RUTA SENA";
+        String connectionString = "Data Source=PC-MIGUEL-C\\SQLEXPRESS;Initial Catalog=db_ICBF;Integrated Security=True;";
+        //String connectionString = "Data Source=DESKTOP-FO2357P\\SQLEXPRESS;Initial Catalog=db_ICBF;Integrated Security=True;";
+        //String connectionString = "Data Source=BOGAPRCSFFSD108\\SQLEXPRESS;Initial Catalog=db_ICBF;Integrated Security=True";
 
         public void OnGet()
         {
@@ -35,7 +34,6 @@ namespace ICBFApp.Pages.EPS
                         {
                             if (reader.Read())
                             {
-                                epsInfo.idEps = "" + reader.GetInt32(0);
                                 epsInfo.idEps = reader.GetInt32(0).ToString();
                                 epsInfo.NIT = reader.GetString(1);
                                 epsInfo.nombre = reader.GetString(2);
@@ -72,9 +70,8 @@ namespace ICBFApp.Pages.EPS
             {
                 using (SqlConnection connection = new SqlConnection(connectionString))
                 {
-
                     connection.Open();
-
+                    /*
                     //Validar si ya existe un nombre
                     String sqlExistsNom = "SELECT COUNT(*) FROM EPS WHERE nombre = @nombre";
                     using (SqlCommand commandCheck = new SqlCommand(sqlExistsNom, connection))
@@ -104,7 +101,7 @@ namespace ICBFApp.Pages.EPS
                             return;
                         }
                     }
-
+                    */
                     String sqlUpdate = "UPDATE EPS SET NIT = @NIT, nombre = @nombre, direccion = @direccion, telefono = @telefono WHERE idEps = @idEps";
                     using (SqlCommand command = new SqlCommand(sqlUpdate, connection))
                     {

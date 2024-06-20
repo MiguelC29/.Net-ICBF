@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using System.Data.SqlClient;
 using static ICBFApp.Pages.EPS.IndexModel;
@@ -6,8 +7,6 @@ namespace ICBFApp.Pages.EPS
 {
     public class EditModel : PageModel
     {
-
-
         public EPSInfo epsInfo = new EPSInfo();
         public string errorMessage = "";
         public string successMessage = "";
@@ -18,7 +17,6 @@ namespace ICBFApp.Pages.EPS
 
         public void OnGet()
         {
-
             String idEps = Request.Query["idEps"];
 
             try
@@ -52,7 +50,7 @@ namespace ICBFApp.Pages.EPS
 
         }
 
-        public void OnPost() 
+        public IActionResult OnPost() 
         {
             epsInfo.idEps = Request.Form["idEps"];
             epsInfo.NIT = Request.Form["NIT"];
@@ -63,7 +61,7 @@ namespace ICBFApp.Pages.EPS
             if (epsInfo.nombre.Length == 0 || epsInfo.NIT.Length == 0 || epsInfo.direccion.Length == 0 || epsInfo.telefono.Length == 0)
             {
                 errorMessage = "Debe completar todos los campos";
-                return;
+                return Page();
             }
 
             try
@@ -114,15 +112,14 @@ namespace ICBFApp.Pages.EPS
                         command.ExecuteNonQuery();
                     }
                 }
+                TempData["SuccessMessage"] = "EPS Editada exitosamente";
+                return RedirectToPage("/EPS/Index");
             }
             catch (Exception ex)
             {
                 errorMessage = ex.Message;
-                return;
+                return Page();
             }
-
-            Response.Redirect("/EPS/Index");
         }
-
     }
 }

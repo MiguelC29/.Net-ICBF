@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using System.Data.SqlClient;
 using static ICBFApp.Pages.EPS.IndexModel;
@@ -15,7 +16,7 @@ namespace ICBFApp.Pages.EPS
         {
         }
 
-        public void OnPost() 
+        public IActionResult OnPost() 
         {
             epsInfo.NIT = Request.Form["NIT"];
             epsInfo.nombre = Request.Form["nombre"];
@@ -25,7 +26,7 @@ namespace ICBFApp.Pages.EPS
             if (epsInfo.nombre.Length == 0 || epsInfo.NIT.Length == 0 || epsInfo.direccion.Length == 0 || epsInfo.telefono.Length == 0)
             {
                 errorMessage = "Debe completar todos los campos";
-                return;
+                return Page();
             }
 
             try
@@ -49,7 +50,7 @@ namespace ICBFApp.Pages.EPS
                         if (count > 0)
                         {
                             errorMessage = "El nombre '" + epsInfo.nombre + "' ya existe. Verifique la información e intente de nuevo.";
-                            return;
+                            return Page();
                         }
                     }
 
@@ -64,7 +65,7 @@ namespace ICBFApp.Pages.EPS
                         if (count > 0)
                         {
                             errorMessage = "El NIT '" + epsInfo.NIT + "' ya existe. Verifique la información e intente de nuevo.";
-                            return;
+                            return Page();
                         }
                     }
 
@@ -80,19 +81,15 @@ namespace ICBFApp.Pages.EPS
 
                         command.ExecuteNonQuery();
                     }
-
+                    TempData["SuccessMessage"] = "EPS agregada con éxito";
+                    return RedirectToPage("/EPS/Index");
                 }
             }
             catch (Exception ex)
             {
                 errorMessage = ex.Message;
-                return;
+                return Page();
             }
-
-            epsInfo.nombre = "";
-
-            successMessage = "EPS agregada con éxito";
-            Response.Redirect("/EPS/Index");
         }
     }
 }

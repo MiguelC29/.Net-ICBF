@@ -3,6 +3,7 @@ using static ICBFApp.Pages.Rol.IndexModel;
 using static ICBFApp.Pages.TipoDocumento.IndexModel;
 using static ICBFApp.Pages.Usuario.IndexModel;
 using System.Data.SqlClient;
+using Microsoft.AspNetCore.Mvc;
 
 namespace ICBFApp.Pages.Usuario
 {
@@ -138,7 +139,7 @@ namespace ICBFApp.Pages.Usuario
             }
         }
 
-        public void OnPost()
+        public IActionResult OnPost()
         {
             string identificacion = Request.Form["identificacion"];
             string nombres = Request.Form["nombres"];
@@ -156,25 +157,25 @@ namespace ICBFApp.Pages.Usuario
                 || string.IsNullOrEmpty(direccion))
             {
                 errorMessage = "Todos los campos son obligatorios";
-                return;
+                return Page();
             }
 
             if (!int.TryParse(rolIdString, out rolId))
             {
                 errorMessage = "Rol inválido seleccionado";
-                return;
+                return Page();
             }
 
             if (!int.TryParse(tipoDocIdString, out tipoDocId))
             {
                 errorMessage = "Tipo Documento inválido seleccionado";
-                return;
+                return Page();
             }
 
             if (edad < 18)
             {
                 errorMessage = "Debe ser mayor de edad";
-                return;
+                return Page();
             }
 
             try
@@ -215,12 +216,13 @@ namespace ICBFApp.Pages.Usuario
                         command2.ExecuteNonQuery();
                     }
                 }
-                successMessage = "Usuario Editado exitosamente";
-                RedirectToPage("/Usuario/Index");
+                TempData["SuccessMessage"] = "Usuario Editado exitosamente";
+                return RedirectToPage("/Usuario/Index");
             }
             catch (Exception ex)
             {
                 errorMessage = ex.Message;
+                return Page();
             }
         }
 

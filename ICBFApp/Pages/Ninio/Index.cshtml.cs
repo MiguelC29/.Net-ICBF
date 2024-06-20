@@ -19,6 +19,7 @@ namespace ICBFApp.Pages.Ninio
             {
                 SuccessMessage = TempData["SuccessMessage"] as string;
             }
+
             try
             {
                 String connectionString = "Data Source=PC-MIGUEL-C\\SQLEXPRESS;Initial Catalog=db_ICBF;Integrated Security=True;";

@@ -15,19 +15,6 @@
     </div>
 }
 
-@* Muestra mensaje de éxito al editar los datos del niño *@
-@if (Model.successMessage.Length > 0)
-{
-    <div class="row mb-3">
-        <div class="col-sm-9">
-            <div class="alert alert-success alert-dismissible fade show" role="alert">
-                <strong>@Model.successMessage</strong>
-                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="close"></button>
-            </div>
-        </div>
-    </div>
-}
-
 <form method="POST">
     <input type="hidden" class="form-control" name="idNino" value="@Model.ninio.idNinio" />
     <input type="hidden" class="form-control" name="idDatosBasicos" value="@Model.datosBasicos.idDatosBasicos" />
@@ -53,9 +40,10 @@
     </div>
 
     <div class="row mb-3">
-        <label class="col-form-label-sm col-form-label">Identificación</label>
+        <label class="col-form-label-sm col-form-label">NIUP</label>
         <div class="col-sm-6">
-            <input type="number" class="form-control" name="identificacion" value="@Model.datosBasicos.identificacion">
+            <input type="text" class="form-control" name="identificacion" value="@Model.datosBasicos.identificacion"
+                   maxlength="10" pattern="[0-9]{10}" title="Por favor ingrese un número de NIUP válido de 10 dígitos">
         </div>
     </div>
 
@@ -83,7 +71,8 @@
     <div class="row mb-3">
         <label class="col-form-label-sm col-form-label">Teléfono</label>
         <div class="col-sm-6">
-            <input type="tel" class="form-control" name="celular" value="@Model.datosBasicos.celular">
+            <input type="tel" class="form-control" name="celular" value="@Model.datosBasicos.celular"
+                   maxlength="10" pattern="[0-9]{10}" title="Por favor ingrese un número de celular válido de 10 dígitos">
         </div>
     </div>
 
@@ -165,5 +154,4 @@
             <a class="btn btn-outline-primary" href="/Ninio/Index" role="button">Cancelar</a>
         </div>
     </div>
-
 </form>

@@ -5,7 +5,8 @@
 @if (!string.IsNullOrEmpty(Model.SuccessMessage))
 {
     <div class="alert alert-success alert-dismissible fade show" role="alert" id="success-message">
-        @Model.SuccessMessage
+        <strong>@Model.SuccessMessage</strong>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="close"></button>
     </div>
 }
 

@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using System.Data.SqlClient;
 using static ICBFApp.Pages.TipoDocumento.IndexModel;
@@ -15,13 +16,13 @@ namespace ICBFApp.Pages.TipoDocumento
         {
         }
 
-        public void OnPost()
+        public IActionResult OnPost()
         {
             tipoDocInfo.tipo = Request.Form["tipo"];
             if (tipoDocInfo.tipo.Length == 0)
             {
                 errorMessage = "Debe completar todos los campos";
-                return;
+                return Page();
             }
 
             try
@@ -45,7 +46,7 @@ namespace ICBFApp.Pages.TipoDocumento
                         if (count > 0)
                         {
                             errorMessage = "El tipo de documento '" + tipoDocInfo.tipo + "' ya existe. Verifique la información e intente de nuevo.";
-                            return;
+                            return Page();
                         }
                     }
 
@@ -58,19 +59,15 @@ namespace ICBFApp.Pages.TipoDocumento
 
                         command.ExecuteNonQuery();
                     }
-
+                    TempData["SuccessMessage"] = "Tipo Documento agregado con éxito";
+                    return RedirectToPage("/TipoDocumento/Index");
                 }
             }
             catch (Exception ex)
             {
                 errorMessage = ex.Message;
-                return;
+                return Page();
             }
-
-            tipoDocInfo.tipo = "";
-
-            successMessage = "Tipo Documento agregado con éxito";
-            Response.Redirect("/TipoDocumento/Index");
         }
     }
 }

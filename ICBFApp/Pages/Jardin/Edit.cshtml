@@ -13,7 +13,6 @@
     </div>
 }
 
-
 <form method="POST">
     <input type="hidden" class="form-control" name="id" value="@Model.jardinInfo.idJardin" />
     <div class="row mb-3">
@@ -40,18 +39,6 @@
             </select>
         </div>
     </div>
-
-    @if (Model.successMessage.Length > 0)
-    {
-        <div class="row mb-3">
-            <div class="col-sm-9">
-                <div class="alert alert-success alert-dismissible fade show" role="alert">
-                    <strong>@Model.successMessage</strong>
-                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="close"></button>
-                </div>
-            </div>
-        </div>
-    }
 
     <div class="row mb-3">
         <div class="offset-sm-3 col-sm-3 d-grid">

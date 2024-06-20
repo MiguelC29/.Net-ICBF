@@ -42,21 +42,10 @@
     <div class="row mb-3">
         <label class="col-form-label-sm col-form-label">Telefono</label>
         <div class="col-sm-6">
-            <input type="text" class="form-control" name="telefono" value="@Model.epsInfo.telefono">
+            <input type="tel" class="form-control" name="telefono" value="@Model.epsInfo.telefono"
+                   maxlength="10" pattern="[0-9]{10}" title="Por favor ingrese un número de teléfono válido de 10 dígitos">
         </div>
     </div>
-
-    @if (Model.successMessage.Length > 0)
-    {
-        <div class="row mb-3">
-            <div class="col-sm-9">
-                <div class="alert alert-success alert-dismissible fade show" role="alert">
-                    <strong>@Model.successMessage</strong>
-                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="close"></button>
-                </div>
-            </div>
-        </div>
-    }
 
     <div class="row mb-3">
         <div class="offset-sm-3 col-sm-3 d-grid">

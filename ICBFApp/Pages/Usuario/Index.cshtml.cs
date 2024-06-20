@@ -8,9 +8,15 @@ namespace ICBFApp.Pages.Usuario
     public class IndexModel : PageModel
     {
         public List<UsuarioInfo> listUsuario = new List<UsuarioInfo>();
+        public string SuccessMessage { get; set; }
 
         public void OnGet()
         {
+            if (TempData.ContainsKey("SuccessMessage"))
+            {
+                SuccessMessage = TempData["SuccessMessage"] as string;
+            }
+
             try
             {
                 String connectionString = "Data Source=PC-MIGUEL-C\\SQLEXPRESS;Initial Catalog=db_ICBF;Integrated Security=True;";

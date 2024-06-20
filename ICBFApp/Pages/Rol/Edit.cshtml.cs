@@ -47,7 +47,7 @@ namespace ICBFApp.Pages.Rol
             }
         }
 
-        public void OnPost() 
+        public IActionResult OnPost() 
         {
             rolInfo.idRol = Request.Form["idRol"];
             rolInfo.nombre = Request.Form["nombre"];
@@ -55,7 +55,7 @@ namespace ICBFApp.Pages.Rol
             if (rolInfo.idRol.Length == 0 || rolInfo.nombre.Length == 0)
             {
                 errorMessage = "Debe completar todos los campos";
-                return;
+                return Page();
             }
 
             try
@@ -74,7 +74,7 @@ namespace ICBFApp.Pages.Rol
                         if (count > 0)
                         {
                             errorMessage = "El Rol '" + rolInfo.nombre + "' ya existe. Verifique la información e intente de nuevo.";
-                            return;
+                            return Page();
                         }
                     }
 
@@ -88,14 +88,14 @@ namespace ICBFApp.Pages.Rol
                         command.ExecuteNonQuery();
                     }
                 }
+                TempData["SuccessMessage"] = "Rol Editado exitosamente";
+                return RedirectToPage("/Rol/Index");
             }
             catch (Exception ex)
             {
                 errorMessage = ex.Message;
-                return;
+                return Page();
             }
-
-            Response.Redirect("/Rol/Index");
         }
     }
 }

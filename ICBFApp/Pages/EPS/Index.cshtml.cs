@@ -7,9 +7,14 @@ namespace ICBFApp.Pages.EPS
     {
 
         public List<EPSInfo> listEPS = new List<EPSInfo>();
+        public string SuccessMessage { get; set; }
 
         public void OnGet()
         {
+            if (TempData.ContainsKey("SuccessMessage"))
+            {
+                SuccessMessage = TempData["SuccessMessage"] as string;
+            }
 
             try
             {

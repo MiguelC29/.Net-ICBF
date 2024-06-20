@@ -6,9 +6,15 @@ namespace ICBFApp.Pages.TipoDocumento
     public class IndexModel : PageModel
     {
         public List<TipoDocInfo> listTipoDocumento = new List<TipoDocInfo>();
+        public string SuccessMessage { get; set; }
 
         public void OnGet()
         {
+            if (TempData.ContainsKey("SuccessMessage"))
+            {
+                SuccessMessage = TempData["SuccessMessage"] as string;
+            }
+
             try
             {
                 String connectionString = "Data Source=PC-MIGUEL-C\\SQLEXPRESS;Initial Catalog=db_ICBF;Integrated Security=True;";

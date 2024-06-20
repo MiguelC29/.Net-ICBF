@@ -12,6 +12,9 @@
         <tr>
             <td>ID</td>
             <td>Nombre</td>
+            <td>NIT</td>
+            <td>Direccion</td>
+            <td>Telefono</td>
             <td>Acciones</td>
         </tr>
     </thead>
@@ -21,6 +24,9 @@
             <tr>
                 <td>@item.idEps</td>
                 <td>@item.nombre</td>
+                <td>@item.NIT</td>
+                <td>@item.direccion</td>
+                <td>@item.telefono</td>
                 <td>
                     <a class="btn btn-primary btn-sm" href="/EPS/Edit?idEps=@item.idEps">Editar</a>
                     <a class="btn btn-danger btn-sm" href="/EPS/Delete?idEps=@item.idEps">Borrar</a>

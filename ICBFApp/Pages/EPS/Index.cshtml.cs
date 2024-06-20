@@ -13,9 +13,9 @@ namespace ICBFApp.Pages.EPS
 
             try
             {
-                //String connectionString = "Data Source=PC-MIGUEL-C\\SQLEXPRESS;Initial Catalog=db_ICBF;Integrated Security=True;";
+                String connectionString = "Data Source=PC-MIGUEL-C\\SQLEXPRESS;Initial Catalog=db_ICBF;Integrated Security=True;";
                 //String connectionString = "Data Source=DESKTOP-FO2357P\\SQLEXPRESS;Initial Catalog=db_ICBF;Integrated Security=True;";
-                String connectionString = "Data Source=BOGAPRCSFFSD108\\SQLEXPRESS;Initial Catalog=db_ICBF;Integrated Security=True";
+                //String connectionString = "Data Source=BOGAPRCSFFSD108\\SQLEXPRESS;Initial Catalog=db_ICBF;Integrated Security=True";
 
                 using (SqlConnection connection = new SqlConnection(connectionString))
                 {
@@ -33,7 +33,10 @@ namespace ICBFApp.Pages.EPS
                                 {
                                     EPSInfo epsInfo  = new EPSInfo();
                                     epsInfo.idEps = reader.GetInt32(0).ToString();
-                                    epsInfo.nombre = reader.GetString(1);
+                                    epsInfo.NIT = reader.GetString(1);
+                                    epsInfo.nombre = reader.GetString(2);
+                                    epsInfo.direccion = reader.GetString(3);
+                                    epsInfo.telefono = reader.GetString(4);
 
                                     listEPS.Add(epsInfo);
                                 }
@@ -57,8 +60,10 @@ namespace ICBFApp.Pages.EPS
         {
             public string idEps { get; set; }
             public string nombre { get; set; }
+            public string NIT { get; set; }
+            public string direccion { get; set; }
+            public string telefono { get; set; }
 
         }
-
     }
 }

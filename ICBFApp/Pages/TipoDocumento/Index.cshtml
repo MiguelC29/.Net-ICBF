@@ -2,3 +2,30 @@
 @model ICBFApp.Pages.TipoDocumento.IndexModel
 @{
 }
+
+<br />
+<h2>Lista de tipo de documentos</h2>
+<a class="btn btn-primary btn-sm" href="/TipoDocumento/Create">Nuevo tipo de documento</a>
+
+<table class="table">
+    <thead>
+        <tr>
+            <td>ID</td>
+            <td>Tipo</td>
+            <td>Acciones</td>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.listTipoDocumento)
+        {
+            <tr>
+                <td>@item.idTipoDoc</td>
+                <td>@item.tipo</td>
+                <td>
+                    <a class="btn btn-primary btn-sm" href="/TipoDocumento/Edit?idTipoDoc=@item.idTipoDoc">Editar</a>
+                    <a class="btn btn-danger btn-sm" href="/TipoDocumento/Delete?idTipoDoc=@item.idTipoDoc">Borrar</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

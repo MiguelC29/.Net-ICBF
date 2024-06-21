@@ -87,7 +87,7 @@ namespace ICBFApp.Pages.Ninio
 
                                     DatosBasicosInfo datosAcudiente = new DatosBasicosInfo();
                                     datosAcudiente.idDatosBasicos = reader.GetInt32(11).ToString();
-                                    datosAcudiente.identificacion = reader.GetString(16);
+                                    datosAcudiente.identificacion = reader.GetString(1);
                                     datosAcudiente.nombres = reader.GetString(12);
 
                                     UsuarioInfo acudiente = new UsuarioInfo();

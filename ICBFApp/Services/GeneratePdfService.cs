@@ -101,7 +101,7 @@ namespace ICBFApp.Services
                 container.Page(page =>
                 {
                     page.Margin(30);
-                    page.Size(PageSizes.A4);
+                    page.Size(PageSizes.ARCH_C);
                     page.PageColor(Colors.White);
                     page.DefaultTextStyle(x => x.FontSize(12));
 

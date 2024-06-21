@@ -1,4 +1,7 @@
+using ICBFApp.Services;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using QuestPDF.Fluent;
 using System.Data.SqlClient;
 using static ICBFApp.Pages.EPS.IndexModel;
 using static ICBFApp.Pages.Jardin.IndexModel;
@@ -9,6 +12,12 @@ namespace ICBFApp.Pages.Ninio
 {
     public class IndexModel : PageModel
     {
+        private readonly IGeneratePdfService _generatePdfService;
+
+        public IndexModel(IGeneratePdfService generatePdfService)
+        {
+            _generatePdfService = generatePdfService;
+        }
 
         public List<NinioInfo> listNinio = new List<NinioInfo>();
         public string SuccessMessage { get; set; }
@@ -104,6 +113,15 @@ namespace ICBFApp.Pages.Ninio
             {
                 Console.WriteLine("Exception: " + ex.ToString());
             }
+        }
+
+        public IActionResult OnPostDownloadPdf()
+        {
+            var report = _generatePdfService.GeneratePdfQuest();
+            byte[] pdfBytes = report.GeneratePdf();
+            var mimeType = "application/pdf";
+            //return File(pdfBytes, mimeType, "Reporte.pdf"); // si le quito el nombre del archivo, no lo descarga auto
+            return File(pdfBytes, mimeType); // si le quito el nombre del archivo, no lo descarga auto
         }
 
         public int calcularEdad(string fechaNacimientoStr)

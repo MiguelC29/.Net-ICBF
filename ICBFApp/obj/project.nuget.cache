@@ -1,11 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "ReEj522dlKEtaQNhZ4DLsfLtJEkxTfjPzWAv2RkLSlgpfzfLFYohtZauSohzuEyqnF4vdEOQ9kXBRCnTa+sH5Q==",
+  "dgSpecHash": "WaPBh92ZY7ji4QS4pnYH6d5LQZwh1MQxur8c/RL5prcF++bXMQTyDsIxlmeywR/8kf8JDUFJ6ixo6d5vs/7UjQ==",
   "success": true,
   "projectFilePath": "C:\\Users\\migue\\source\\repos\\.Net-ICBF\\ICBFApp\\ICBFApp.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\migue\\.nuget\\packages\\microsoft.netcore.platforms\\3.1.0\\microsoft.netcore.platforms.3.1.0.nupkg.sha512",
     "C:\\Users\\migue\\.nuget\\packages\\microsoft.win32.registry\\4.7.0\\microsoft.win32.registry.4.7.0.nupkg.sha512",
+    "C:\\Users\\migue\\.nuget\\packages\\questpdf\\2024.6.2\\questpdf.2024.6.2.nupkg.sha512",
     "C:\\Users\\migue\\.nuget\\packages\\runtime.native.system.data.sqlclient.sni\\4.7.0\\runtime.native.system.data.sqlclient.sni.4.7.0.nupkg.sha512",
     "C:\\Users\\migue\\.nuget\\packages\\runtime.win-arm64.runtime.native.system.data.sqlclient.sni\\4.4.0\\runtime.win-arm64.runtime.native.system.data.sqlclient.sni.4.4.0.nupkg.sha512",
     "C:\\Users\\migue\\.nuget\\packages\\runtime.win-x64.runtime.native.system.data.sqlclient.sni\\4.4.0\\runtime.win-x64.runtime.native.system.data.sqlclient.sni.4.4.0.nupkg.sha512",

@@ -33,9 +33,9 @@ namespace ICBFApp.Pages.Ninio
 
             try
             {
-                String connectionString = "Data Source=PC-MIGUEL-C\\SQLEXPRESS;Initial Catalog=db_ICBF;Integrated Security=True;";
+                //String connectionString = "Data Source=PC-MIGUEL-C\\SQLEXPRESS;Initial Catalog=db_ICBF;Integrated Security=True;";
                 //String connectionString = "RUTA ANGEL";
-                //String connectionString = "Data Source=BOGAPRCSFFSD108\\SQLEXPRESS;Initial Catalog=db_ICBF;Integrated Security=True";
+                String connectionString = "Data Source=BOGAPRCSFFSD108\\SQLEXPRESS;Initial Catalog=db_ICBF;Integrated Security=True";
 
                 using (SqlConnection connection = new SqlConnection(connectionString))
                 {
@@ -46,7 +46,10 @@ namespace ICBFApp.Pages.Ninio
                         "(SELECT nombres FROM Usuarios as u " +
                         "INNER JOIN DatosBasicos as d ON u.idDatosBasicos = d.idDatosBasicos " +
                         "WHERE idUsuario = n.idUsuario) as acudiente, " +
-                        "idNino, ciudadNacimiento, tipoSangre " +
+                        "idNino, ciudadNacimiento, tipoSangre, " +
+                        "(SELECT identificacion FROM Usuarios as u " +
+                        "INNER JOIN DatosBasicos as d ON u.idDatosBasicos = d.idDatosBasicos " +
+                        "WHERE idUsuario = n.idUsuario) as identificacionAcudiente " +
                         "FROM Ninos as n " +
                         "INNER JOIN Jardines as j ON n.idJardin = j.idJardin " +
                         "INNER JOIN DatosBasicos as d ON n.idDatosBasicos = d.idDatosBasicos " +
@@ -84,6 +87,7 @@ namespace ICBFApp.Pages.Ninio
 
                                     DatosBasicosInfo datosAcudiente = new DatosBasicosInfo();
                                     datosAcudiente.idDatosBasicos = reader.GetInt32(11).ToString();
+                                    datosAcudiente.identificacion = reader.GetString(16);
                                     datosAcudiente.nombres = reader.GetString(12);
 
                                     UsuarioInfo acudiente = new UsuarioInfo();

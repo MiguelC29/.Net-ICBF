@@ -13,10 +13,12 @@ namespace ICBFApp.Pages.Ninio
     public class IndexModel : PageModel
     {
         private readonly IGeneratePdfService _generatePdfService;
+        private readonly IWebHostEnvironment _host;
 
-        public IndexModel(IGeneratePdfService generatePdfService)
+        public IndexModel(IGeneratePdfService generatePdfService, IWebHostEnvironment host)
         {
             _generatePdfService = generatePdfService;
+            _host = host;
         }
 
         public List<NinioInfo> listNinio = new List<NinioInfo>();

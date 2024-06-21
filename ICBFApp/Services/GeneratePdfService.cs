@@ -1,6 +1,5 @@
 ﻿using QuestPDF.Fluent;
 using QuestPDF.Helpers;
-using QuestPDF.Infrastructure;
 using System.Data.SqlClient;
 using static ICBFApp.Pages.Jardin.IndexModel;
 using static ICBFApp.Pages.Ninio.IndexModel;
@@ -11,6 +10,13 @@ namespace ICBFApp.Services
 {
     public class GeneratePdfService : IGeneratePdfService
     {
+        private readonly IWebHostEnvironment _host;
+
+        public GeneratePdfService(IWebHostEnvironment host)
+        {
+            _host = host;
+        }
+
         public List<NinioInfo> listNinio = new List<NinioInfo>();
 
         public void GetData()
@@ -89,49 +95,81 @@ namespace ICBFApp.Services
         public Document GeneratePdfQuest()
         {
             GetData();
+            DateTime today = DateTime.Today;
             var report = Document.Create(container =>
             {
                 container.Page(page =>
                 {
-                    page.Margin(50);
+                    page.Margin(30);
                     page.Size(PageSizes.A4);
                     page.PageColor(Colors.White);
                     page.DefaultTextStyle(x => x.FontSize(12));
 
-                    page.Header()
-                        .AlignCenter()
-                        .Text("Reporte General")
-                        .SemiBold().FontSize(24).FontColor(Colors.Blue.Darken2);
+                    page.Header().Row(row =>
+                    {
+                        var rutaImgSena = Path.Combine(_host.WebRootPath, "images/logoSena.png");
+                        byte[] imageDataSena = System.IO.File.ReadAllBytes(rutaImgSena);
 
-                    page.Content().Padding(10)
-                        .Table(table =>
+                        var rutaImgICBF = Path.Combine(_host.WebRootPath, "images/logoICBF.png");
+                        byte[] imageDataICBF = System.IO.File.ReadAllBytes(rutaImgICBF);
+
+                        //row.ConstantItem(150).Height(60).Placeholder();
+                        row.ConstantItem(75).AlignMiddle().Height(50).Image(imageDataSena);
+                        row.ConstantItem(75).AlignMiddle().Height(65).Image(imageDataICBF);
+
+                        row.RelativeItem().AlignRight().Column(col =>
+                        {
+                            col.Item().Height(20).Text("Asociación del ICBF").Bold().FontSize(14).AlignRight();
+                            col.Item().Height(20).Text("Reporte Diario").Bold().AlignRight();
+                            col.Item().Height(20).Text("Fecha de emisión: " + today.Date.ToShortDateString()).AlignRight();
+                        });
+                    });
+
+                    page.Content().PaddingVertical(10).Column(col =>
+                    {
+                        col.Item().PaddingVertical(10).AlignCenter()
+                        .Text("Listado de Niños Inscritos")
+                        .Bold().FontSize(24).FontColor("#39a900");
+
+                        col.Item().Table(table =>
                         {
                             table.ColumnsDefinition(columns =>
                             {
+                                columns.ConstantColumn(100);
                                 columns.RelativeColumn(2);
-                                columns.RelativeColumn(2);
-                                columns.RelativeColumn();
+                                columns.ConstantColumn(50);
                                 columns.RelativeColumn(2);
                                 columns.RelativeColumn();
                             });
 
                             table.Header(header =>
                             {
-                                header.Cell().Background("#212529").Border(0.5f).BorderColor(Colors.Black).Text("Identificación").FontColor("#fff").AlignCenter();
-                                header.Cell().Background("#212529").Border(0.5f).BorderColor(Colors.Black).Text("Nombres").FontColor("#fff").AlignCenter();
-                                header.Cell().Background("#212529").Border(0.5f).BorderColor(Colors.Black).Text("Edad").FontColor("#fff").AlignCenter();
-                                header.Cell().Background("#212529").Border(0.5f).BorderColor(Colors.Black).Text("Acudiente").FontColor("#fff").AlignCenter();
-                                header.Cell().Background("#212529").Border(0.5f).BorderColor(Colors.Black).Text("Ciudad Nacimiento").FontColor("#fff").AlignCenter();
+                                header.Cell().Background("#212529").Border(0.5f).BorderColor(Colors.Black).AlignMiddle().Text("Identificación").FontColor("#fff").AlignCenter();
+                                header.Cell().Background("#212529").Border(0.5f).BorderColor(Colors.Black).AlignMiddle().Text("Nombres").FontColor("#fff").AlignCenter();
+                                header.Cell().Background("#212529").Border(0.5f).BorderColor(Colors.Black).AlignMiddle().Text("Edad").FontColor("#fff").AlignCenter();
+                                header.Cell().Background("#212529").Border(0.5f).BorderColor(Colors.Black).AlignMiddle().Text("Acudiente").FontColor("#fff").AlignCenter();
+                                header.Cell().Background("#212529").Border(0.5f).BorderColor(Colors.Black).AlignMiddle().Text("Ciudad Nacimiento").FontColor("#fff").AlignCenter();
                             });
 
                             foreach (var nino in listNinio)
                             {
-                                table.Cell().Border(0.5f).BorderColor(Colors.Black).Text(nino.datosBasicos.tipoDoc.tipo + nino.datosBasicos.identificacion).AlignCenter();
+                                table.Cell().Border(0.5f).BorderColor(Colors.Black).Text(nino.datosBasicos.identificacion).AlignCenter();
                                 table.Cell().Border(0.5f).BorderColor(Colors.Black).Text(nino.datosBasicos.nombres).AlignCenter();
                                 table.Cell().Border(0.5f).BorderColor(Colors.Black).Text(nino.edad.ToString()).AlignCenter();
                                 table.Cell().Border(0.5f).BorderColor(Colors.Black).Text(nino.acudiente.datosBasicos.nombres).AlignCenter();
                                 table.Cell().Border(0.5f).BorderColor(Colors.Black).Text(nino.ciudadNacimiento).AlignCenter();
                             }
+                        });
+                    });
+
+                    page.Footer()
+                        .AlignRight()
+                        .Text(txt =>
+                        {
+                            txt.Span("Pagina ").FontSize(10);
+                            txt.CurrentPageNumber().FontSize(10);
+                            txt.Span(" de ").FontSize(10);
+                            txt.TotalPages().FontSize(10);
                         });
                 });
             });

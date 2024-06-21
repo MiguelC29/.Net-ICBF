@@ -15,22 +15,23 @@
 }
 
 <form method="POST">
+    <div class="container">
+        <input type="hidden" class="form-control" name="idTipoDoc" value="@Model.tipoDocInfo.idTipoDoc" />
 
-    <input type="hidden" class="form-control" name="idTipoDoc" value="@Model.tipoDocInfo.idTipoDoc" />
-
-    <div class="row mb-3">
-        <label class="col-form-label-sm col-form-label">Nombre del tipo de documento</label>
-        <div class="col-sm-6">
-            <input type="text" class="form-control" name="tipo" value="@Model.tipoDocInfo.tipo">
+        <div class="row mb-3 justify-content-center">
+            <div class="col-sm-10">
+                <label class="col-form-label" for="tipo">Nombre del tipo de documento</label>
+                <input type="text" class="form-control" id="tipo" name="tipo" value="@Model.tipoDocInfo.tipo">
+            </div>
         </div>
-    </div>
 
-    <div class="row mb-3">
-        <div class="offset-sm-3 col-sm-3 d-grid">
-            <button type="submit" class="btn btn-primary">Editar</button>
-        </div>
-        <div class="col-sm-3 d-grid">
-            <a class="btn btn-outline-primary" href="/TipoDocumento/Index" role="button">Cancelar</a>
+        <div class="row mb-3">
+            <div class="offset-sm-3 col-sm-3 d-grid">
+                <button type="submit" class="btn btn-primary">Editar</button>
+            </div>
+            <div class="col-sm-3 d-grid">
+                <a class="btn btn-outline-danger" href="/TipoDocumento/Index" role="button">Cancelar</a>
+            </div>
         </div>
     </div>
 </form>

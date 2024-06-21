@@ -15,22 +15,23 @@
 }
 
 <form method="POST">
-
     <input type="hidden" class="form-control" name="idRol" value="@Model.rolInfo.idRol" />
 
-    <div class="row mb-3">
-        <label class="col-form-label-sm col-form-label">Nombre Rol</label>
-        <div class="col-sm-6">
-            <input type="text" class="form-control" name="nombre" value="@Model.rolInfo.nombre">
+    <div class="container">
+        <div class="row mb-3 justify-content-center">
+            <div class="col-sm-10">
+                <label class="col-form-label" for="nombre">Nombre Rol</label>
+                <input type="text" class="form-control" id="nombre" name="nombre" value="@Model.rolInfo.nombre">
+            </div>
         </div>
-    </div>
 
-    <div class="row mb-3">
-        <div class="offset-sm-3 col-sm-3 d-grid">
-            <button type="submit" class="btn btn-primary">Editar</button>
-        </div>
-        <div class="col-sm-3 d-grid">
-            <a class="btn btn-outline-primary" href="/Rol/Index" role="button">Cancelar</a>
+        <div class="row mb-3">
+            <div class="offset-sm-3 col-sm-3 d-grid">
+                <button type="submit" class="btn btn-primary">Editar</button>
+            </div>
+            <div class="col-sm-3 d-grid">
+                <a class="btn btn-outline-danger" href="/Rol/Index" role="button">Cancelar</a>
+            </div>
         </div>
     </div>
 </form>

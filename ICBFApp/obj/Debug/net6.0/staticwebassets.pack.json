@@ -13,6 +13,14 @@
       "PackagePath": "staticwebassets\\favicon.ico"
     },
     {
+      "Id": "C:\\Users\\migue\\source\\repos\\.Net-ICBF\\ICBFApp\\wwwroot\\images\\logoICBF.png",
+      "PackagePath": "staticwebassets\\images\\logoICBF.png"
+    },
+    {
+      "Id": "C:\\Users\\migue\\source\\repos\\.Net-ICBF\\ICBFApp\\wwwroot\\images\\logoSena.png",
+      "PackagePath": "staticwebassets\\images\\logoSena.png"
+    },
+    {
       "Id": "C:\\Users\\migue\\source\\repos\\.Net-ICBF\\ICBFApp\\wwwroot\\js\\site.js",
       "PackagePath": "staticwebassets\\js\\site.js"
     },

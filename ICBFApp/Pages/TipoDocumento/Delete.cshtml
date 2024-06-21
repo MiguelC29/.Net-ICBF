@@ -1,0 +1,34 @@
+﻿@page
+@using System.Data.SqlClient;
+
+@{
+    try
+    {
+        String idTipoDoc = Request.Query["idTipoDoc"];
+        String connectionString = "Data Source=PC-MIGUEL-C\\SQLEXPRESS;Initial Catalog=db_ICBF;Integrated Security=True;";
+        //String connectionString = "Data Source=DESKTOP-FO2357P\\SQLEXPRESS;Initial Catalog=db_ICBF_final;Integrated Security=True;";
+        //String connectionString = "RUTA SENA";
+        using (SqlConnection connection = new SqlConnection(connectionString))
+        {
+            connection.Open();
+            String sqlDelete = "DELETE FROM TipoDocumento WHERE idTipoDoc = @idTipoDoc";
+            using (SqlCommand command = new SqlCommand(sqlDelete, connection))
+            {
+                command.Parameters.AddWithValue("@idTipoDoc", idTipoDoc);
+                using (SqlDataReader reader = command.ExecuteReader())
+                {
+                    if (reader.Read())
+                    {
+                        command.Parameters.AddWithValue("@idTipoDoc", idTipoDoc);
+                        command.ExecuteNonQuery();
+                    }
+                }
+            }
+        }
+    }
+    catch (Exception ex)
+    {
+
+    }
+    Response.Redirect("/TipoDocumento/Index");
+}

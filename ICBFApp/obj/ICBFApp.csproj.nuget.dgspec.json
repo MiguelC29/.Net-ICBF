@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\migue\\source\\repos\\Jardines_ICBF\\ICBFApp\\ICBFApp\\ICBFApp.csproj": {}
+    "C:\\Users\\migue\\source\\repos\\.Net-ICBF\\ICBFApp\\ICBFApp.csproj": {}
   },
   "projects": {
-    "C:\\Users\\migue\\source\\repos\\Jardines_ICBF\\ICBFApp\\ICBFApp\\ICBFApp.csproj": {
+    "C:\\Users\\migue\\source\\repos\\.Net-ICBF\\ICBFApp\\ICBFApp.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\migue\\source\\repos\\Jardines_ICBF\\ICBFApp\\ICBFApp\\ICBFApp.csproj",
+        "projectUniqueName": "C:\\Users\\migue\\source\\repos\\.Net-ICBF\\ICBFApp\\ICBFApp.csproj",
         "projectName": "ICBFApp",
-        "projectPath": "C:\\Users\\migue\\source\\repos\\Jardines_ICBF\\ICBFApp\\ICBFApp\\ICBFApp.csproj",
+        "projectPath": "C:\\Users\\migue\\source\\repos\\.Net-ICBF\\ICBFApp\\ICBFApp.csproj",
         "packagesPath": "C:\\Users\\migue\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\migue\\source\\repos\\Jardines_ICBF\\ICBFApp\\ICBFApp\\obj\\",
+        "outputPath": "C:\\Users\\migue\\source\\repos\\.Net-ICBF\\ICBFApp\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\migue\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -45,6 +45,10 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "dependencies": {
+            "QuestPDF": {
+              "target": "Package",
+              "version": "[2024.6.2, )"
+            },
             "System.Data.SqlClient": {
               "target": "Package",
               "version": "[4.8.6, )"

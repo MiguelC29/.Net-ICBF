@@ -15,23 +15,22 @@ namespace ICBFApp.Pages.Jardin
         {
         }
 
-        public void OnPost()
+        public IActionResult OnPost()
         {
             jardinInfo.nombre = Request.Form["nombreJardin"];
             jardinInfo.direccion = Request.Form["direccionJardin"];
-            jardinInfo.estado = Request.Form["estado"];
 
-            if (jardinInfo.nombre.Length == 0 || jardinInfo.direccion.Length == 0 || jardinInfo.estado.Length == 0)
+            if (jardinInfo.nombre.Length == 0 || jardinInfo.direccion.Length == 0)
             {
                 errorMessage = "Debe completar todos los campos";
-                return;
+                return Page();
             }
 
             try
             {
                 String connectionString = "Data Source=PC-MIGUEL-C\\SQLEXPRESS;Initial Catalog=db_ICBF;Integrated Security=True;";
                 //String connectionString = "RUTA ANGEL";
-                //String connectionString = "RUTA SENA";
+                //String connectionString = "Data Source=BOGAPRCSFFSD108\\SQLEXPRESS;Initial Catalog=db_ICBF;Integrated Security=True";
 
                 using (SqlConnection connection = new SqlConnection(connectionString))
                 {
@@ -47,7 +46,7 @@ namespace ICBFApp.Pages.Jardin
                         if (count > 0)
                         {
                             errorMessage = "El Jardín '" + jardinInfo.nombre + "' ya existe. Verifique la información e intente de nuevo.";
-                            return;
+                            return Page();
                         }
                     }
 
@@ -59,25 +58,19 @@ namespace ICBFApp.Pages.Jardin
                     {
                         command.Parameters.AddWithValue("@nombreJardin", jardinInfo.nombre);
                         command.Parameters.AddWithValue("@direccionJardin", jardinInfo.direccion);
-                        command.Parameters.AddWithValue("@estado", jardinInfo.estado);
+                        command.Parameters.AddWithValue("@estado", "En trámite");
 
                         command.ExecuteNonQuery();
                     }
-
+                    TempData["SuccessMessage"] = "Jardín agregado con éxito";
+                    return RedirectToPage("/Jardin/Index");
                 }
             }
             catch (Exception ex)
             {
                 errorMessage = ex.Message;
-                return;
+                return Page();
             }
-
-            jardinInfo.nombre = "";
-            jardinInfo.direccion = "";
-            jardinInfo.estado = "";
-
-            successMessage = "Jardín agregado con éxito";
-            Response.Redirect("/Jardin/Index");
         }
     }
 }

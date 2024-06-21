@@ -1,7 +1,7 @@
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using static ICBFApp.Pages.Jardin.IndexModel;
 using System.Data.SqlClient;
+using Microsoft.AspNetCore.Mvc;
 
 namespace ICBFApp.Pages.Jardin
 {
@@ -12,7 +12,7 @@ namespace ICBFApp.Pages.Jardin
         public string successMessage = "";
         String connectionString = "Data Source=PC-MIGUEL-C\\SQLEXPRESS;Initial Catalog=db_ICBF;Integrated Security=True;";
         //String connectionString = "RUTA ANGEL";
-        //String connectionString = "RUTA SENA";
+        //String connectionString = "Data Source=BOGAPRCSFFSD108\\SQLEXPRESS;Initial Catalog=db_ICBF;Integrated Security=True";
 
         public void OnGet()
         {
@@ -47,7 +47,7 @@ namespace ICBFApp.Pages.Jardin
             }
         }
 
-        public void OnPost()
+        public IActionResult OnPost()
         {
             jardinInfo.idJardin = Request.Form["id"];
             jardinInfo.nombre = Request.Form["nombreJardin"];
@@ -57,7 +57,7 @@ namespace ICBFApp.Pages.Jardin
             if (jardinInfo.idJardin.Length == 0 || jardinInfo.nombre.Length == 0 || jardinInfo.direccion.Length == 0 || jardinInfo.estado.Length == 0)
             {
                 errorMessage = "Debe completar todos los campos";
-                return;
+                return Page();
             }
 
             try
@@ -65,6 +65,23 @@ namespace ICBFApp.Pages.Jardin
                 using (SqlConnection connection = new SqlConnection(connectionString))
                 {
                     connection.Open();
+                    /* REVISAR PORQUE SI AL EDITAR NO QUIERO MODIFICAR EL NOMBRE, ME LO VA DAR COMO QUE YA EXISTE
+                    // Espacio para validar que el jadin no exista
+                    String sqlExists = "SELECT COUNT(*) FROM jardines WHERE nombre = @nombreJardin";
+                    using (SqlCommand commandCheck = new SqlCommand(sqlExists, connection))
+                    {
+                        commandCheck.Parameters.AddWithValue("@nombreJardin", jardinInfo.nombre);
+
+                        int count = (int)commandCheck.ExecuteScalar();
+
+                        if (count > 0)
+                        {
+                            errorMessage = "El Jardín '" + jardinInfo.nombre + "' ya existe. Verifique la información e intente de nuevo.";
+                            return Page();
+                        }
+                    }
+                    */
+
                     String sqlUpdate = "UPDATE jardines SET nombre = @nombreJardin, direccion = @direccionJardin, estado = @estado WHERE idJardin = @id";
                     using (SqlCommand command = new SqlCommand(sqlUpdate, connection))
                     {
@@ -76,14 +93,14 @@ namespace ICBFApp.Pages.Jardin
                         command.ExecuteNonQuery();
                     }
                 }
+                TempData["SuccessMessage"] = "Jardín Editado exitosamente";
+                return RedirectToPage("/Jardin/Index");
             }
             catch (Exception ex)
             {
                 errorMessage = ex.Message;
-                return;
+                return Page();
             }
-
-            Response.Redirect("/Jardin/Index");
         }
     }
 }

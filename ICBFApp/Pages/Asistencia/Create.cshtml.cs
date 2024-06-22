@@ -4,14 +4,14 @@ using static ICBFApp.Pages.Ninio.IndexModel;
 using static ICBFApp.Pages.Usuario.IndexModel;
 using static ICBFApp.Pages.Asistencia.IndexModel;
 using System.Data.SqlClient;
-using static ICBFApp.Pages.AvancesAcademicos.IndexModel;
+using System.Collections.Generic;
 
 namespace ICBFApp.Pages.Asistencia
 {
     public class CreateModel : PageModel
     {
 
-        public AsistenciaInfo avanceAcademicoInfo = new AsistenciaInfo();
+        public AsistenciaInfo asistenciaInfo = new AsistenciaInfo();
         public List<UsuarioInfo> listaAcudientes { get; set; } = new List<UsuarioInfo>();
         public List<NinioInfo> listaNinios { get; set; } = new List<NinioInfo>();
         public List<DatosBasicosInfo> listaDatosBasicos { get; set; } = new List<DatosBasicosInfo>();
@@ -111,6 +111,7 @@ namespace ICBFApp.Pages.Asistencia
                         command2.ExecuteNonQuery();
                     }
                 }
+
                 TempData["SuccessMessage"] = "Asistencia creado exitosamente";
                 return RedirectToPage("/Asistencia/Index");
             }

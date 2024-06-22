@@ -14,8 +14,16 @@ namespace ICBFApp.Pages.AvancesAcademicos
 
         public List<AvanceAcademicoInfo> listAvanceAcademico = new List<AvanceAcademicoInfo>();
 
+        public string SuccessMessage { get; set; }
+
         public void OnGet()
         {
+
+            if (TempData.ContainsKey("SuccessMessage"))
+            {
+                SuccessMessage = TempData["SuccessMessage"] as string;
+            }
+
             try
             {
                 //String connectionString = "Data Source=PC-MIGUEL-C\\SQLEXPRESS;Initial Catalog=db_ICBF;Integrated Security=True;";
@@ -25,7 +33,7 @@ namespace ICBFApp.Pages.AvancesAcademicos
                 using (SqlConnection connection = new SqlConnection(connectionString))
                 {
                     connection.Open();
-                    String sqlSelect = "SELECT AvancesAcademicos.idAvanceAcademico, DatosBasicos.nombres, DatosBasicos.identificacion, AvancesAcademicos.nivel, AvancesAcademicos.notas, AvancesAcademicos.descripcion, AvancesAcademicos.fechaEntrega, AvancesAcademicos.anioEscolar " +
+                    String sqlSelect = "SELECT DatosBasicos.nombres, DatosBasicos.identificacion, AvancesAcademicos.nivel, AvancesAcademicos.notas, AvancesAcademicos.descripcion, AvancesAcademicos.fechaEntrega, AvancesAcademicos.anioEscolar, AvancesAcademicos.idAvanceAcademico " +
                         "FROM AvancesAcademicos " +
                         "INNER JOIN Ninos ON AvancesAcademicos.idNino = Ninos.idNino " +
                         "INNER JOIN DatosBasicos ON Ninos.idDatosBasicos = DatosBasicos.idDatosBasicos;";
@@ -41,16 +49,17 @@ namespace ICBFApp.Pages.AvancesAcademicos
                                 {
                                     // Crear un nuevo objeto DatosBasicosInfo
                                     DatosBasicosInfo datosBasicosInfo = new DatosBasicosInfo();
-                                    datosBasicosInfo.nombres = reader.GetString(1);  // Nombre
-                                    datosBasicosInfo.identificacion = reader.GetString(2);  // Identificación
+                                    datosBasicosInfo.nombres = reader.GetString(0).ToString();  // Nombre
+                                    datosBasicosInfo.identificacion = reader.GetString(1).ToString();  // Identificación
 
                                     // Crear un nuevo objeto AvanceAcademicoInfo
                                     AvanceAcademicoInfo avanceAcademicoInfo = new AvanceAcademicoInfo();
-                                    avanceAcademicoInfo.nivel = reader.GetString(3);  // Nivel
-                                    avanceAcademicoInfo.notas = reader.GetString(4);  // Notas
-                                    avanceAcademicoInfo.descripcion = reader.GetString(5);  // Descripción
-                                    avanceAcademicoInfo.fechaEntrega = reader.GetDateTime(6).Date.ToShortDateString();
-                                    avanceAcademicoInfo.anioEscolar = reader.GetInt32(7) ;// Fecha de Entrega
+                                    avanceAcademicoInfo.nivel = reader.GetString(2).ToString();  // Nivel
+                                    avanceAcademicoInfo.notas = reader.GetString(3).ToString();  // Notas
+                                    avanceAcademicoInfo.descripcion = reader.GetString(4).ToString();  // Descripción
+                                    avanceAcademicoInfo.fechaEntrega = reader.GetDateTime(5).Date.ToShortDateString();
+                                    avanceAcademicoInfo.anioEscolar = reader.GetInt32(6).ToString();
+                                    avanceAcademicoInfo.idAvanceAcademico = reader.GetInt32(7).ToString();
 
                                     // Asignar datosBasicosInfo al avanceAcademicoInfo
                                     avanceAcademicoInfo.datosBasicosInfo = datosBasicosInfo;
@@ -76,8 +85,8 @@ namespace ICBFApp.Pages.AvancesAcademicos
 
         public class AvanceAcademicoInfo
         {
-            public int idAvanceAcademico { get; set; }
-            public int anioEscolar { get; set; }
+            public string idAvanceAcademico { get; set; }
+            public string anioEscolar { get; set; }
             public string nivel {  get; set; }
             public string notas { get; set; }
             public string descripcion { get; set; }

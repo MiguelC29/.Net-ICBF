@@ -2,6 +2,25 @@
 @model ICBFApp.Pages.Asistencia.IndexModel
 @{
 }
+
+@if (!string.IsNullOrEmpty(Model.SuccessMessage))
+{
+    <div class="alert alert-success alert-dismissible fade show" role="alert" id="success-message">
+        @Model.SuccessMessage
+    </div>
+}
+
+@section Scripts {
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            setTimeout(function () {
+                $("#success-message").fadeOut("slow");
+            }, 5000); // 5000 milisegundos = 5 segundos
+        });
+    </script>
+}
+
 <br />
 <h2>Lista de asistencias</h2>
 <a class="btn btn-primary btn-sm" href="/Asistencia/Create">Nueva asistencia</a>
@@ -9,7 +28,8 @@
 <table class="table">
     <thead>
         <tr>
-            <td>ID</td>
+            <td>ID asistencia</td>
+            <td>Identificacion</td>
             <td>Nombre</td>
             <td>Fecha</td>
             <td>Estado</td>
@@ -20,6 +40,7 @@
         @foreach (var item in Model.listAsistenciaInfo)
         {
             <tr>
+                <td>@item.idAsistencia</td>
                 <td>@item.datosBasicosInfo.identificacion</td>
                 <td>@item.datosBasicosInfo.nombres</td>
                 <td>@item.fecha</td>

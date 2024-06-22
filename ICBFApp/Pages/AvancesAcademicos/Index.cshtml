@@ -2,6 +2,25 @@
 @model ICBFApp.Pages.AvancesAcademicos.IndexModel
 @{
 }
+
+@if (!string.IsNullOrEmpty(Model.SuccessMessage))
+{
+    <div class="alert alert-success alert-dismissible fade show" role="alert" id="success-message">
+        @Model.SuccessMessage
+    </div>
+}
+
+@section Scripts {
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            setTimeout(function () {
+                $("#success-message").fadeOut("slow");
+            }, 5000); // 5000 milisegundos = 5 segundos
+        });
+    </script>
+}
+
 <br />
 <h2>Lista de Avances Academicos</h2>
 <a class="btn btn-primary btn-sm" href="/AvancesAcademicos/Create">Nuevo Avance academico</a>
@@ -10,6 +29,7 @@
     <thead>
         <tr>
             <td>ID</td>
+            <td>Identificacion</td>
             <td>Nombre</td>
             <td>Nivel</td>
             <td>Notas</td>
@@ -23,6 +43,7 @@
         @foreach (var item in Model.listAvanceAcademico)
         {
             <tr>
+                <td>@item.idAvanceAcademico</td>
                 <td>@item.datosBasicosInfo.identificacion</td>
                 <td>@item.datosBasicosInfo.nombres</td>
                 <td>@item.nivel</td>

@@ -40,19 +40,19 @@
     </div>
 
     <div class="row mb-3">
-        <label class="col-form-label-sm col-form-label" for="estadoNino">Estado del niño:</label>
+        <label class="col-form-label-sm col-form-label" for="nivel">Estado</label>
         <div class="col-sm-6">
-            <select id="nivel" name="nivel" class="form-control">
-                <option value="">Selecciona la nota</option>
-                @foreach (var asistencia in Model.listaEstado)
+            <select id="estadoNino" name="estadoNino" class="form-control">
+                <option value="">Selecciona el estado</option>
+                @foreach (var estadoNino in Model.listaEstado)
                 {
-                    if (asistencia.Trim().Equals(Model.asistenciaInfo.estadoNino?.Trim(), StringComparison.OrdinalIgnoreCase))
+                    if (estadoNino.Trim().Equals(Model.asistenciaInfo.estadoNino?.Trim(), StringComparison.OrdinalIgnoreCase))
                     {
-                        <option value="@asistencia" selected>@asistencia</option>
+                        <option value="@estadoNino" selected>@estadoNino</option>
                     }
                     else
                     {
-                        <option value="@asistencia">@asistencia</option>
+                        <option value="@estadoNino">@estadoNino</option>
                     }
                 }
             </select>
@@ -61,7 +61,7 @@
 
         <div class="row mb-3">
             <div class="offset-sm-3 col-sm-3 d-grid">
-                <button type="submit" class="btn btn-primary">Agregar</button>
+                <button type="submit" class="btn btn-primary">Editar</button>
             </div>
             <div class="col-sm-3 d-grid">
                 <a class="btn btn-outline-primary" href="/Asistencia/Index" role="button">Cancelar</a>

@@ -10,8 +10,15 @@ namespace ICBFApp.Pages.Asistencia
 
         public List<AsistenciaInfo> listAsistenciaInfo = new List<AsistenciaInfo>();
 
+        public string SuccessMessage { get; set; }
+
         public void OnGet()
         {
+            if (TempData.ContainsKey("SuccessMessage"))
+            {
+                SuccessMessage = TempData["SuccessMessage"] as string;
+            }
+
             try
             {
                 //String connectionString = "Data Source=PC-MIGUEL-C\\SQLEXPRESS;Initial Catalog=db_ICBF;Integrated Security=True;";
@@ -21,7 +28,7 @@ namespace ICBFApp.Pages.Asistencia
                 using (SqlConnection connection = new SqlConnection(connectionString))
                 {
                     connection.Open();
-                    String sqlSelect = "SELECT DatosBasicos.nombres, DatosBasicos.identificacion, Asistencias.fecha, Asistencias.estadoNino " +
+                    String sqlSelect = "SELECT DatosBasicos.nombres, DatosBasicos.identificacion, Asistencias.fecha, Asistencias.estadoNino, Asistencias.idAsistencia " +
                         "FROM Asistencias " +
                         "INNER JOIN Ninos ON Asistencias.idNino = Ninos.idNino " +
                         "INNER JOIN DatosBasicos ON Ninos.idDatosBasicos = DatosBasicos.idDatosBasicos;";
@@ -37,13 +44,14 @@ namespace ICBFApp.Pages.Asistencia
                                 {
                                     // Crear un nuevo objeto DatosBasicosInfo
                                     DatosBasicosInfo datosBasicosInfo = new DatosBasicosInfo();
-                                    datosBasicosInfo.nombres = reader.GetString(0).ToString();  // Nombre
-                                    datosBasicosInfo.identificacion = reader.GetString(1).ToString(); ;  // Identificación
+                                    datosBasicosInfo.nombres = reader.GetString(0).ToString();  
+                                    datosBasicosInfo.identificacion = reader.GetString(1).ToString(); ;  
 
                                     // Crear un nuevo objeto AvanceAcademicoInfo
                                     AsistenciaInfo asistenciaInfo = new AsistenciaInfo();
-                                    asistenciaInfo.fecha = reader.GetDateTime(2).Date.ToShortDateString();  // Nivel
-                                    asistenciaInfo.estadoNino = reader.GetString(3).ToString(); // Notas
+                                    asistenciaInfo.fecha = reader.GetDateTime(2).Date.ToShortDateString();  
+                                    asistenciaInfo.estadoNino = reader.GetString(3).ToString(); 
+                                    asistenciaInfo.idAsistencia = reader.GetInt32(4).ToString(); 
 
                                     // Asignar datosBasicosInfo al avanceAcademicoInfo
                                     asistenciaInfo.datosBasicosInfo = datosBasicosInfo;
@@ -69,7 +77,7 @@ namespace ICBFApp.Pages.Asistencia
 
         public class AsistenciaInfo
         {
-            public int idAsistencia { get; set; }
+            public string idAsistencia { get; set; }
             public string fecha { get; set; }
             public string estadoNino { get; set; }
             public DatosBasicosInfo datosBasicosInfo { get; set; }

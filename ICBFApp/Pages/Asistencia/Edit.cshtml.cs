@@ -34,7 +34,7 @@ namespace ICBFApp.Pages.Asistencia
                         {
                             if (reader.Read())
                             {
-                                asistenciaInfo.idAsistencia = reader.GetInt32(0);
+                                asistenciaInfo.idAsistencia = "" + reader.GetInt32(0);
                                 asistenciaInfo.fecha = reader.GetDateTime(1).Date.ToString("yyyy-MM-dd");
                                 asistenciaInfo.estadoNino = reader.GetString(2);
                             }
@@ -48,16 +48,16 @@ namespace ICBFApp.Pages.Asistencia
             }
         }
 
-        public void OnPost()
+        public IActionResult OnPost()
         {
-            asistenciaInfo.idAsistencia = Convert.ToInt32(Request.Form["idAvanceAcademico"]);
+            asistenciaInfo.idAsistencia = Request.Form["idAsistencia"];
             asistenciaInfo.fecha = Request.Form["fecha"];
             asistenciaInfo.estadoNino = Request.Form["estadoNino"];
 
-            if (asistenciaInfo.fecha.Length == 0 || asistenciaInfo.estadoNino.Length == 0)
+            if (string.IsNullOrEmpty(asistenciaInfo.fecha) || string.IsNullOrEmpty(asistenciaInfo.estadoNino))
             {
-                errorMessage = "Debe completar todos los campos";
-                return;
+                errorMessage = "Todos los campos son obligatorios";
+                return Page();
             }
 
             try
@@ -66,24 +66,28 @@ namespace ICBFApp.Pages.Asistencia
                 using (SqlConnection connection = new SqlConnection(connectionString))
                 {
 
-                    // Espacio para validar que el jadin no exista
-                    String sqlUpdate = "UPDATE Asistencias SET fecha = @fecha, estadoNino = @EstadoNino WHERE idAsistencia = @idAsistencia";
+                    connection.Open();
+                    String sqlUpdate = "UPDATE Asistencias SET fecha = @fecha, estadoNino = @estadoNino WHERE idAsistencia = @idAsistencia";
                     using (SqlCommand command = new SqlCommand(sqlUpdate, connection))
                     {
                         command.Parameters.AddWithValue("@idAsistencia", asistenciaInfo.idAsistencia);
                         command.Parameters.AddWithValue("@fecha", asistenciaInfo.fecha);
+                        command.Parameters.AddWithValue("@estadoNino", asistenciaInfo.estadoNino);
 
                         command.ExecuteNonQuery();
                     }
+
+                    TempData["SuccessMessage"] = "Asistencia Editado exitosamente";
+                    return RedirectToPage("/Asistencia/Index");
+
                 }
             }
             catch (Exception ex)
             {
                 errorMessage = ex.Message;
-                return;
+                return Page();
             }
 
-            Response.Redirect("/Asistencia/Index");
         }
     }
 }

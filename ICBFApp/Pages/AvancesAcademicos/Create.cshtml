@@ -31,9 +31,23 @@
 <form method="POST">
 
     <div class="row mb-3">
-        <label class="col-form-label-sm col-form-label">Año escolar</label>
+        <label class="col-form-label-sm col-form-label" for="tipoSangre">Año escolar</label>
+        <label class="col-form-label-sm col-form-label" for="SelectedJardinId">Selecciona el año escolar:</label>
         <div class="col-sm-6">
-            <input type="number" class="form-control" name="anioEscolar" value="@Model.avanceAcademicoInfo.anioEscolar">
+            <select name="anioEscolar" value="@Model.avanceAcademicoInfo.anioEscolar" class="form-control">
+                <option value=""> Selecciona el año escolar </option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+                <option value="10">10</option>
+                <option value="11">11</option>
+            </select>
         </div>
     </div>
 

@@ -1,6 +1,7 @@
 ﻿@page
 @model ICBFApp.Pages.Jardin.IndexModel
 @{
+    string color;
 }
 @if (!string.IsNullOrEmpty(Model.SuccessMessage))
 {
@@ -60,11 +61,24 @@
     <tbody>
         @foreach (var item in Model.listJardin)
         {
-            <tr>
+            switch (item.estado)
+            {
+                case "Aprobado":
+                    color = "success";
+                    break;
+                case "Negado":
+                    color = "danger";
+                    break;
+                default:
+                    color = "warning";
+                    break;
+            }
+
+            <tr class="align-middle" >
                 <td>@item.idJardin</td>
                 <td>@item.nombre</td>
                 <td>@item.direccion</td>
-                <td>@item.estado</td>
+                <td><span style="padding: 7px;" class="rounded-pill bg-@color text-white">@item.estado</span></td>
                 <td>
                     <a class="btn btn-primary btn-sm" href="/Jardin/Edit?id=@item.idJardin">
                         <span class="material-symbols-outlined">edit_square</span>

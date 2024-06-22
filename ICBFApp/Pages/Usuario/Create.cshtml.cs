@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using System.Data.SqlClient;
 using static ICBFApp.Pages.Rol.IndexModel;
@@ -8,6 +9,13 @@ namespace ICBFApp.Pages.Usuario
 {
     public class CreateModel : PageModel
     {
+        private readonly string _connectionString;
+
+        public CreateModel(IConfiguration configuration)
+        {
+            _connectionString = configuration.GetConnectionString("ConexionSQLServer");
+        }
+
         public List<RolInfo> rolInfo { get; set; } = new List<RolInfo>();
         public List<TipoDocInfo> tipoDocInfo { get; set; } = new List<TipoDocInfo>();
         public UsuarioInfo usuarioInfo = new UsuarioInfo();
@@ -15,15 +23,11 @@ namespace ICBFApp.Pages.Usuario
         public string errorMessage = "";
         public string successMessage = "";
 
-        String connectionString = "Data Source=PC-MIGUEL-C\\SQLEXPRESS;Initial Catalog=db_ICBF;Integrated Security=True;";
-        //String connectionString = "RUTA ANGEL";
-        //String connectionString = "Data Source=BOGAPRCSFFSD108\\SQLEXPRESS;Initial Catalog=db_ICBF;Integrated Security=True";
-
         public void OnGet()
         {
             try
             {
-                using (SqlConnection connection = new SqlConnection(connectionString))
+                using (SqlConnection connection = new SqlConnection(_connectionString))
                 {
                     connection.Open();
                     String sqlRoles = "SELECT * from roles";
@@ -99,7 +103,7 @@ namespace ICBFApp.Pages.Usuario
             }
         }
 
-        public void OnPost()
+        public IActionResult OnPost()
         {
             string identificacion = Request.Form["identificacion"];
             string nombres = Request.Form["nombres"];
@@ -117,30 +121,30 @@ namespace ICBFApp.Pages.Usuario
                 || string.IsNullOrEmpty(direccion))
             {
                 errorMessage = "Todos los campos son obligatorios";
-                return;
+                return Page();
             }
 
             if (!int.TryParse(rolIdString, out rolId))
             {
                 errorMessage = "Rol inválido seleccionado";
-                return;
+                return Page();
             }
 
             if (!int.TryParse(tipoDocIdString, out tipoDocId))
             {
                 errorMessage = "Tipo Documento inválido seleccionado";
-                return;
+                return Page();
             }
 
             if (edad < 18)
             {
                 errorMessage = "Debe ser mayor de edad";
-                return;
+                return Page();
             }
 
             try
             {
-                using (SqlConnection connection = new SqlConnection(connectionString))
+                using (SqlConnection connection = new SqlConnection(_connectionString))
                 {
                     connection.Open();
                     String sqlExists = "SELECT COUNT(*) FROM usuarios as u " +
@@ -156,7 +160,7 @@ namespace ICBFApp.Pages.Usuario
                         {
                             errorMessage = "El usuario " + nombres + " con identificación " + identificacion + " ya existe. " +
                                            "Verifique la información e intente de nuevo";
-                            return;
+                            return Page();
                         }
                     }
                     String sqlInsert = "INSERT INTO DatosBasicos" +
@@ -201,13 +205,13 @@ namespace ICBFApp.Pages.Usuario
                         command2.ExecuteNonQuery();
                     }
                 }
-                successMessage = "Usuario creado exitosamente";
-                //Response.Redirect("/Persona/Index");
-                RedirectToPage("/Usuario/Index");
+                TempData["SuccessMessage"] = "Usuario creado exitosamente";
+                return RedirectToPage("/Usuario/Index");
             }
             catch (Exception ex)
             {
                 errorMessage = ex.Message;
+                return Page();
             }
         }
 

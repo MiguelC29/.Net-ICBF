@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using System.Data.SqlClient;
 using static ICBFApp.Pages.EPS.IndexModel;
@@ -6,24 +7,24 @@ namespace ICBFApp.Pages.EPS
 {
     public class EditModel : PageModel
     {
+        private readonly string _connectionString;
 
+        public EditModel(IConfiguration configuration)
+        {
+            _connectionString = configuration.GetConnectionString("ConexionSQLServer");
+        }
 
         public EPSInfo epsInfo = new EPSInfo();
         public string errorMessage = "";
         public string successMessage = "";
-        
-        String connectionString = "Data Source=PC-MIGUEL-C\\SQLEXPRESS;Initial Catalog=db_ICBF;Integrated Security=True;";
-        //String connectionString = "Data Source=DESKTOP-FO2357P\\SQLEXPRESS;Initial Catalog=db_ICBF;Integrated Security=True;";
-        //String connectionString = "Data Source=BOGAPRCSFFSD108\\SQLEXPRESS;Initial Catalog=db_ICBF;Integrated Security=True";
 
         public void OnGet()
         {
-
             String idEps = Request.Query["idEps"];
 
             try
             {
-                using (SqlConnection connection = new SqlConnection(connectionString))
+                using (SqlConnection connection = new SqlConnection(_connectionString))
                 {
                     connection.Open();
                     String sql = "SELECT * FROM EPS WHERE idEps = @idEps";
@@ -52,7 +53,7 @@ namespace ICBFApp.Pages.EPS
 
         }
 
-        public void OnPost() 
+        public IActionResult OnPost() 
         {
             epsInfo.idEps = Request.Form["idEps"];
             epsInfo.NIT = Request.Form["NIT"];
@@ -63,12 +64,12 @@ namespace ICBFApp.Pages.EPS
             if (epsInfo.nombre.Length == 0 || epsInfo.NIT.Length == 0 || epsInfo.direccion.Length == 0 || epsInfo.telefono.Length == 0)
             {
                 errorMessage = "Debe completar todos los campos";
-                return;
+                return Page();
             }
 
             try
             {
-                using (SqlConnection connection = new SqlConnection(connectionString))
+                using (SqlConnection connection = new SqlConnection(_connectionString))
                 {
                     connection.Open();
                     /*
@@ -114,15 +115,14 @@ namespace ICBFApp.Pages.EPS
                         command.ExecuteNonQuery();
                     }
                 }
+                TempData["SuccessMessage"] = "EPS Editada exitosamente";
+                return RedirectToPage("/EPS/Index");
             }
             catch (Exception ex)
             {
                 errorMessage = ex.Message;
-                return;
+                return Page();
             }
-
-            Response.Redirect("/EPS/Index");
         }
-
     }
 }

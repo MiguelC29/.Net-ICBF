@@ -4,9 +4,8 @@
 }
 
 <br>
-<h2>Agregar Nuevo Niño</h2>
+<h2 class="text-center">Agregar Nuevo Niño</h2>
 
-@* Muestra mensaje de error al no completar todos los campos del formulario *@
 @if (Model.errorMessage.Length > 0)
 {
     <div class="alert alert-warning alert-dismissible fade show" role="alert">
@@ -15,25 +14,10 @@
     </div>
 }
 
-@* Muestra mensaje de éxito al agregar un nuevo niño *@
-@if (Model.successMessage.Length > 0)
-{
-    <div class="row mb-3">
-        <div class="col-sm-9">
-            <div class="alert alert-success alert-dismissible fade show" role="alert">
-                <strong>@Model.successMessage</strong>
-                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="close"></button>
-            </div>
-        </div>
-    </div>
-}
-
 <form method="POST">
-
-    @* Método para mostrar los tipos de sangre de la base de datos en el formulario de niños *@
     <div class="row mb-3">
-        <label class="col-form-label-sm col-form-label" for="tipoSangre">Tipo de Sangre</label>
-        <div class="col-sm-6">
+        <div class="col-md-6">
+            <label class="col-form-label" for="tipoSangre">Tipo de Sangre</label>
             <select id="tipoSangre" name="tipoSangre" class="form-control">
                 <option value="">Seleccione un Tipo de Sangre</option>
                 @foreach (var tipoSangre in Model.listaTiposSangre)
@@ -42,54 +26,43 @@
                 }
             </select>
         </div>
-    </div>
-
-    <div class="row mb-3">
-        <label class="col-form-label-sm col-form-label">Identificación</label>
-        <div class="col-sm-6">
-            <input type="number" class="form-control" name="identificacion" value="@Model.datosBasicos.identificacion">
+        <div class="col-md-6">
+            <label class="col-form-label" for="identificacion">NIUP</label>
+            <input type="text" class="form-control" id="identificacion" name="identificacion" value="@Model.datosBasicos.identificacion"
+                    maxlength="10" pattern="[0-9]{10}" title="Por favor ingrese un número de NIUP válido de 10 dígitos">
         </div>
     </div>
 
     <div class="row mb-3">
-        <label class="col-form-label-sm col-form-label">Nombres</label>
-        <div class="col-sm-6">
-            <input type="text" class="form-control" name="nombres" value="@Model.datosBasicos.nombres">
+        <div class="col-md-6">
+            <label class="col-form-label" for="nombres">Nombres</label>
+            <input type="text" class="form-control" id="nombres" name="nombres" value="@Model.datosBasicos.nombres">
+        </div>
+        <div class="col-md-6">
+            <label class="col-form-label" for="fechaNacimiento">Fecha de Nacimiento</label>
+            <input type="date" class="form-control" id="fechaNacimiento" name="fechaNacimiento" value="@Model.datosBasicos.fechaNacimiento">
         </div>
     </div>
 
     <div class="row mb-3">
-        <label class="col-form-label-sm col-form-label">Fecha de Nacimiento</label>
-        <div class="col-sm-6">
-            <input type="date" class="form-control" name="fechaNacimiento" value="@Model.datosBasicos.fechaNacimiento">
+        <div class="col-md-6">
+            <label class="col-form-label" for="ciudadNacimiento">Ciudad de Nacimiento</label>
+            <input type="text" class="form-control" id="ciudadNacimiento" name="ciudadNacimiento" value="@Model.ninio.ciudadNacimiento">
+        </div>
+        <div class="col-md-6">
+            <label class="col-form-label" for="celular">Teléfono</label>
+            <input type="tel" class="form-control" id="celular" name="celular" value="@Model.datosBasicos.celular"
+                    maxlength="10" pattern="[0-9]{10}" title="Por favor ingrese un número de celular válido de 10 dígitos">
         </div>
     </div>
 
     <div class="row mb-3">
-        <label class="col-form-label-sm col-form-label">Ciudad de Nacimiento</label>
-        <div class="col-sm-6">
-            <input type="text" class="form-control" name="ciudadNacimiento" value="@Model.ninio.ciudadNacimiento">
+        <div class="col-md-6">
+            <label class="col-form-label" for="direccion">Dirección</label>
+            <input type="text" class="form-control" id="direccion" name="direccion" value="@Model.datosBasicos.direccion">
         </div>
-    </div>
-
-    <div class="row mb-3">
-        <label class="col-form-label-sm col-form-label">Teléfono</label>
-        <div class="col-sm-6">
-            <input type="tel" class="form-control" name="celular" value="@Model.datosBasicos.celular">
-        </div>
-    </div>
-
-    <div class="row mb-3">
-        <label class="col-form-label-sm col-form-label">Dirección</label>
-        <div class="col-sm-6">
-            <input type="text" class="form-control" name="direccion" value="@Model.datosBasicos.direccion">
-        </div>
-    </div>
-
-    @* Método para mostrar los roles de la base de datos en el formulario de personas *@
-    <div class="row mb-3">
-        <label class="col-form-label-sm col-form-label" for="acudiente">Acudiente</label>
-        <div class="col-sm-6">
+        <div class="col-md-6">
+            <label class="col-form-label" for="acudiente">Acudiente</label>
             <select id="acudiente" name="acudiente" class="form-control">
                 <option value="">Seleccione el acudiente</option>
                 @foreach (var acudiente in Model.listaAcudientes)
@@ -100,10 +73,9 @@
         </div>
     </div>
 
-    @* Método para mostrar los roles de la base de datos en el formulario de personas *@
     <div class="row mb-3">
-        <label class="col-form-label-sm col-form-label" for="jardin">Jardín</label>
-        <div class="col-sm-6">
+        <div class="col-md-6">
+            <label class="col-form-label" for="jardin">Jardín</label>
             <select id="jardin" name="jardin" class="form-control">
                 <option value="">Seleccione un Jardín</option>
                 @foreach (var jardin in Model.listaJardines)
@@ -112,12 +84,8 @@
                 }
             </select>
         </div>
-    </div>
-
-    @* Método para mostrar los roles de la base de datos en el formulario de personas *@
-    <div class="row mb-3">
-        <label class="col-form-label-sm col-form-label" for="eps">EPS</label>
-        <div class="col-sm-6">
+        <div class="col-md-6">
+            <label class="col-form-label" for="eps">EPS</label>
             <select id="eps" name="eps" class="form-control">
                 <option value="">Seleccione una EPS</option>
                 @foreach (var eps in Model.listaEps)
@@ -133,8 +101,7 @@
             <button type="submit" class="btn btn-primary">Agregar</button>
         </div>
         <div class="col-sm-3 d-grid">
-            <a class="btn btn-outline-primary" href="/Ninio/Index" role="button">Cancelar</a>
+            <a class="btn btn-outline-danger" href="/Ninio/Index" role="button">Cancelar</a>
         </div>
     </div>
-
 </form>

@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using System.Data.SqlClient;
 using static ICBFApp.Pages.EPS.IndexModel;
@@ -6,6 +7,12 @@ namespace ICBFApp.Pages.EPS
 {
     public class CreateModel : PageModel
     {
+        private readonly string _connectionString;
+
+        public CreateModel(IConfiguration configuration)
+        {
+            _connectionString = configuration.GetConnectionString("ConexionSQLServer");
+        }
 
         public EPSInfo epsInfo = new EPSInfo();
         public string errorMessage = "";
@@ -15,7 +22,7 @@ namespace ICBFApp.Pages.EPS
         {
         }
 
-        public void OnPost() 
+        public IActionResult OnPost() 
         {
             epsInfo.NIT = Request.Form["NIT"];
             epsInfo.nombre = Request.Form["nombre"];
@@ -25,16 +32,12 @@ namespace ICBFApp.Pages.EPS
             if (epsInfo.nombre.Length == 0 || epsInfo.NIT.Length == 0 || epsInfo.direccion.Length == 0 || epsInfo.telefono.Length == 0)
             {
                 errorMessage = "Debe completar todos los campos";
-                return;
+                return Page();
             }
 
             try
             {
-                String connectionString = "Data Source=PC-MIGUEL-C\\SQLEXPRESS;Initial Catalog=db_ICBF;Integrated Security=True;";
-                //String connectionString = "Data Source=DESKTOP-FO2357P\\SQLEXPRESS;Initial Catalog=db_ICBF;Integrated Security=True;";
-                //String connectionString = "Data Source=BOGAPRCSFFSD108\\SQLEXPRESS;Initial Catalog=db_ICBF;Integrated Security=True";
-
-                using (SqlConnection connection = new SqlConnection(connectionString))
+                using (SqlConnection connection = new SqlConnection(_connectionString))
                 {
                     connection.Open();
 
@@ -49,7 +52,7 @@ namespace ICBFApp.Pages.EPS
                         if (count > 0)
                         {
                             errorMessage = "El nombre '" + epsInfo.nombre + "' ya existe. Verifique la información e intente de nuevo.";
-                            return;
+                            return Page();
                         }
                     }
 
@@ -64,7 +67,7 @@ namespace ICBFApp.Pages.EPS
                         if (count > 0)
                         {
                             errorMessage = "El NIT '" + epsInfo.NIT + "' ya existe. Verifique la información e intente de nuevo.";
-                            return;
+                            return Page();
                         }
                     }
 
@@ -80,19 +83,15 @@ namespace ICBFApp.Pages.EPS
 
                         command.ExecuteNonQuery();
                     }
-
+                    TempData["SuccessMessage"] = "EPS agregada con éxito";
+                    return RedirectToPage("/EPS/Index");
                 }
             }
             catch (Exception ex)
             {
                 errorMessage = ex.Message;
-                return;
+                return Page();
             }
-
-            epsInfo.nombre = "";
-
-            successMessage = "EPS agregada con éxito";
-            Response.Redirect("/EPS/Index");
         }
     }
 }

@@ -8,21 +8,24 @@ namespace ICBFApp.Pages.Rol
 {
     public class EditModel : PageModel
     {
+        private readonly string _connectionString;
+
+        public EditModel(IConfiguration configuration)
+        {
+            _connectionString = configuration.GetConnectionString("ConexionSQLServer");
+        }
 
         public RolInfo rolInfo = new RolInfo();
         public string errorMessage = "";
         public string successMessage = "";
         
-        String connectionString = "Data Source=PC-MIGUEL-C\\SQLEXPRESS;Initial Catalog=db_ICBF;Integrated Security=True;";
-        //String connectionString = "Data Source=DESKTOP-FO2357P\\SQLEXPRESS;Initial Catalog=db_ICBF;Integrated Security=True;";
-        //String connectionString = "Data Source=BOGAPRCSFFSD108\\SQLEXPRESS;Initial Catalog=db_ICBF;Integrated Security=True";
         public void OnGet()
         {
             String idRol = Request.Query["idRol"];
 
             try
             {
-                using (SqlConnection connection = new SqlConnection(connectionString))
+                using (SqlConnection connection = new SqlConnection(_connectionString))
                 {
                     connection.Open();
                     String sql = "SELECT * FROM Roles WHERE idRol = @idRol";
@@ -47,7 +50,7 @@ namespace ICBFApp.Pages.Rol
             }
         }
 
-        public void OnPost() 
+        public IActionResult OnPost() 
         {
             rolInfo.idRol = Request.Form["idRol"];
             rolInfo.nombre = Request.Form["nombre"];
@@ -55,12 +58,12 @@ namespace ICBFApp.Pages.Rol
             if (rolInfo.idRol.Length == 0 || rolInfo.nombre.Length == 0)
             {
                 errorMessage = "Debe completar todos los campos";
-                return;
+                return Page();
             }
 
             try
             {
-                using (SqlConnection connection = new SqlConnection(connectionString))
+                using (SqlConnection connection = new SqlConnection(_connectionString))
                 {
                     connection.Open();
 
@@ -74,7 +77,7 @@ namespace ICBFApp.Pages.Rol
                         if (count > 0)
                         {
                             errorMessage = "El Rol '" + rolInfo.nombre + "' ya existe. Verifique la información e intente de nuevo.";
-                            return;
+                            return Page();
                         }
                     }
 
@@ -88,14 +91,14 @@ namespace ICBFApp.Pages.Rol
                         command.ExecuteNonQuery();
                     }
                 }
+                TempData["SuccessMessage"] = "Rol Editado exitosamente";
+                return RedirectToPage("/Rol/Index");
             }
             catch (Exception ex)
             {
                 errorMessage = ex.Message;
-                return;
+                return Page();
             }
-
-            Response.Redirect("/Rol/Index");
         }
     }
 }

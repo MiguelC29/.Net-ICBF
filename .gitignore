@@ -89,7 +89,7 @@ artifacts/
 aspnet_client/
 ClientBin/
 _UpgradeReport_Files/
-Backup*/ 
+Backup*/
 UpgradeLog*.XML
 UpgradeLog*.htm
 
@@ -98,6 +98,25 @@ UpgradeLog*.htm
 *.msi
 *.msm
 *.msp
+
+# Archivos de configuración local
+appsettings.json
+appsettings.Development.json
+*.user
+*.sln.iml
+
+# Directorios específicos de Windows
+Thumbs.db
+Desktop.ini
+
+# Carpetas de dependencias y paquetes
+node_modules/
+packages/
+
+# Archivos de respaldo y temporales
+*~
+*.bak
+*.swp
 
 # Other VS and Windows specific files
 *.ncb

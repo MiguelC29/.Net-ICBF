@@ -11,10 +11,12 @@ namespace ICBFApp.Services
     public class GeneratePdfService : IGeneratePdfService
     {
         private readonly IWebHostEnvironment _host;
+        private readonly string _connectionString;
 
-        public GeneratePdfService(IWebHostEnvironment host)
+        public GeneratePdfService(IWebHostEnvironment host, IConfiguration configuration)
         {
             _host = host;
+            _connectionString = configuration.GetConnectionString("ConexionSQLServer");
         }
 
         public List<NinioInfo> listNinio = new List<NinioInfo>();
@@ -23,18 +25,20 @@ namespace ICBFApp.Services
         {
             try
             {
-                //String connectionString = "Data Source=PC-MIGUEL-C\\SQLEXPRESS;Initial Catalog=db_ICBF;Integrated Security=True;";
-                //String connectionString = "RUTA ANGEL";
-                String connectionString = "Data Source=BOGAPRCSFFSD108\\SQLEXPRESS;Initial Catalog=db_ICBF;Integrated Security=True";
-
-                using (SqlConnection connection = new SqlConnection(connectionString))
+                using (SqlConnection connection = new SqlConnection(_connectionString))
                 {
                     connection.Open();
-                    String sqlSelect = "SELECT t.tipo, identificacion, nombres, fechaNacimiento, j.nombre, " +
+                    String sqlSelect = "SELECT identificacion, nombres, fechaNacimiento, j.nombre, " +
                         "(SELECT nombres FROM Usuarios as u " +
                         "INNER JOIN DatosBasicos as d ON u.idDatosBasicos = d.idDatosBasicos " +
                         "WHERE idUsuario = n.idUsuario) as acudiente, " +
-                        "ciudadNacimiento " +
+                        "(SELECT identificacion FROM Usuarios as u INNER JOIN DatosBasicos as d ON u.idDatosBasicos = d.idDatosBasicos " +
+                        "WHERE idUsuario = n.idUsuario) as identificacionAcudiente, " +
+                        "(SELECT tipo FROM Usuarios as u " +
+                        "INNER JOIN DatosBasicos as d ON u.idDatosBasicos = d.idDatosBasicos " +
+                        "INNER JOIN TipoDocumento as t ON d.idTipoDocumento = t.idTipoDoc " +
+                        "WHERE idUsuario = n.idUsuario) as tipoDocAcudiente, " +
+                        "ciudadNacimiento, tipoSangre " +
                         "FROM Ninos as n " +
                         "INNER JOIN Jardines as j ON n.idJardin = j.idJardin " +
                         "INNER JOIN DatosBasicos as d ON n.idDatosBasicos = d.idDatosBasicos " +
@@ -50,27 +54,29 @@ namespace ICBFApp.Services
                             {
                                 while (reader.Read())
                                 {
-                                    TipoDocInfo tipoDocInfo = new TipoDocInfo();
-                                    tipoDocInfo.tipo = reader.GetString(0).ToString();
-
                                     DatosBasicosInfo datosBasicos = new DatosBasicosInfo();
-                                    datosBasicos.tipoDoc = tipoDocInfo;
-                                    datosBasicos.identificacion = reader.GetString(1);
-                                    datosBasicos.nombres = reader.GetString(2);
-                                    datosBasicos.fechaNacimiento = reader.GetDateTime(3).Date.ToShortDateString();
+                                    datosBasicos.identificacion = reader.GetString(0);
+                                    datosBasicos.nombres = reader.GetString(1);
+                                    datosBasicos.fechaNacimiento = reader.GetDateTime(2).Date.ToShortDateString();
 
                                     JardinInfo jardin = new JardinInfo();
-                                    jardin.nombre = reader.GetString(4);
+                                    jardin.nombre = reader.GetString(3);
+
+                                    TipoDocInfo tipoDocAcudiente = new TipoDocInfo();
+                                    tipoDocAcudiente.tipo = reader.GetString(6).ToString();
 
                                     DatosBasicosInfo datosAcudiente = new DatosBasicosInfo();
-                                    datosAcudiente.nombres = reader.GetString(5);
+                                    datosAcudiente.identificacion = reader.GetString(5);
+                                    datosAcudiente.nombres = reader.GetString(4);
+                                    datosAcudiente.tipoDoc = tipoDocAcudiente;
 
                                     UsuarioInfo acudiente = new UsuarioInfo();
                                     acudiente.datosBasicos = datosAcudiente;
 
                                     NinioInfo ninio = new NinioInfo();
-                                    ninio.ciudadNacimiento = reader.GetString(6);
-                                    ninio.edad = calcularEdad(reader.GetDateTime(3).Date.ToShortDateString());
+                                    ninio.ciudadNacimiento = reader.GetString(7);
+                                    ninio.tipoSangre = reader.GetString(8);
+                                    ninio.edad = calcularEdad(reader.GetDateTime(2).Date.ToShortDateString());
                                     ninio.jardin = jardin;
                                     ninio.acudiente = acudiente;
                                     ninio.datosBasicos = datosBasicos;
@@ -135,29 +141,48 @@ namespace ICBFApp.Services
                         {
                             table.ColumnsDefinition(columns =>
                             {
-                                columns.ConstantColumn(100);
+                                columns.ConstantColumn(80);
                                 columns.RelativeColumn(2);
                                 columns.ConstantColumn(50);
+                                columns.RelativeColumn(1.2f);
+                                columns.ConstantColumn(50);
+                                columns.ConstantColumn(70);
+                                columns.ConstantColumn(80);
                                 columns.RelativeColumn(2);
                                 columns.RelativeColumn();
                             });
 
                             table.Header(header =>
                             {
+                                // Fila de títulos de sección
+                                header.Cell().ColumnSpan(5).Background(Colors.Green.Darken4).Border(0.5f).BorderColor(Colors.Black).AlignMiddle().Text("DATOS NIÑO").Bold().FontColor("#fff").AlignCenter();
+                                header.Cell().ColumnSpan(3).Background(Colors.Green.Darken4).Border(0.5f).BorderColor(Colors.Black).AlignMiddle().Text("DATOS ACUDIENTE").Bold().FontColor("#fff").AlignCenter();
+                                header.Cell().Background(Colors.Green.Darken4).Border(0.5f).BorderColor(Colors.Black).AlignMiddle().Text("DATOS JARDÍN").Bold().FontColor("#fff").AlignCenter();
+
+                                // Fila de encabezados de columnas
                                 header.Cell().Background("#212529").Border(0.5f).BorderColor(Colors.Black).AlignMiddle().Text("Identificación").FontColor("#fff").AlignCenter();
                                 header.Cell().Background("#212529").Border(0.5f).BorderColor(Colors.Black).AlignMiddle().Text("Nombres").FontColor("#fff").AlignCenter();
                                 header.Cell().Background("#212529").Border(0.5f).BorderColor(Colors.Black).AlignMiddle().Text("Edad").FontColor("#fff").AlignCenter();
-                                header.Cell().Background("#212529").Border(0.5f).BorderColor(Colors.Black).AlignMiddle().Text("Acudiente").FontColor("#fff").AlignCenter();
                                 header.Cell().Background("#212529").Border(0.5f).BorderColor(Colors.Black).AlignMiddle().Text("Ciudad Nacimiento").FontColor("#fff").AlignCenter();
+                                header.Cell().Background("#212529").Border(0.5f).BorderColor(Colors.Black).AlignMiddle().Text("Tipo Sangre").FontColor("#fff").AlignCenter();
+                                header.Cell().Background("#212529").Border(0.5f).BorderColor(Colors.Black).AlignMiddle().Text("Tipo Documento").FontColor("#fff").AlignCenter();
+                                header.Cell().Background("#212529").Border(0.5f).BorderColor(Colors.Black).AlignMiddle().Text("Identificación").FontColor("#fff").AlignCenter();
+                                header.Cell().Background("#212529").Border(0.5f).BorderColor(Colors.Black).AlignMiddle().Text("Nombres").FontColor("#fff").AlignCenter();
+                                header.Cell().Background("#212529").Border(0.5f).BorderColor(Colors.Black).AlignMiddle().Text("Jardín").FontColor("#fff").AlignCenter();
                             });
+
 
                             foreach (var nino in listNinio)
                             {
                                 table.Cell().Border(0.5f).BorderColor(Colors.Black).Text(nino.datosBasicos.identificacion).AlignCenter();
                                 table.Cell().Border(0.5f).BorderColor(Colors.Black).Text(nino.datosBasicos.nombres).AlignCenter();
                                 table.Cell().Border(0.5f).BorderColor(Colors.Black).Text(nino.edad.ToString()).AlignCenter();
-                                table.Cell().Border(0.5f).BorderColor(Colors.Black).Text(nino.acudiente.datosBasicos.nombres).AlignCenter();
                                 table.Cell().Border(0.5f).BorderColor(Colors.Black).Text(nino.ciudadNacimiento).AlignCenter();
+                                table.Cell().Border(0.5f).BorderColor(Colors.Black).Text(nino.tipoSangre).AlignCenter();
+                                table.Cell().Border(0.5f).BorderColor(Colors.Black).Text(nino.acudiente.datosBasicos.tipoDoc.tipo).AlignCenter();
+                                table.Cell().Border(0.5f).BorderColor(Colors.Black).Text(nino.acudiente.datosBasicos.identificacion).AlignCenter();
+                                table.Cell().Border(0.5f).BorderColor(Colors.Black).Text(nino.acudiente.datosBasicos.nombres).AlignCenter();
+                                table.Cell().Border(0.5f).BorderColor(Colors.Black).Text(nino.jardin.nombre).AlignCenter();
                             }
                         });
                     });

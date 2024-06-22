@@ -7,6 +7,13 @@ namespace ICBFApp.Pages.Jardin
 {
     public class CreateModel : PageModel
     {
+        private readonly string _connectionString;
+
+        public CreateModel(IConfiguration configuration)
+        {
+            _connectionString = configuration.GetConnectionString("ConexionSQLServer");
+        }
+
         public JardinInfo jardinInfo = new JardinInfo();
         public string errorMessage = "";
         public string successMessage = "";
@@ -28,11 +35,7 @@ namespace ICBFApp.Pages.Jardin
 
             try
             {
-                //String connectionString = "Data Source=PC-MIGUEL-C\\SQLEXPRESS;Initial Catalog=db_ICBF;Integrated Security=True;";
-                //String connectionString = "RUTA ANGEL";
-                String connectionString = "Data Source=BOGAPRCSFFSD108\\SQLEXPRESS;Initial Catalog=db_ICBF;Integrated Security=True";
-
-                using (SqlConnection connection = new SqlConnection(connectionString))
+                using (SqlConnection connection = new SqlConnection(_connectionString))
                 {
                     connection.Open();
 

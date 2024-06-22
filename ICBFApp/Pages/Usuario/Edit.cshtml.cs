@@ -9,6 +9,13 @@ namespace ICBFApp.Pages.Usuario
 {
     public class EditModel : PageModel
     {
+        private readonly string _connectionString;
+
+        public EditModel(IConfiguration configuration)
+        {
+            _connectionString = configuration.GetConnectionString("ConexionSQLServer");
+        }
+
         public List<RolInfo> rolInfo { get; set; } = new List<RolInfo>();
         public List<TipoDocInfo> tipoDocInfo { get; set; } = new List<TipoDocInfo>();
         public UsuarioInfo usuarioInfo = new UsuarioInfo();
@@ -18,16 +25,12 @@ namespace ICBFApp.Pages.Usuario
         public string errorMessage = "";
         public string successMessage = "";
 
-        //String connectionString = "Data Source=PC-MIGUEL-C\\SQLEXPRESS;Initial Catalog=db_ICBF;Integrated Security=True;";
-        //String connectionString = "RUTA ANGEL";
-        String connectionString = "Data Source=BOGAPRCSFFSD108\\SQLEXPRESS;Initial Catalog=db_ICBF;Integrated Security=True";
-
         public void OnGet()
         {
             String idUsuario = Request.Query["id"];
             try
             {
-                using (SqlConnection connection = new SqlConnection(connectionString))
+                using (SqlConnection connection = new SqlConnection(_connectionString))
                 {
                     connection.Open();
                     String sqlUsuario = "SELECT idUsuario, d.idTipoDocumento, t.tipo, u.idDatosBasicos, identificacion, nombres, fechaNacimiento, celular, direccion, u.idRol, r.nombre, idUsuario " +
@@ -180,7 +183,7 @@ namespace ICBFApp.Pages.Usuario
 
             try
             {
-                using (SqlConnection connection = new SqlConnection(connectionString))
+                using (SqlConnection connection = new SqlConnection(_connectionString))
                 {
                     connection.Open();
                     string idDatosBasicos = Request.Form["idDatosBasicos"];

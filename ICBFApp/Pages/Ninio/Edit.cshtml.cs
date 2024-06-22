@@ -10,6 +10,13 @@ namespace ICBFApp.Pages.Ninio
 {
     public class EditModel : PageModel
     {
+        private readonly string _connectionString;
+
+        public EditModel(IConfiguration configuration)
+        {
+            _connectionString = configuration.GetConnectionString("ConexionSQLServer");
+        }
+
         public List<JardinInfo> listaJardines { get; set; } = new List<JardinInfo>();
         public List<UsuarioInfo> listaAcudientes { get; set; } = new List<UsuarioInfo>();
         public List<EPSInfo> listaEps { get; set; } = new List<EPSInfo>();
@@ -23,16 +30,12 @@ namespace ICBFApp.Pages.Ninio
         public string errorMessage = "";
         public string successMessage = "";
 
-        //String connectionString = "Data Source=PC-MIGUEL-C\\SQLEXPRESS;Initial Catalog=db_ICBF;Integrated Security=True;";
-        //String connectionString = "RUTA ANGEL";
-        String connectionString = "Data Source=BOGAPRCSFFSD108\\SQLEXPRESS;Initial Catalog=db_ICBF;Integrated Security=True";
-
         public void OnGet()
         {
             String idNino = Request.Query["id"];
             try
             {
-                using (SqlConnection connection = new SqlConnection(connectionString))
+                using (SqlConnection connection = new SqlConnection(_connectionString))
                 {
                     connection.Open();
                     String sqlSelect = "SELECT n.idDatosBasicos, identificacion, nombres, fechaNacimiento, " +
@@ -251,7 +254,7 @@ namespace ICBFApp.Pages.Ninio
 
             try
             {
-                using (SqlConnection connection = new SqlConnection(connectionString))
+                using (SqlConnection connection = new SqlConnection(_connectionString))
                 {
                     connection.Open();
                     string idDatosBasicos = Request.Form["idDatosBasicos"];

@@ -1,13 +1,12 @@
 ﻿@page
 @using System.Data.SqlClient;
+@inject IConfiguration Configuration  // Inyecta la configuración en la página Razor
 
 @{
     try
     {
         String idRol = Request.Query["idRol"];
-        //String connectionString = "Data Source=PC-MIGUEL-C\\SQLEXPRESS;Initial Catalog=db_ICBF;Integrated Security=True;";
-        //String connectionString = "Data Source=DESKTOP-FO2357P\\SQLEXPRESS;Initial Catalog=db_ICBF;Integrated Security=True;";
-        String connectionString = "Data Source=BOGAPRCSFFSD108\\SQLEXPRESS;Initial Catalog=db_ICBF;Integrated Security=True";
+        String connectionString = Configuration.GetConnectionString("ConexionSQLServer");
 
         using (SqlConnection connection = new SqlConnection(connectionString))
         {

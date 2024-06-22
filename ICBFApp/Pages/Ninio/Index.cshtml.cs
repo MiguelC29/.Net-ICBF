@@ -13,12 +13,12 @@ namespace ICBFApp.Pages.Ninio
     public class IndexModel : PageModel
     {
         private readonly IGeneratePdfService _generatePdfService;
-        private readonly IWebHostEnvironment _host;
+        private readonly string _connectionString;
 
-        public IndexModel(IGeneratePdfService generatePdfService, IWebHostEnvironment host)
+        public IndexModel(IGeneratePdfService generatePdfService, IConfiguration configuration)
         {
             _generatePdfService = generatePdfService;
-            _host = host;
+            _connectionString = configuration.GetConnectionString("ConexionSQLServer");
         }
 
         public List<NinioInfo> listNinio = new List<NinioInfo>();
@@ -33,11 +33,7 @@ namespace ICBFApp.Pages.Ninio
 
             try
             {
-                //String connectionString = "Data Source=PC-MIGUEL-C\\SQLEXPRESS;Initial Catalog=db_ICBF;Integrated Security=True;";
-                //String connectionString = "RUTA ANGEL";
-                String connectionString = "Data Source=BOGAPRCSFFSD108\\SQLEXPRESS;Initial Catalog=db_ICBF;Integrated Security=True";
-
-                using (SqlConnection connection = new SqlConnection(connectionString))
+                using (SqlConnection connection = new SqlConnection(_connectionString))
                 {
                     connection.Open();
                     String sqlSelect = "SELECT d.idTipoDocumento, t.tipo, n.idDatosBasicos, identificacion, nombres, fechaNacimiento, " +

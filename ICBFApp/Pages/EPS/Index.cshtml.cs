@@ -5,6 +5,12 @@ namespace ICBFApp.Pages.EPS
 {
     public class IndexModel : PageModel
     {
+        private readonly string _connectionString;
+
+        public IndexModel(IConfiguration configuration)
+        {
+            _connectionString = configuration.GetConnectionString("ConexionSQLServer");
+        }
 
         public List<EPSInfo> listEPS = new List<EPSInfo>();
         public string SuccessMessage { get; set; }
@@ -18,11 +24,7 @@ namespace ICBFApp.Pages.EPS
 
             try
             {
-                String connectionString = "Data Source=PC-MIGUEL-C\\SQLEXPRESS;Initial Catalog=db_ICBF;Integrated Security=True;";
-                //String connectionString = "Data Source=DESKTOP-FO2357P\\SQLEXPRESS;Initial Catalog=db_ICBF;Integrated Security=True;";
-                //String connectionString = "Data Source=BOGAPRCSFFSD108\\SQLEXPRESS;Initial Catalog=db_ICBF;Integrated Security=True";
-
-                using (SqlConnection connection = new SqlConnection(connectionString))
+                using (SqlConnection connection = new SqlConnection(_connectionString))
                 {
                     connection.Open();
                     String sqlSelect = "SELECT * FROM EPS";

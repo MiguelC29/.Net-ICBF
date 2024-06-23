@@ -5,6 +5,13 @@ namespace ICBFApp.Pages.TipoDocumento
 {
     public class IndexModel : PageModel
     {
+        private readonly string _connectionString;
+
+        public IndexModel(IConfiguration configuration)
+        {
+            _connectionString = configuration.GetConnectionString("ConexionSQLServer");
+        }
+
         public List<TipoDocInfo> listTipoDocumento = new List<TipoDocInfo>();
         public string SuccessMessage { get; set; }
 
@@ -17,11 +24,7 @@ namespace ICBFApp.Pages.TipoDocumento
 
             try
             {
-                String connectionString = "Data Source=PC-MIGUEL-C\\SQLEXPRESS;Initial Catalog=db_ICBF;Integrated Security=True;";
-                //String connectionString = "Data Source=DESKTOP-FO2357P\\SQLEXPRESS;Initial Catalog=db_ICBF_final;Integrated Security=True;";
-                //String connectionString = "RUTA SENA";
-
-                using (SqlConnection connection = new SqlConnection(connectionString))
+                using (SqlConnection connection = new SqlConnection(_connectionString))
                 {
                     connection.Open();
                     String sqlSelect = "SELECT * FROM TipoDocumento";

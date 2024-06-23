@@ -8,21 +8,24 @@ namespace ICBFApp.Pages.Rol
 {
     public class EditModel : PageModel
     {
+        private readonly string _connectionString;
+
+        public EditModel(IConfiguration configuration)
+        {
+            _connectionString = configuration.GetConnectionString("ConexionSQLServer");
+        }
 
         public RolInfo rolInfo = new RolInfo();
         public string errorMessage = "";
         public string successMessage = "";
         
-        String connectionString = "Data Source=PC-MIGUEL-C\\SQLEXPRESS;Initial Catalog=db_ICBF;Integrated Security=True;";
-        //String connectionString = "Data Source=DESKTOP-FO2357P\\SQLEXPRESS;Initial Catalog=db_ICBF;Integrated Security=True;";
-        //String connectionString = "Data Source=BOGAPRCSFFSD108\\SQLEXPRESS;Initial Catalog=db_ICBF;Integrated Security=True";
         public void OnGet()
         {
             String idRol = Request.Query["idRol"];
 
             try
             {
-                using (SqlConnection connection = new SqlConnection(connectionString))
+                using (SqlConnection connection = new SqlConnection(_connectionString))
                 {
                     connection.Open();
                     String sql = "SELECT * FROM Roles WHERE idRol = @idRol";
@@ -60,7 +63,7 @@ namespace ICBFApp.Pages.Rol
 
             try
             {
-                using (SqlConnection connection = new SqlConnection(connectionString))
+                using (SqlConnection connection = new SqlConnection(_connectionString))
                 {
                     connection.Open();
 

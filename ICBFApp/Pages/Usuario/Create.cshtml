@@ -4,7 +4,7 @@
 }
 
 <br>
-<h2>Agregar Nuevo Usuario</h2>
+<h2 class="text-center">Agregar Nuevo Usuario</h2>
 
 @if (Model.errorMessage.Length > 0)
 {
@@ -37,11 +37,11 @@
         <div class="row mb-3">
             <div class="col-sm-6">
                 <label class="col-form-label" for="nombres">Nombres</label>
-                <input type="text" class="form-control" id="nombres" name="nombres" value="@Model.datosBasicos.nombres">
+                <input type="text" class="form-control" pattern="[A-Za-z]+" id="nombres" name="nombres" value="@Model.datosBasicos.nombres">
             </div>
             <div class="col-sm-6">
                 <label class="col-form-label" for="fechaNacimiento">Fecha de Nacimiento</label>
-                <input type="date" class="form-control" id="fechaNacimiento" name="fechaNacimiento" value="@Model.datosBasicos.fechaNacimiento">
+                <input type="date" class="form-control" id="fechaNacimiento" name="fechaNacimiento" value="@Model.datosBasicos.fechaNacimiento" max="@DateTime.Now.ToString("yyyy-MM-dd")">
             </div>
         </div>
 

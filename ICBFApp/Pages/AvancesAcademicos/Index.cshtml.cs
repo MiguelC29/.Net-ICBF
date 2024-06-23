@@ -16,6 +16,13 @@ namespace ICBFApp.Pages.AvancesAcademicos
 
         public string SuccessMessage { get; set; }
 
+        private readonly string _connectionString;
+
+        public IndexModel(IConfiguration configuration)
+        {
+            _connectionString = configuration.GetConnectionString("ConexionSQLServer");
+        }
+
         public void OnGet()
         {
 
@@ -26,11 +33,8 @@ namespace ICBFApp.Pages.AvancesAcademicos
 
             try
             {
-                //String connectionString = "Data Source=PC-MIGUEL-C\\SQLEXPRESS;Initial Catalog=db_ICBF;Integrated Security=True;";
-                String connectionString = "Data Source=DESKTOP-FO2357P\\SQLEXPRESS;Initial Catalog=db_ICBF_final;Integrated Security=True;";
-                //String connectionString = "Data Source=BOGAPRCSFFSD108\\SQLEXPRESS;Initial Catalog=db_ICBF;Integrated Security=True";
-
-                using (SqlConnection connection = new SqlConnection(connectionString))
+                
+                using (SqlConnection connection = new SqlConnection(_connectionString))
                 {
                     connection.Open();
                     String sqlSelect = "SELECT DatosBasicos.nombres, DatosBasicos.identificacion, AvancesAcademicos.nivel, AvancesAcademicos.notas, AvancesAcademicos.descripcion, AvancesAcademicos.fechaEntrega, AvancesAcademicos.anioEscolar, AvancesAcademicos.idAvanceAcademico " +

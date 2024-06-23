@@ -4,7 +4,7 @@
 }
 
 <br>
-<h2>Agregar Asistencia</h2>
+<h2 class="text-center">Agregar Asistencia</h2>
 
 @* Muestra mensaje de error al no completar todos los campos del formulario *@
 @if (Model.errorMessage.Length > 0)
@@ -30,36 +30,45 @@
 
 <form method="POST">
 
-    <div class="row mb-3">
-        <label class="col-form-label-sm col-form-label">Fecha</label>
-        <div class="col-sm-6">
-            <input type="date" class="form-control" name="fecha" value="@Model.asistenciaInfo.fecha">
-        </div>
-    </div>
+    <div class="container">
 
-    <div class="row mb-3">
-        <label class="col-form-label-sm col-form-label" for="estadoNino">Estado</label>
-        <label class="col-form-label-sm col-form-label" for="SelectedJardinId">Selecciona el estado del Niño:</label>
-        <div class="col-sm-6">
-            <select name="estadoNino" value="@Model.asistenciaInfo.estadoNino" class="form-control">
-                <option value=""> Selecciona el estado </option>
-                <option value="Enfermo">Enfermo</option>
-                <option value="Sano">Sano</option>
-                <option value="Decaido">Decaido</option>
-            </select>
-        </div>
-    </div>
+        <div class="row mb-3 justify-content-center">
 
-    <div class="row mb-3">
-        <label class="col-form-label-sm col-form-label" for="ninio">Niño</label>
-        <div class="col-sm-6">
-            <select id="ninio" name="ninio" class="form-control">
-                <option value="">Seleccione el niño</option>
-                @foreach (var ninio in Model.listaNinios)
-                {
-                    <option value="@ninio.idNinio">@ninio.datosBasicos.identificacion</option>
-                }
-            </select>
+            <div class="col-sm-10">
+                <label class="col-form-label-sm col-form-label">Selecciona la fecha:</label>
+                <input type="date" class="form-control" name="fecha" value="@Model.asistenciaInfo.fecha">
+            </div>
+
+        </div>
+
+        <div class="row mb-3 justify-content-center">
+
+            <div class="col-sm-10">
+                <label class="col-form-label-sm col-form-label" for="SelectedJardinId">Selecciona el estado del Niño:</label>
+                <select name="estadoNino" value="@Model.asistenciaInfo.estadoNino" class="form-control">
+                    <option value=""> Selecciona el estado </option>
+                    <option value="Enfermo">Enfermo</option>
+                    <option value="Sano">Sano</option>
+                    <option value="Decaido">Decaido</option>
+                </select>
+            </div>
+
+        </div>
+
+        <div class="row mb-3 justify-content-center">
+
+            <div class="col-sm-10">
+                <label class="col-form-label-sm col-form-label" for="ninio">Selecciona el Niño:</label>
+                <select id="ninio" name="ninio" class="form-control">
+                    <option value="">Seleccione el niño</option>
+                    @foreach (var ninio in Model.listaNinios)
+                    {
+                        <option value="@ninio.idNinio">@ninio.datosBasicos.identificacion</option>
+                    }
+                </select>
+            </div>
+        </div>
+
         </div>
 
         <div class="row mb-3">
@@ -67,7 +76,7 @@
                 <button type="submit" class="btn btn-primary">Agregar</button>
             </div>
             <div class="col-sm-3 d-grid">
-                <a class="btn btn-outline-primary" href="/Asistencia/Index" role="button">Cancelar</a>
+                <a class="btn btn-outline-danger" href="/Asistencia/Index" role="button">Cancelar</a>
             </div>
         </div>
 

@@ -18,12 +18,34 @@
                 $("#success-message").fadeOut("slow");
             }, 5000); // 5000 milisegundos = 5 segundos
         });
+
+        // Función para mostrar mensaje de confirmación antes de eliminar
+        function confirmarEliminacion(idAsistencia) {
+            Swal.fire({
+                title: '¿Está seguro?',
+                text: "Esta acción no se puede deshacer",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Sí, eliminarlo!'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    // Si el usuario confirma, redirigir a la acción de eliminación
+                    window.location.href = '/Asistencia/Delete?idAsistencia=' + idAsistencia;
+                } else {
+                    // Si el usuario cancela, no hacer nada
+                }
+            });
+        }
     </script>
 }
 
 <br />
 <h2>Lista de asistencias</h2>
-<a class="btn btn-primary btn-sm" href="/Asistencia/Create">Nueva asistencia</a>
+<a class="btn btn-primary btn-sm" href="/Asistencia/Create">
+    <span class="material-symbols-outlined">add</span>
+</a>
 
 <table class="table">
     <thead>
@@ -46,8 +68,12 @@
                 <td>@item.fecha</td>
                 <td>@item.estadoNino</td>
                 <td>
-                    <a class="btn btn-primary btn-sm" href="/Asistencia/Edit?idAsistencia=@item.idAsistencia">Editar</a>
-                    <a class="btn btn-danger btn-sm" href="/Asistencia/Delete?idAsistencia=@item.idAsistencia">Borrar</a>
+                    <a class="btn btn-primary btn-sm" href="/Asistencia/Edit?idAsistencia=@item.idAsistencia">
+                        <span class="material-symbols-outlined">edit_square</span>
+                        </a>
+                    <a class="btn btn-danger btn-sm" href="#" onclick="confirmarEliminacion(@item.idAsistencia)">
+                        <span class="material-symbols-outlined">delete</span>
+                    </a>
                 </td>
             </tr>
         }

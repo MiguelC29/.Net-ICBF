@@ -31,9 +31,9 @@
 <form method="POST">
 
     <div class="row mb-3">
-        <label class="col-form-label-sm col-form-label" for="tipoSangre">Año escolar</label>
-        <label class="col-form-label-sm col-form-label" for="SelectedJardinId">Selecciona el año escolar:</label>
-        <div class="col-sm-6">
+        
+        <div class="col-md-6">
+            <label class="col-form-label-sm col-form-label" for="SelectedJardinId">Selecciona el año escolar:</label>
             <select name="anioEscolar" value="@Model.avanceAcademicoInfo.anioEscolar" class="form-control">
                 <option value=""> Selecciona el año escolar </option>
                 <option value="1">1</option>
@@ -49,12 +49,9 @@
                 <option value="11">11</option>
             </select>
         </div>
-    </div>
 
-    <div class="row mb-3">
-        <label class="col-form-label-sm col-form-label" for="tipoSangre">Nivel</label>
-        <label class="col-form-label-sm col-form-label" for="SelectedJardinId">Selecciona el nivel:</label>
-        <div class="col-sm-6">
+        <div class="col-md-6">
+            <label class="col-form-label-sm col-form-label" for="SelectedJardinId">Selecciona el nivel:</label>
             <select name="nivel" value="@Model.avanceAcademicoInfo.nivel" class="form-control">
                 <option value=""> Selecciona el nivel </option>
                 <option value="Natal">Natal</option>
@@ -64,12 +61,13 @@
                 <option value="Pre-jardin">Pre-jardin</option>
             </select>
         </div>
+
     </div>
 
     <div class="row mb-3">
-        <label class="col-form-label-sm col-form-label" for="tipoSangre">Nota</label>
-        <label class="col-form-label-sm col-form-label" for="SelectedJardinId">Selecciona el nivel:</label>
-        <div class="col-sm-6">
+
+        <div class="col-md-6">
+            <label class="col-form-label-sm col-form-label" for="SelectedJardinId">Selecciona la nota:</label>
             <select name="notas" value="@Model.avanceAcademicoInfo.notas" class="form-control">
                 <option value=""> Selecciona la nota </option>
                 <option value="S">S</option>
@@ -77,25 +75,23 @@
                 <option value="B">B</option>
             </select>
         </div>
-    </div>
 
-    <div class="row mb-3">
-        <label class="col-form-label-sm col-form-label">Descripcion</label>
-        <div class="col-sm-6">
+        <div class="col-md-6">
+            <label class="col-form-label-sm col-form-label">Descripcion</label>
             <input type="text" class="form-control" name="descripcion" value="@Model.avanceAcademicoInfo.descripcion">
         </div>
+
     </div>
 
     <div class="row mb-3">
-        <label class="col-form-label-sm col-form-label">fecha de entrega</label>
-        <div class="col-sm-6">
+
+        <div class="col-md-6">
+            <label class="col-form-label-sm col-form-label">Selecciona la fecha de entrega:</label>
             <input type="date" class="form-control" name="fechaEntrega" value="@Model.avanceAcademicoInfo.fechaEntrega">
         </div>
-    </div>
 
-    <div class="row mb-3">
-        <label class="col-form-label-sm col-form-label" for="ninio">Niño</label>
-        <div class="col-sm-6">
+        <div class="col-md-6">
+            <label class="col-form-label-sm col-form-label" for="ninio">Selecciona el Niño:</label>
             <select id="ninio" name="ninio" class="form-control">
                 <option value="">Seleccione el niño</option>
                 @foreach (var ninio in Model.listaNinios)
@@ -105,12 +101,14 @@
             </select>
         </div>
 
+    </div>
+
     <div class="row mb-3">
         <div class="offset-sm-3 col-sm-3 d-grid">
             <button type="submit" class="btn btn-primary">Agregar</button>
         </div>
         <div class="col-sm-3 d-grid">
-            <a class="btn btn-outline-primary" href="/AvancesAcademicos/Index" role="button">Cancelar</a>
+            <a class="btn btn-outline-danger" href="/AvancesAcademicos/Index" role="button">Cancelar</a>
         </div>
     </div>
 

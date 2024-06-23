@@ -160,6 +160,7 @@ namespace ICBFApp.Pages.Usuario
                 || string.IsNullOrEmpty(direccion))
             {
                 errorMessage = "Todos los campos son obligatorios";
+                OnGet();
                 return Page();
             }
 

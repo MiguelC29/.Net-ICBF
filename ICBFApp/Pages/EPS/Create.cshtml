@@ -19,14 +19,14 @@
         <div class="row mb-3 justify-content-center">
             <div class="col-sm-10">
                 <label class="col-form-label" for="nombre">Nombre EPS</label>
-                <input type="text" class="form-control" id="nombre" name="nombre" value="@Model.epsInfo.nombre">
+                <input type="text" class="form-control" pattern="[A-Za-z]+" id="nombre" name="nombre" value="@Model.epsInfo.nombre">
             </div>
         </div>
 
         <div class="row mb-3 justify-content-center">
             <div class="col-sm-10">
                 <label class="col-form-label" for="NIT">NIT</label>
-                <input type="text" class="form-control" id="NIT" name="NIT" value="@Model.epsInfo.NIT">
+                <input type="text" class="form-control" pattern="\d{8}-\d" id="NIT" name="NIT" value="@Model.epsInfo.NIT">
             </div>
         </div>
 

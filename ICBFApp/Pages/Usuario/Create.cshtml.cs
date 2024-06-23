@@ -121,6 +121,7 @@ namespace ICBFApp.Pages.Usuario
                 || string.IsNullOrEmpty(direccion))
             {
                 errorMessage = "Todos los campos son obligatorios";
+                OnGet();
                 return Page();
             }
 
@@ -222,7 +223,7 @@ namespace ICBFApp.Pages.Usuario
 
             if (!isValidDate)
             {
-                throw new ArgumentException("La fecha de nacimiento no está en un formato válido.");
+                errorMessage = "La fecha esta en un formato no valido.";
             }
 
             DateTime today = DateTime.Today;

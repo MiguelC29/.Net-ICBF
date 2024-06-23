@@ -113,7 +113,7 @@
 
         <div class="col-md-6">
             <label class="col-form-label-sm col-form-label">Selecciona la fecha de entrega:</label>
-            <input type="date" class="form-control" name="fechaEntrega" value="@Model.avanceAcademicoInfo.fechaEntrega">
+            <input type="date" class="form-control" name="fechaEntrega" value="@Model.avanceAcademicoInfo.fechaEntrega" max="@DateTime.Now.ToString("yyyy-MM-dd")">
         </div>
 
     </div>

@@ -70,6 +70,7 @@ namespace ICBFApp.Pages.AvancesAcademicos
                 string.IsNullOrEmpty(avanceAcademicoInfo.descripcion) || string.IsNullOrEmpty(avanceAcademicoInfo.fechaEntrega))
             {
                 errorMessage = "Todos los campos son obligatorios";
+                OnGet();
                 return Page();
             }
 

@@ -167,6 +167,7 @@ namespace ICBFApp.Pages.Ninio
                 || string.IsNullOrEmpty(tipoSangre))
             {
                 errorMessage = "Todos los campos son obligatorios";
+                OnGet();
                 return Page();
             }
 
@@ -290,7 +291,7 @@ namespace ICBFApp.Pages.Ninio
 
             if (!isValidDate)
             {
-                throw new ArgumentException("La fecha de nacimiento no está en un formato válido.");
+                errorMessage = "La fecha de nacimiento esta en un formato no valido.";
             }
 
             DateTime today = DateTime.Today;

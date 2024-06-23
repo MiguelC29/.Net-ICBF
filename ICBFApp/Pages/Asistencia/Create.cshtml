@@ -36,7 +36,7 @@
 
             <div class="col-sm-10">
                 <label class="col-form-label-sm col-form-label">Selecciona la fecha:</label>
-                <input type="date" class="form-control" name="fecha" value="@Model.asistenciaInfo.fecha">
+                <input type="date" class="form-control" name="fecha" value="@Model.asistenciaInfo.fecha" max="@DateTime.Now.ToString("yyyy-MM-dd")">
             </div>
 
         </div>
@@ -63,7 +63,7 @@
                     <option value="">Seleccione el niño</option>
                     @foreach (var ninio in Model.listaNinios)
                     {
-                        <option value="@ninio.idNinio">@ninio.datosBasicos.identificacion</option>
+                        <option value="@ninio.idNinio">@ninio.datosBasicos.identificacion - @ninio.datosBasicos.nombres</option>
                     }
                 </select>
             </div>

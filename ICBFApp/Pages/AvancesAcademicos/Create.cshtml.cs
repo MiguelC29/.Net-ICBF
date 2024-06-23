@@ -33,7 +33,7 @@ namespace ICBFApp.Pages.AvancesAcademicos
                     using (SqlConnection connection = new SqlConnection(_connectionString))
                     {
                         connection.Open();
-                        String sqlNinio = "SELECT Ninos.idNino, DatosBasicos.identificacion " +
+                        String sqlNinio = "SELECT Ninos.idNino, DatosBasicos.identificacion, DatosBasicos.nombres " +
                             "FROM Ninos " +
                             "INNER JOIN DatosBasicos ON Ninos.idDatosBasicos = DatosBasicos.idDatosBasicos;";
                         using (SqlCommand command = new SqlCommand(sqlNinio, connection))
@@ -47,18 +47,21 @@ namespace ICBFApp.Pages.AvancesAcademicos
                                     {
                                     var idNinio = reader.GetInt32(0).ToString();
                                     var identificacion = reader.GetString(1);
+                                    var nombres = reader.GetString(2);
                                     DatosBasicosInfo datosNinios = new DatosBasicosInfo();
                                     datosNinios.identificacion = reader.GetString(1);
+                                    datosNinios.nombres = reader.GetString(2);
 
                                     listaNinios.Add(new NinioInfo
                                     {
                                         idNinio = reader.GetInt32(0).ToString(),
                                         datosBasicos = datosNinios
+
                                     });
 
                                         foreach (var Ninio in listaNinios)
                                         {
-                                            Console.WriteLine("List item - id: {0}, identificacion: {1}", Ninio.idNinio, Ninio.datosBasicos.identificacion);
+                                            Console.WriteLine("List item - id: {0}, identificacion: {1}, nombres: {2}", Ninio.idNinio, Ninio.datosBasicos.identificacion, Ninio.datosBasicos.nombres);
                                         }
                                     }
                                 }
@@ -92,6 +95,7 @@ namespace ICBFApp.Pages.AvancesAcademicos
                 || string.IsNullOrEmpty(descripcion) || string.IsNullOrEmpty(fechaEntrega))
             {
                 errorMessage = "Todos los campos son obligatorios";
+                OnGet();
                 return Page();
             }
 

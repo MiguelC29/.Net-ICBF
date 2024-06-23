@@ -225,6 +225,7 @@ namespace ICBFApp.Pages.Ninio
                 || string.IsNullOrEmpty(tipoSangre))
             {
                 errorMessage = "Todos los campos son obligatorios";
+                OnGet();
                 return Page();
             }
 

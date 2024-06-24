@@ -19,13 +19,16 @@ namespace ICBFApp.Pages.Ninio
 
         public List<JardinInfo> listaJardines { get; set; } = new List<JardinInfo>();
         public List<UsuarioInfo> listaAcudientes { get; set; } = new List<UsuarioInfo>();
+        public List<UsuarioInfo> listaMadresComunitarias { get; set; } = new List<UsuarioInfo>();
         public List<EPSInfo> listaEps { get; set; } = new List<EPSInfo>();
         public string[] listaTiposSangre { get; set; } = new string[] { "O+", "O-", "A+", "A-", "AB+", "AB-" };
         public NinioInfo ninio = new NinioInfo();
         public DatosBasicosInfo datosBasicos = new DatosBasicosInfo();
         public EPSInfo epsSelected = new EPSInfo();
         public UsuarioInfo acudienteSelected = new UsuarioInfo();
+        public UsuarioInfo madreComunitariaSelected = new UsuarioInfo();
         public DatosBasicosInfo datosBasicosAcudiente = new DatosBasicosInfo();
+        public DatosBasicosInfo datosBasicosMadreComunitaria = new DatosBasicosInfo();
         public JardinInfo jardinSelected = new JardinInfo();
         public string errorMessage = "";
         public string successMessage = "";
@@ -39,18 +42,23 @@ namespace ICBFApp.Pages.Ninio
                 {
                     connection.Open();
                     String sqlSelect = "SELECT n.idDatosBasicos, identificacion, nombres, fechaNacimiento, " +
-                        "celular, d.direccion, e.idEps, e.nombre, j.idJardin, j.nombre, n.idUsuario, " +
-                        "(SELECT idDatosBasicos FROM Usuarios WHERE idUsuario = n.idUsuario) as idDatosBasicosAcudiente, " +
+                        "celular, d.direccion, e.idEps, e.nombre, j.idJardin, j.nombre, n.idAcudiente, " +
+                        "(SELECT idDatosBasicos FROM Usuarios WHERE idUsuario = n.idAcudiente) as idDatosBasicosAcudiente, " +
                         "(SELECT identificacion FROM Usuarios as u " +
                         "INNER JOIN DatosBasicos as d ON u.idDatosBasicos = d.idDatosBasicos " +
-                        "WHERE idUsuario = n.idUsuario) as acudiente, " +
-                        "idNino, ciudadNacimiento, tipoSangre " +
+                        "WHERE idUsuario = n.idAcudiente) as acudiente, " +
+                        "idNino, ciudadNacimiento, tipoSangre, n.idMadreComunitaria, " +
+                        "(SELECT idDatosBasicos FROM Usuarios WHERE idUsuario = n.idMadreComunitaria) as idDatosBasicosMadreCom, " +
+                        "(SELECT identificacion FROM Usuarios as u " +
+                        "INNER JOIN DatosBasicos as d ON u.idDatosBasicos = d.idDatosBasicos " +
+                        "WHERE idUsuario = n.idMadreComunitaria) as madreComunitaria " +
                         "FROM Ninos as n " +
                         "INNER JOIN Jardines as j ON n.idJardin = j.idJardin " +
                         "INNER JOIN DatosBasicos as d ON n.idDatosBasicos = d.idDatosBasicos " +
                         "INNER JOIN TipoDocumento as t ON d.idTipoDocumento = t.idTipoDoc " +
                         "INNER JOIN EPS as e ON n.idEps = e.idEps " +
-                        "INNER JOIN Usuarios as u ON n.idUsuario = u.idUsuario " +
+                        "INNER JOIN Usuarios as acu ON n.idAcudiente = acu.idUsuario " +
+                        "INNER JOIN Usuarios as mad ON n.idMadreComunitaria = mad.idUsuario " +
                         "WHERE idNino = @idNino;";
                     using (SqlCommand command = new SqlCommand(sqlSelect, connection))
                     {
@@ -77,12 +85,18 @@ namespace ICBFApp.Pages.Ninio
                                 datosBasicosAcudiente.identificacion = reader.GetString(12);
                                 acudienteSelected.datosBasicos = datosBasicosAcudiente;
 
+                                madreComunitariaSelected.idUsuario = reader.GetInt32(16).ToString();
+                                datosBasicosMadreComunitaria.idDatosBasicos = reader.GetInt32(17).ToString();
+                                datosBasicosMadreComunitaria.identificacion = reader.GetString(18);
+                                madreComunitariaSelected.datosBasicos = datosBasicosMadreComunitaria;
+
                                 ninio.idNinio = "" + reader.GetInt32(13);
                                 ninio.ciudadNacimiento = reader.GetString(14);
                                 ninio.tipoSangre = reader.GetString(15);
                                 ninio.datosBasicos = datosBasicos;
                                 ninio.jardin = jardinSelected;
                                 ninio.acudiente = acudienteSelected;
+                                ninio.madreComunitaria = madreComunitariaSelected;
                                 ninio.eps = epsSelected;
                             } 
                         }
@@ -104,8 +118,8 @@ namespace ICBFApp.Pages.Ninio
 
                                     listaEps.Add(new EPSInfo
                                     {
-                                        idEps = reader.GetInt32(0).ToString(),
-                                        nombre = reader.GetString(1)
+                                        idEps = idEps,
+                                        nombre = nombre
                                     });
 
                                     foreach (var eps in listaEps)
@@ -138,8 +152,8 @@ namespace ICBFApp.Pages.Ninio
 
                                     listaJardines.Add(new JardinInfo
                                     {
-                                        idJardin = reader.GetInt32(0).ToString(),
-                                        nombre = reader.GetString(1)
+                                        idJardin = id,
+                                        nombre = nombreJardin
                                     });
 
                                     foreach (var jardin in listaJardines)
@@ -156,7 +170,7 @@ namespace ICBFApp.Pages.Ninio
                         }
                     }
 
-                    String sqlAcudiente = "SELECT idUsuario, identificacion FROM Usuarios as u " +
+                    String sqlAcudiente = "SELECT idUsuario, identificacion, nombres FROM Usuarios as u " +
                         "INNER JOIN DatosBasicos as d ON u.idDatosBasicos = d.idDatosBasicos " +
                         "INNER JOIN Roles as r ON u.idRol = r.idRol " +
                         "WHERE r.nombre = 'Acudiente';";
@@ -171,12 +185,14 @@ namespace ICBFApp.Pages.Ninio
                                 {
                                     var idUsuario = reader.GetInt32(0).ToString();
                                     var identificacion = reader.GetString(1);
+                                    var nombres = reader.GetString(2);
                                     DatosBasicosInfo datosAcudiente = new DatosBasicosInfo();
-                                    datosAcudiente.identificacion = reader.GetString(1);
+                                    datosAcudiente.identificacion = identificacion;
+                                    datosAcudiente.nombres = nombres;
 
                                     listaAcudientes.Add(new UsuarioInfo
                                     {
-                                        idUsuario = reader.GetInt32(0).ToString(),
+                                        idUsuario = idUsuario,
                                         datosBasicos = datosAcudiente
                                     });
 
@@ -190,6 +206,46 @@ namespace ICBFApp.Pages.Ninio
                             {
                                 Console.WriteLine("No hay filas en el resultado.");
                                 Console.WriteLine("No se encontraron datos en la tabla usuarios.");
+                            }
+                        }
+
+                        String sqlMadreComunitaria = "SELECT idUsuario, identificacion, nombres FROM Usuarios as u " +
+                        "INNER JOIN DatosBasicos as d ON u.idDatosBasicos = d.idDatosBasicos " +
+                        "INNER JOIN Roles as r ON u.idRol = r.idRol " +
+                        "WHERE r.nombre = 'Madre Comunitaria';";
+                        using (SqlCommand command2 = new SqlCommand(sqlMadreComunitaria, connection))
+                        {
+                            using (SqlDataReader reader = command2.ExecuteReader())
+                            {
+                                // Verificar si hay filas en el resultado antes de intentar leer
+                                if (reader.HasRows)
+                                {
+                                    while (reader.Read())
+                                    {
+                                        var idUsuario = reader.GetInt32(0).ToString();
+                                        var identificacion = reader.GetString(1);
+                                        var nombres = reader.GetString(2);
+                                        DatosBasicosInfo datosMadreComunitaria = new DatosBasicosInfo();
+                                        datosMadreComunitaria.identificacion = identificacion;
+                                        datosMadreComunitaria.nombres = nombres;
+
+                                        listaMadresComunitarias.Add(new UsuarioInfo
+                                        {
+                                            idUsuario = idUsuario,
+                                            datosBasicos = datosMadreComunitaria
+                                        });
+
+                                        foreach (var madreComunitaria in listaMadresComunitarias)
+                                        {
+                                            Console.WriteLine("List item - id: {0}, identificacion: {1}", madreComunitaria.idUsuario, madreComunitaria.datosBasicos.identificacion);
+                                        }
+                                    }
+                                }
+                                else
+                                {
+                                    Console.WriteLine("No hay filas en el resultado.");
+                                    Console.WriteLine("No se encontraron datos en la tabla usuarios.");
+                                }
                             }
                         }
                     }
@@ -212,10 +268,12 @@ namespace ICBFApp.Pages.Ninio
             string direccion = Request.Form["direccion"];
             string tipoSangre = Request.Form["tipoSangre"];
             string acudienteIdString = Request.Form["acudiente"];
+            string madreComunitariaIdString = Request.Form["madreComunitaria"];
             string jardinIdString = Request.Form["jardin"];
             string epsIdString = Request.Form["eps"];
             int epsId;
             int acudienteId;
+            int madreComunitariaId;
             int jardinId;
             int tipoDocId = 3;
             int edad = calcularEdad(fechaNacimiento);
@@ -232,6 +290,12 @@ namespace ICBFApp.Pages.Ninio
             if (!int.TryParse(acudienteIdString, out acudienteId))
             {
                 errorMessage = "Acudiente inválido seleccionado";
+                return Page();
+            }
+
+            if (!int.TryParse(madreComunitariaIdString, out madreComunitariaId))
+            {
+                errorMessage = "Madre Comunitaria inválida seleccionada";
                 return Page();
             }
 
@@ -280,14 +344,15 @@ namespace ICBFApp.Pages.Ninio
                     }
 
                     String sqlUpdateNino = "UPDATE ninos SET tipoSangre = @tipoSangre, ciudadNacimiento = @ciudadNacimiento, " +
-                        "idJardin = @idJardin, idUsuario = @idAcudiente, idDatosBasicos = @idDatosBasicos, idEps = @idEps " +
-                            "WHERE idNino = @idNino;"; 
+                        "idJardin = @idJardin, idAcudiente = @idAcudiente, idMadreComunitaria = @idMadreComunitaria, " +
+                        "idDatosBasicos = @idDatosBasicos, idEps = @idEps WHERE idNino = @idNino;"; 
                     using (SqlCommand command2 = new SqlCommand(sqlUpdateNino, connection))
                     {
                         command2.Parameters.AddWithValue("@tipoSangre", tipoSangre);
                         command2.Parameters.AddWithValue("@ciudadNacimiento", ciudadNacimiento);
                         command2.Parameters.AddWithValue("@idJardin", jardinId);
                         command2.Parameters.AddWithValue("@idAcudiente", acudienteId);
+                        command2.Parameters.AddWithValue("@idMadreComunitaria", madreComunitariaId);
                         command2.Parameters.AddWithValue("@idDatosBasicos", idDatosBasicos);
                         command2.Parameters.AddWithValue("@idEps", epsId);
                         command2.Parameters.AddWithValue("@idNino", idNino);

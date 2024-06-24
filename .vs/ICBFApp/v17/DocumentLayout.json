@@ -11,8 +11,12 @@
       "RelativeMoniker": "D:0:0:{97F72541-A725-45DF-A516-6EB1E50A0C83}|ICBFApp\\ICBFApp.csproj|solutionrelative:icbfapp\\services\\generatepdfservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{97F72541-A725-45DF-A516-6EB1E50A0C83}|ICBFApp\\ICBFApp.csproj|c:\\users\\migue\\source\\repos\\.net-icbf\\icbfapp\\pages\\asistencia\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{97F72541-A725-45DF-A516-6EB1E50A0C83}|ICBFApp\\ICBFApp.csproj|solutionrelative:icbfapp\\pages\\asistencia\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{97F72541-A725-45DF-A516-6EB1E50A0C83}|ICBFApp\\ICBFApp.csproj|c:\\users\\migue\\source\\repos\\.net-icbf\\icbfapp\\pages\\ninio\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{97F72541-A725-45DF-A516-6EB1E50A0C83}|ICBFApp\\ICBFApp.csproj|solutionrelative:icbfapp\\pages\\ninio\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{97F72541-A725-45DF-A516-6EB1E50A0C83}|ICBFApp\\ICBFApp.csproj|c:\\users\\migue\\source\\repos\\.net-icbf\\icbfapp\\pages\\ninio\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{97F72541-A725-45DF-A516-6EB1E50A0C83}|ICBFApp\\ICBFApp.csproj|solutionrelative:icbfapp\\pages\\ninio\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     }
   ],
   "DocumentGroupContainers": [
@@ -22,7 +26,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 19,
+          "SelectedChildIndex": 18,
           "Children": [
             {
               "$type": "Bookmark",
@@ -98,41 +102,54 @@
             },
             {
               "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "GeneratePdfServiceAsistencia.cs",
+              "DocumentMoniker": "C:\\Users\\migue\\source\\repos\\.Net-ICBF\\ICBFApp\\Services\\Asistencia\\GeneratePdfServiceAsistencia.cs",
+              "RelativeDocumentMoniker": "ICBFApp\\Services\\Asistencia\\GeneratePdfServiceAsistencia.cs",
+              "ToolTip": "C:\\Users\\migue\\source\\repos\\.Net-ICBF\\ICBFApp\\Services\\Asistencia\\GeneratePdfServiceAsistencia.cs",
+              "RelativeToolTip": "ICBFApp\\Services\\Asistencia\\GeneratePdfServiceAsistencia.cs",
+              "ViewState": "AQIAAHsAAAAAAAAAAAAwwI0AAAA9AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-24T23:31:24.551Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 1,
               "Title": "GeneratePdfService.cs",
               "DocumentMoniker": "C:\\Users\\migue\\source\\repos\\.Net-ICBF\\ICBFApp\\Services\\GeneratePdfService.cs",
               "RelativeDocumentMoniker": "ICBFApp\\Services\\GeneratePdfService.cs",
               "ToolTip": "C:\\Users\\migue\\source\\repos\\.Net-ICBF\\ICBFApp\\Services\\GeneratePdfService.cs",
               "RelativeToolTip": "ICBFApp\\Services\\GeneratePdfService.cs",
-              "ViewState": "AQIAAIkAAAAAAAAAAAAwwJIAAAA3AAAA",
+              "ViewState": "AQIAAJEAAAAAAAAAAAAgwGQAAAAdAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-24T20:55:22.484Z",
+              "WhenOpened": "2024-06-24T23:25:57.748Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "GeneratePdfServiceAsistencia.cs",
-              "DocumentMoniker": "C:\\Users\\migue\\source\\repos\\.Net-ICBF\\ICBFApp\\Services\\Asistencia\\GeneratePdfServiceAsistencia.cs",
-              "RelativeDocumentMoniker": "ICBFApp\\Services\\Asistencia\\GeneratePdfServiceAsistencia.cs",
-              "ToolTip": "C:\\Users\\migue\\source\\repos\\.Net-ICBF\\ICBFApp\\Services\\Asistencia\\GeneratePdfServiceAsistencia.cs*",
-              "RelativeToolTip": "ICBFApp\\Services\\Asistencia\\GeneratePdfServiceAsistencia.cs*",
-              "ViewState": "AQIAAH4AAAAAAAAAAAAQwH8AAAA5AAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-24T20:49:33.029Z",
+              "DocumentIndex": 3,
+              "Title": "Create.cshtml",
+              "DocumentMoniker": "C:\\Users\\migue\\source\\repos\\.Net-ICBF\\ICBFApp\\Pages\\Ninio\\Create.cshtml",
+              "RelativeDocumentMoniker": "ICBFApp\\Pages\\Ninio\\Create.cshtml",
+              "ToolTip": "C:\\Users\\migue\\source\\repos\\.Net-ICBF\\ICBFApp\\Pages\\Ninio\\Create.cshtml",
+              "RelativeToolTip": "ICBFApp\\Pages\\Ninio\\Create.cshtml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAHAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-06-24T23:07:11.549Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "Index.cshtml",
-              "DocumentMoniker": "C:\\Users\\migue\\source\\repos\\.Net-ICBF\\ICBFApp\\Pages\\Asistencia\\Index.cshtml",
-              "RelativeDocumentMoniker": "ICBFApp\\Pages\\Asistencia\\Index.cshtml",
-              "ToolTip": "C:\\Users\\migue\\source\\repos\\.Net-ICBF\\ICBFApp\\Pages\\Asistencia\\Index.cshtml",
-              "RelativeToolTip": "ICBFApp\\Pages\\Asistencia\\Index.cshtml",
-              "ViewState": "AQIAAEgAAAAAAAAAAAAAAAoAAAABAAAA",
+              "Title": "Edit.cshtml",
+              "DocumentMoniker": "C:\\Users\\migue\\source\\repos\\.Net-ICBF\\ICBFApp\\Pages\\Ninio\\Edit.cshtml",
+              "RelativeDocumentMoniker": "ICBFApp\\Pages\\Ninio\\Edit.cshtml",
+              "ToolTip": "C:\\Users\\migue\\source\\repos\\.Net-ICBF\\ICBFApp\\Pages\\Ninio\\Edit.cshtml",
+              "RelativeToolTip": "ICBFApp\\Pages\\Ninio\\Edit.cshtml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAADwAAABbAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-06-24T20:48:30.171Z",
+              "WhenOpened": "2024-06-24T22:39:09.973Z",
               "EditorCaption": ""
             }
           ]

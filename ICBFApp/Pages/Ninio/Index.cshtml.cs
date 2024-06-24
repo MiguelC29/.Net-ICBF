@@ -7,6 +7,7 @@ using static ICBFApp.Pages.EPS.IndexModel;
 using static ICBFApp.Pages.Jardin.IndexModel;
 using static ICBFApp.Pages.TipoDocumento.IndexModel;
 using static ICBFApp.Pages.Usuario.IndexModel;
+using static QuestPDF.Helpers.Colors;
 
 namespace ICBFApp.Pages.Ninio
 {
@@ -37,21 +38,26 @@ namespace ICBFApp.Pages.Ninio
                 {
                     connection.Open();
                     String sqlSelect = "SELECT d.idTipoDocumento, t.tipo, n.idDatosBasicos, identificacion, nombres, fechaNacimiento, " +
-                        "e.idEps, e.nombre, j.idJardin, j.nombre, n.idUsuario, " +
-                        "(SELECT idDatosBasicos FROM Usuarios WHERE idUsuario = n.idUsuario) as idDatosBasicosAcudiente, " +
+                        "e.idEps, e.nombre, j.idJardin, j.nombre, n.idAcudiente, " +
+                        "(SELECT idDatosBasicos FROM Usuarios WHERE idUsuario = n.idAcudiente) as idDatosBasicosAcudiente, " +
                         "(SELECT nombres FROM Usuarios as u " +
                         "INNER JOIN DatosBasicos as d ON u.idDatosBasicos = d.idDatosBasicos " +
-                        "WHERE idUsuario = n.idUsuario) as acudiente, " +
+                        "WHERE idUsuario = n.idAcudiente) as acudiente, " +
                         "idNino, ciudadNacimiento, tipoSangre, " +
                         "(SELECT identificacion FROM Usuarios as u " +
                         "INNER JOIN DatosBasicos as d ON u.idDatosBasicos = d.idDatosBasicos " +
-                        "WHERE idUsuario = n.idUsuario) as identificacionAcudiente " +
+                        "WHERE idUsuario = n.idAcudiente) as identificacionAcudiente, n.idMadreComunitaria, " +
+                        "(SELECT idDatosBasicos FROM Usuarios WHERE idUsuario = n.idMadreComunitaria) as idDatosBasicosMadreC,  " +
+                        "(SELECT nombres FROM Usuarios as u " +
+                        "INNER JOIN DatosBasicos as d ON u.idDatosBasicos = d.idDatosBasicos " +
+                        "WHERE idUsuario = n.idMadreComunitaria) as madreComunitaria " +
                         "FROM Ninos as n " +
                         "INNER JOIN Jardines as j ON n.idJardin = j.idJardin " +
                         "INNER JOIN DatosBasicos as d ON n.idDatosBasicos = d.idDatosBasicos " +
                         "INNER JOIN TipoDocumento as t ON d.idTipoDocumento = t.idTipoDoc " +
                         "INNER JOIN EPS as e ON n.idEps = e.idEps " +
-                        "INNER JOIN Usuarios as u ON n.idUsuario = u.idUsuario;";
+                        "INNER JOIN Usuarios as acu ON n.idAcudiente = acu.idUsuario " +
+                        "INNER JOIN Usuarios as mad ON n.idMadreComunitaria = mad.idUsuario; ";
 
                     using (SqlCommand command = new SqlCommand(sqlSelect, connection))
                     {
@@ -83,12 +89,20 @@ namespace ICBFApp.Pages.Ninio
 
                                     DatosBasicosInfo datosAcudiente = new DatosBasicosInfo();
                                     datosAcudiente.idDatosBasicos = reader.GetInt32(11).ToString();
-                                    datosAcudiente.identificacion = reader.GetString(1);
+                                    datosAcudiente.identificacion = reader.GetString(16);
                                     datosAcudiente.nombres = reader.GetString(12);
 
                                     UsuarioInfo acudiente = new UsuarioInfo();
                                     acudiente.idUsuario = reader.GetInt32(10).ToString();
                                     acudiente.datosBasicos = datosAcudiente;
+
+                                    DatosBasicosInfo datosMadreComunitaria = new DatosBasicosInfo();
+                                    datosMadreComunitaria.idDatosBasicos = reader.GetInt32(18).ToString();
+                                    datosMadreComunitaria.nombres = reader.GetString(19);
+
+                                    UsuarioInfo madreComunitaria = new UsuarioInfo();
+                                    madreComunitaria.idUsuario = reader.GetInt32(17).ToString();
+                                    madreComunitaria.datosBasicos = datosMadreComunitaria;
 
                                     NinioInfo ninio = new NinioInfo();
                                     ninio.idNinio = reader.GetInt32(13).ToString();
@@ -97,6 +111,7 @@ namespace ICBFApp.Pages.Ninio
                                     ninio.edad = calcularEdad(reader.GetDateTime(5).Date.ToShortDateString());
                                     ninio.jardin = jardin;
                                     ninio.acudiente = acudiente;
+                                    ninio.madreComunitaria = madreComunitaria;
                                     ninio.datosBasicos = datosBasicos;
                                     ninio.eps = eps;
 
@@ -158,6 +173,7 @@ namespace ICBFApp.Pages.Ninio
             public int edad { get; set; }
             public JardinInfo jardin { get; set; }
             public UsuarioInfo acudiente { get; set; }
+            public UsuarioInfo madreComunitaria { get; set; }
             public DatosBasicosInfo datosBasicos {  get; set; }
             public EPSInfo eps { get; set; }
         }

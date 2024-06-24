@@ -6,6 +6,7 @@ using static ICBFApp.Pages.Jardin.IndexModel;
 using static ICBFApp.Pages.Ninio.IndexModel;
 using static ICBFApp.Pages.TipoDocumento.IndexModel;
 using static ICBFApp.Pages.Usuario.IndexModel;
+using static QuestPDF.Helpers.Colors;
 
 namespace ICBFApp.Services.Asistencia
 {
@@ -29,11 +30,12 @@ namespace ICBFApp.Services.Asistencia
                 using (SqlConnection connection = new SqlConnection(_connectionString))
                 {
                     connection.Open();
-                    String sqlSelect = "SELECT Ninos.idNino, DatosBasicos.nombres, DatosBasicos.identificacion, Jardines.nombre, Jardines.direccion, Asistencias.fecha, Asistencias.estadoNino " +
-                        "FROM Ninos " +
-                        "INNER JOIN DatosBasicos ON Ninos.idDatosBasicos = DatosBasicos.idDatosBasicos " +
-                        "INNER JOIN Asistencias ON Ninos.idNino = Asistencias.idNino " +
-                        "INNER JOIN Jardines ON Ninos.idJardin = Jardines.idJardin;"; 
+                    String sqlSelect = "SELECT n.idNino, d.nombres, d.identificacion, j.nombre, j.direccion, a.fecha, a.estadoNino, " +
+                        "(SELECT nombres FROM DatosBasicos as d INNER JOIN Usuarios as u ON d.idDatosBasicos = u.idDatosBasicos WHERE n.idMadreComunitaria = u.idUsuario) as madreComunitaria " +
+                        "FROM Ninos as n " +
+                        "INNER JOIN DatosBasicos as d ON n.idDatosBasicos = d.idDatosBasicos " +
+                        "INNER JOIN Asistencias as a ON n.idNino = a.idNino " +
+                        "INNER JOIN Jardines as j ON n.idJardin = j.idJardin; "; 
 
                     using (SqlCommand command = new SqlCommand(sqlSelect, connection))
                     {
@@ -44,7 +46,6 @@ namespace ICBFApp.Services.Asistencia
                             {
                                 while (reader.Read())
                                 {
-
                                     NinioInfo ninio = new NinioInfo();
                                     ninio.idNinio = reader.GetInt32(0).ToString();
 
@@ -60,10 +61,17 @@ namespace ICBFApp.Services.Asistencia
                                     asistencia.fecha = reader.GetDateTime(5).Date.ToShortDateString();
                                     asistencia.estadoNino = reader.GetString(6);
 
+                                    DatosBasicosInfo datosBasicosMadreCom = new DatosBasicosInfo();
+                                    datosBasicosMadreCom.nombres = reader.GetString(7);
+
+                                    UsuarioInfo madreComunitaria = new UsuarioInfo();
+                                    madreComunitaria.datosBasicos = datosBasicosMadreCom;
+
                                     // Asignar objetos a la asistencia
                                     asistencia.datosBasicosInfo = datosBasicos;
                                     asistencia.ninioInfo = ninio;
                                     ninio.jardin = jardin;
+                                    ninio.madreComunitaria = madreComunitaria;
 
                                     // Añadir la asistencia a la lista
                                     asistenciaInfo.Add(asistencia);
@@ -131,13 +139,14 @@ namespace ICBFApp.Services.Asistencia
                                 columns.ConstantColumn(100);
                                 columns.RelativeColumn(1.2f);
                                 columns.ConstantColumn(200);
+                                columns.RelativeColumn(1.2f);
                             });
 
                             table.Header(header =>
                             {
                                 header.Cell().ColumnSpan(2).Background(Colors.Green.Darken4).Border(0.5f).BorderColor(Colors.Black).AlignMiddle().Text("DATOS NIÑO").Bold().FontColor("#fff").AlignCenter();
                                 header.Cell().ColumnSpan(2).Background(Colors.Green.Darken4).Border(0.5f).BorderColor(Colors.Black).AlignMiddle().Text("DATOS ASISTENCIA").Bold().FontColor("#fff").AlignCenter();
-                                header.Cell().ColumnSpan(2).Background(Colors.Green.Darken4).Border(0.5f).BorderColor(Colors.Black).AlignMiddle().Text("DATOS JARDÍN").Bold().FontColor("#fff").AlignCenter();
+                                header.Cell().ColumnSpan(3).Background(Colors.Green.Darken4).Border(0.5f).BorderColor(Colors.Black).AlignMiddle().Text("DATOS JARDÍN").Bold().FontColor("#fff").AlignCenter();
 
                                 header.Cell().Background("#212529").Border(0.5f).BorderColor(Colors.Black).AlignMiddle().Text("Identificacion").FontColor("#fff").AlignCenter();
                                 header.Cell().Background("#212529").Border(0.5f).BorderColor(Colors.Black).AlignMiddle().Text("Nombres").FontColor("#fff").AlignCenter();
@@ -145,6 +154,7 @@ namespace ICBFApp.Services.Asistencia
                                 header.Cell().Background("#212529").Border(0.5f).BorderColor(Colors.Black).AlignMiddle().Text("Fecha").FontColor("#fff").AlignCenter();
                                 header.Cell().Background("#212529").Border(0.5f).BorderColor(Colors.Black).AlignMiddle().Text("Nombre").FontColor("#fff").AlignCenter();
                                 header.Cell().Background("#212529").Border(0.5f).BorderColor(Colors.Black).AlignMiddle().Text("Direccion").FontColor("#fff").AlignCenter();
+                                header.Cell().Background("#212529").Border(0.5f).BorderColor(Colors.Black).AlignMiddle().Text("Madre Comunitaria").FontColor("#fff").AlignCenter();
                             });
 
                             foreach (var asistencia in asistenciaInfo)
@@ -155,6 +165,7 @@ namespace ICBFApp.Services.Asistencia
                                 table.Cell().Border(0.5f).BorderColor(Colors.Black).Text(asistencia.fecha.ToString()).AlignCenter();
                                 table.Cell().Border(0.5f).BorderColor(Colors.Black).Text(asistencia.ninioInfo.jardin.nombre).AlignCenter();
                                 table.Cell().Border(0.5f).BorderColor(Colors.Black).Text(asistencia.ninioInfo.jardin.direccion).AlignCenter();
+                                table.Cell().Border(0.5f).BorderColor(Colors.Black).Text(asistencia.ninioInfo.madreComunitaria.datosBasicos.nombres).AlignCenter();
                             }
                         });
                     });

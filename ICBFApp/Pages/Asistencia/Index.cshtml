@@ -43,9 +43,15 @@
 
 <br />
 <h2>Lista de asistencias</h2>
-<a class="btn btn-primary btn-sm" href="/Asistencia/Create">
-    <span class="material-symbols-outlined">add</span>
-</a>
+
+<div style="display: flex; gap: 10px; align-items: center;">
+    <a class="btn btn-primary btn-sm" href="/Asistencia/Create">
+        <span class="material-symbols-outlined">add</span>
+    </a>
+    <form method="post" asp-page-handler="DownloadPdf" target="_blank">
+        <button type="submit" class="btn btn-sm text-white p-2" style="background-color: #F40F02">Generar PDF</button>
+    </form>
+</div>
 
 <table class="table">
     <thead>

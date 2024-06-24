@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - ICBFApp</title>
+    <title>@ViewData["Title"] - Bienestar Familiar</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
@@ -12,47 +12,55 @@
 </head>
 <body>
     <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm border-bottom box-shadow mb-3" id="nav">
             <div class="container">
-                <img src="~/images/logoICBF.png" width="70px"/>
-                <a class="navbar-brand" asp-area="" asp-page="/Index">ICBFApp</a>
+                <a class="navbar-brand" href="/Index">
+                    <img src="~/images/logo_bienestar.png" width="70px" class="mr-2">
+                </a>
+                <!-- Título -->
+                <a class="navbar-brand text-white" id="titulo" asp-area="" asp-page="/Index">Bienestar Familiar</a>
+
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                     <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-page="/Index">Home</a>
+
+                        <!-- Sub Opciones niños -->
+                        <li class="nav-item dropdown mr-2">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <p id="link">Opcion Niños</p>
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="/Ninio/Index">Niños</a>
+                                <a class="dropdown-item" href="/AvancesAcademicos/Index">Avances Académicos</a>
+                                <a class="dropdown-item" href="/Asistencia/Index">Asistencia</a>
+                            </div>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-page="/Privacy">Privacy</a>
+                       
+                        <!-- Sub Opciones usuarios -->
+                        <li class="nav-item dropdown mr-2">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <p id="link">Opcion Usuarios</p>
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" link="opciones" href="/Rol/Index">Rol</a>
+                                <a class="dropdown-item" href="/TipoDocumento/Index">Tipo Documento</a>
+                                <a class="dropdown-item" href="/Usuario/Index">Usuario</a>
+                            </div>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-page="/Jardin/Index">Jardín</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-page="/EPS/Index">EPS</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-page="/Rol/Index">Rol</a>
-                        </li>
-                        </li
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-page="/TipoDocumento/Index">Tipo Documento</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-page="/Usuario/Index">Usuario</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-page="/Ninio/Index">Niños</a>
-                        </li
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-page="/AvancesAcademicos/Index">Avances Academicos</a>
-                        </li>
-                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-page="/Asistencia/Index">Asistencia</a>
-                        </li>
+
+                        <!-- Sub Opciones bienestar familiar -->
+                        <li class="nav-item dropdown mr-2">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <p id="link">Opcion Bienestar familiar</p>
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="/Jardin/Index">Jardín</a>
+                                <a class="dropdown-item" href="/EPS/Index">EPS</a>
+                            </div>
+                        </li>                        
                     </ul>
                 </div>
             </div>
@@ -64,9 +72,10 @@
         </main>
     </div>
 
-    <footer class="border-top footer text-muted">
-        <div class="container">
-            &copy; 2024 - ICBFApp - <a asp-area="" asp-page="/Privacy">Privacy</a>
+    <footer class="border-top footer text-muted" style="background-color: #3cc14d">
+        <div class="container text-white">
+            <img src="~/images/logo_bienestar2.png" width="45px" />
+            &copy; 2024 - Bienestar Familiar 
         </div>
     </footer>
 

@@ -16,3 +16,57 @@ html {
 body {
   margin-bottom: 60px;
 }
+
+#nav {
+    background-color: #3cc14d;
+}
+
+#titulo {
+    text-decoration: none;
+}
+
+#titulo {
+    color: #000; 
+    text-decoration: none; 
+}
+
+#link {
+    display: inline-block; 
+    padding: 10px 15px; 
+    text-decoration: none; 
+    color: green; 
+    background-color: white; 
+    border: 2px solid green; 
+    border-radius: 15%; 
+    transition: all 0.3s ease; 
+}
+
+    #link:hover {
+        background-color: green; 
+        border-color: white; 
+        color: white; 
+    }
+
+.nav-item .dropdown-item {
+    color: white;
+    text-decoration: none;
+    background-color: transparent;
+    transition: all 0.3s ease;
+}
+
+.dropdown-menu{
+    background-color: green;
+}
+
+.dropdown-item {
+    color: white; /* Color de texto por defecto */
+    text-decoration: none;
+    background-color: transparent; /* Fondo transparente por defecto */
+    transition: all 0.3s ease; /* Transición suave para los cambios */
+}
+
+    /* Estilo para el fondo y texto cuando se hace hover */
+    .dropdown-item:hover {
+        background-color: white; /* Fondo verde al hacer hover */
+        color: green; /* Texto blanco al hacer hover */
+    }

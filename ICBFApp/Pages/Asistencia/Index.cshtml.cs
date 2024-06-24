@@ -2,6 +2,10 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using static ICBFApp.Pages.Ninio.IndexModel;
 using static ICBFApp.Pages.Usuario.IndexModel;
 using System.Data.SqlClient;
+using ICBFApp.Services;
+using ICBFApp.Services.Asistencia;
+using Microsoft.AspNetCore.Mvc;
+using QuestPDF.Fluent;
 
 namespace ICBFApp.Pages.Asistencia
 {
@@ -12,10 +16,12 @@ namespace ICBFApp.Pages.Asistencia
 
         public string SuccessMessage { get; set; }
 
+        private readonly IGeneratePdfServiceAsistencia _generatePdfServiceAsistencia;
         private readonly string _connectionString;
 
-        public IndexModel(IConfiguration configuration)
+        public IndexModel(IConfiguration configuration, IGeneratePdfServiceAsistencia generatePdfServiceAsistencia)
         {
+            _generatePdfServiceAsistencia = generatePdfServiceAsistencia;
             _connectionString = configuration.GetConnectionString("ConexionSQLServer");
         }
 
@@ -78,6 +84,15 @@ namespace ICBFApp.Pages.Asistencia
                 Console.WriteLine("Exception: " + ex.ToString());
             }
 
+        }
+
+        public IActionResult OnPostDownloadPdf()
+        {
+            var report = _generatePdfServiceAsistencia.GeneratePdfQuest();
+            byte[] pdfBytes = report.GeneratePdf();
+            var mimeType = "application/pdf";
+            //return File(pdfBytes, mimeType, "Reporte.pdf"); // si le quito el nombre del archivo, no lo descarga auto
+            return File(pdfBytes, mimeType); // si le quito el nombre del archivo, no lo descarga auto
         }
 
         public class AsistenciaInfo

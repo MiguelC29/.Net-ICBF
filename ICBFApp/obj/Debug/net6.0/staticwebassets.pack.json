@@ -21,6 +21,14 @@
       "PackagePath": "staticwebassets\\images\\logoSena.png"
     },
     {
+      "Id": "B:\\Projectos\\.net\\.Net-ICBF\\ICBFApp\\wwwroot\\images\\logo_bienestar.png",
+      "PackagePath": "staticwebassets\\images\\logo_bienestar.png"
+    },
+    {
+      "Id": "B:\\Projectos\\.net\\.Net-ICBF\\ICBFApp\\wwwroot\\images\\logo_bienestar2.png",
+      "PackagePath": "staticwebassets\\images\\logo_bienestar2.png"
+    },
+    {
       "Id": "B:\\Projectos\\.net\\.Net-ICBF\\ICBFApp\\wwwroot\\js\\site.js",
       "PackagePath": "staticwebassets\\js\\site.js"
     },

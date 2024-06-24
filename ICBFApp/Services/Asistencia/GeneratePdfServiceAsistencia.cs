@@ -110,7 +110,7 @@ namespace ICBFApp.Services.Asistencia
                         row.RelativeItem().AlignRight().Column(col =>
                         {
                             col.Item().Height(20).Text("Asociación del ICBF").Bold().FontSize(14).AlignRight();
-                            col.Item().Height(20).Text("Reporte Diario").Bold().AlignRight();
+                            col.Item().Height(20).Text("Reporte de Asistencia").Bold().AlignRight();
                             col.Item().Height(20).Text("Fecha de emisión: " + today.Date.ToShortDateString()).AlignRight();
                         });
                     });
@@ -125,22 +125,22 @@ namespace ICBFApp.Services.Asistencia
                         {
                             table.ColumnsDefinition(columns =>
                             {
-                                columns.ConstantColumn(80); // Ancho constante de 80
-                                columns.ConstantColumn(50); // Ancho constante de 50
-                                columns.ConstantColumn(50); // Ancho constante de 50
-                                columns.ConstantColumn(70); // Ancho constante de 70
-                                columns.ConstantColumn(80); // Ancho constante de 80
-                                columns.RelativeColumn(2); // Columna relativa con factor 2
+                                columns.ConstantColumn(100);
+                                columns.RelativeColumn(1.2f);
+                                columns.ConstantColumn(90);
+                                columns.ConstantColumn(100);
+                                columns.RelativeColumn(1.2f);
+                                columns.ConstantColumn(200);
                             });
 
                             table.Header(header =>
                             {
-                                header.Cell().ColumnSpan(3).Background(Colors.Green.Darken4).Border(0.5f).BorderColor(Colors.Black).AlignMiddle().Text("DATOS NIÑO").Bold().FontColor("#fff").AlignCenter();
-                                header.Cell().ColumnSpan(1).Background(Colors.Green.Darken4).Border(0.5f).BorderColor(Colors.Black).AlignMiddle().Text("DATOS ASISTENCIA").Bold().FontColor("#fff").AlignCenter();
-                                header.Cell().Background(Colors.Green.Darken4).Border(0.5f).BorderColor(Colors.Black).AlignMiddle().Text("DATOS JARDÍN").Bold().FontColor("#fff").AlignCenter();
+                                header.Cell().ColumnSpan(2).Background(Colors.Green.Darken4).Border(0.5f).BorderColor(Colors.Black).AlignMiddle().Text("DATOS NIÑO").Bold().FontColor("#fff").AlignCenter();
+                                header.Cell().ColumnSpan(2).Background(Colors.Green.Darken4).Border(0.5f).BorderColor(Colors.Black).AlignMiddle().Text("DATOS ASISTENCIA").Bold().FontColor("#fff").AlignCenter();
+                                header.Cell().ColumnSpan(2).Background(Colors.Green.Darken4).Border(0.5f).BorderColor(Colors.Black).AlignMiddle().Text("DATOS JARDÍN").Bold().FontColor("#fff").AlignCenter();
 
-                                header.Cell().Background("#212529").Border(0.5f).BorderColor(Colors.Black).AlignMiddle().Text("Nombres").FontColor("#fff").AlignCenter();
                                 header.Cell().Background("#212529").Border(0.5f).BorderColor(Colors.Black).AlignMiddle().Text("Identificacion").FontColor("#fff").AlignCenter();
+                                header.Cell().Background("#212529").Border(0.5f).BorderColor(Colors.Black).AlignMiddle().Text("Nombres").FontColor("#fff").AlignCenter();
                                 header.Cell().Background("#212529").Border(0.5f).BorderColor(Colors.Black).AlignMiddle().Text("Estado Niño").FontColor("#fff").AlignCenter();
                                 header.Cell().Background("#212529").Border(0.5f).BorderColor(Colors.Black).AlignMiddle().Text("Fecha").FontColor("#fff").AlignCenter();
                                 header.Cell().Background("#212529").Border(0.5f).BorderColor(Colors.Black).AlignMiddle().Text("Nombre").FontColor("#fff").AlignCenter();
@@ -149,8 +149,8 @@ namespace ICBFApp.Services.Asistencia
 
                             foreach (var asistencia in asistenciaInfo)
                             {
-                                table.Cell().Border(0.5f).BorderColor(Colors.Black).Text(asistencia.datosBasicosInfo.nombres).AlignCenter();
                                 table.Cell().Border(0.5f).BorderColor(Colors.Black).Text(asistencia.datosBasicosInfo.identificacion).AlignCenter();
+                                table.Cell().Border(0.5f).BorderColor(Colors.Black).Text(asistencia.datosBasicosInfo.nombres).AlignCenter();
                                 table.Cell().Border(0.5f).BorderColor(Colors.Black).Text(asistencia.estadoNino).AlignCenter();
                                 table.Cell().Border(0.5f).BorderColor(Colors.Black).Text(asistencia.fecha.ToString()).AlignCenter();
                                 table.Cell().Border(0.5f).BorderColor(Colors.Black).Text(asistencia.ninioInfo.jardin.nombre).AlignCenter();

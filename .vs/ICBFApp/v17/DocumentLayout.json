@@ -1,202 +1,18 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "B:\\Projectos\\.net\\.Net-ICBF\\",
+  "WorkspaceRootPath": "C:\\Users\\migue\\source\\repos\\.Net-ICBF\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{97F72541-A725-45DF-A516-6EB1E50A0C83}|ICBFApp\\ICBFApp.csproj|b:\\projectos\\.net\\.net-icbf\\icbfapp\\services\\asistencia\\generatepdfserviceasistencia.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{97F72541-A725-45DF-A516-6EB1E50A0C83}|ICBFApp\\ICBFApp.csproj|c:\\users\\migue\\source\\repos\\.net-icbf\\icbfapp\\services\\asistencia\\generatepdfserviceasistencia.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{97F72541-A725-45DF-A516-6EB1E50A0C83}|ICBFApp\\ICBFApp.csproj|solutionrelative:icbfapp\\services\\asistencia\\generatepdfserviceasistencia.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{97F72541-A725-45DF-A516-6EB1E50A0C83}|ICBFApp\\ICBFApp.csproj|b:\\projectos\\.net\\.net-icbf\\icbfapp\\services\\generatepdfservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{97F72541-A725-45DF-A516-6EB1E50A0C83}|ICBFApp\\ICBFApp.csproj|c:\\users\\migue\\source\\repos\\.net-icbf\\icbfapp\\services\\generatepdfservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{97F72541-A725-45DF-A516-6EB1E50A0C83}|ICBFApp\\ICBFApp.csproj|solutionrelative:icbfapp\\services\\generatepdfservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{97F72541-A725-45DF-A516-6EB1E50A0C83}|ICBFApp\\ICBFApp.csproj|b:\\projectos\\.net\\.net-icbf\\icbfapp\\services\\asistencia\\igeneratepdfserviceasistencia.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{97F72541-A725-45DF-A516-6EB1E50A0C83}|ICBFApp\\ICBFApp.csproj|solutionrelative:icbfapp\\services\\asistencia\\igeneratepdfserviceasistencia.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{97F72541-A725-45DF-A516-6EB1E50A0C83}|ICBFApp\\ICBFApp.csproj|b:\\projectos\\.net\\.net-icbf\\icbfapp\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{97F72541-A725-45DF-A516-6EB1E50A0C83}|ICBFApp\\ICBFApp.csproj|solutionrelative:icbfapp\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{97F72541-A725-45DF-A516-6EB1E50A0C83}|ICBFApp\\ICBFApp.csproj|b:\\projectos\\.net\\.net-icbf\\icbfapp\\services\\igeneratepdfservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{97F72541-A725-45DF-A516-6EB1E50A0C83}|ICBFApp\\ICBFApp.csproj|solutionrelative:icbfapp\\services\\igeneratepdfservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{97F72541-A725-45DF-A516-6EB1E50A0C83}|ICBFApp\\ICBFApp.csproj|b:\\projectos\\.net\\.net-icbf\\icbfapp\\pages\\asistencia\\index.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{97F72541-A725-45DF-A516-6EB1E50A0C83}|ICBFApp\\ICBFApp.csproj|solutionrelative:icbfapp\\pages\\asistencia\\index.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{97F72541-A725-45DF-A516-6EB1E50A0C83}|ICBFApp\\ICBFApp.csproj|b:\\projectos\\.net\\.net-icbf\\icbfapp\\pages\\ninio\\index.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{97F72541-A725-45DF-A516-6EB1E50A0C83}|ICBFApp\\ICBFApp.csproj|solutionrelative:icbfapp\\pages\\ninio\\index.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{97F72541-A725-45DF-A516-6EB1E50A0C83}|ICBFApp\\ICBFApp.csproj|b:\\projectos\\.net\\.net-icbf\\icbfapp\\pages\\asistencia\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "AbsoluteMoniker": "D:0:0:{97F72541-A725-45DF-A516-6EB1E50A0C83}|ICBFApp\\ICBFApp.csproj|c:\\users\\migue\\source\\repos\\.net-icbf\\icbfapp\\pages\\asistencia\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{97F72541-A725-45DF-A516-6EB1E50A0C83}|ICBFApp\\ICBFApp.csproj|solutionrelative:icbfapp\\pages\\asistencia\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{97F72541-A725-45DF-A516-6EB1E50A0C83}|ICBFApp\\ICBFApp.csproj|b:\\projectos\\.net\\.net-icbf\\icbfapp\\pages\\ninio\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{97F72541-A725-45DF-A516-6EB1E50A0C83}|ICBFApp\\ICBFApp.csproj|solutionrelative:icbfapp\\pages\\ninio\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{97F72541-A725-45DF-A516-6EB1E50A0C83}|ICBFApp\\ICBFApp.csproj|b:\\projectos\\.net\\.net-icbf\\icbfapp\\pages\\usuario\\index.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{97F72541-A725-45DF-A516-6EB1E50A0C83}|ICBFApp\\ICBFApp.csproj|solutionrelative:icbfapp\\pages\\usuario\\index.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{97F72541-A725-45DF-A516-6EB1E50A0C83}|ICBFApp\\ICBFApp.csproj|b:\\projectos\\.net\\.net-icbf\\icbfapp\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
-      "RelativeMoniker": "D:0:0:{97F72541-A725-45DF-A516-6EB1E50A0C83}|ICBFApp\\ICBFApp.csproj|solutionrelative:icbfapp\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{97F72541-A725-45DF-A516-6EB1E50A0C83}|ICBFApp\\ICBFApp.csproj|b:\\projectos\\.net\\.net-icbf\\icbfapp\\pages\\ninio\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{97F72541-A725-45DF-A516-6EB1E50A0C83}|ICBFApp\\ICBFApp.csproj|solutionrelative:icbfapp\\pages\\ninio\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{97F72541-A725-45DF-A516-6EB1E50A0C83}|ICBFApp\\ICBFApp.csproj|b:\\projectos\\.net\\.net-icbf\\icbfapp\\pages\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{97F72541-A725-45DF-A516-6EB1E50A0C83}|ICBFApp\\ICBFApp.csproj|solutionrelative:icbfapp\\pages\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{97F72541-A725-45DF-A516-6EB1E50A0C83}|ICBFApp\\ICBFApp.csproj|b:\\projectos\\.net\\.net-icbf\\icbfapp\\wwwroot\\css\\site.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
-      "RelativeMoniker": "D:0:0:{97F72541-A725-45DF-A516-6EB1E50A0C83}|ICBFApp\\ICBFApp.csproj|solutionrelative:icbfapp\\wwwroot\\css\\site.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{97F72541-A725-45DF-A516-6EB1E50A0C83}|ICBFApp\\ICBFApp.csproj|b:\\projectos\\.net\\.net-icbf\\icbfapp\\pages\\shared\\_validationscriptspartial.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{97F72541-A725-45DF-A516-6EB1E50A0C83}|ICBFApp\\ICBFApp.csproj|solutionrelative:icbfapp\\pages\\shared\\_validationscriptspartial.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{97F72541-A725-45DF-A516-6EB1E50A0C83}|ICBFApp\\ICBFApp.csproj|b:\\projectos\\.net\\.net-icbf\\icbfapp\\pages\\avancesacademicos\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{97F72541-A725-45DF-A516-6EB1E50A0C83}|ICBFApp\\ICBFApp.csproj|solutionrelative:icbfapp\\pages\\avancesacademicos\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{97F72541-A725-45DF-A516-6EB1E50A0C83}|ICBFApp\\ICBFApp.csproj|b:\\projectos\\.net\\.net-icbf\\icbfapp\\pages\\usuario\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{97F72541-A725-45DF-A516-6EB1E50A0C83}|ICBFApp\\ICBFApp.csproj|solutionrelative:icbfapp\\pages\\usuario\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{97F72541-A725-45DF-A516-6EB1E50A0C83}|ICBFApp\\ICBFApp.csproj|b:\\projectos\\.net\\.net-icbf\\icbfapp\\pages\\eps\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{97F72541-A725-45DF-A516-6EB1E50A0C83}|ICBFApp\\ICBFApp.csproj|solutionrelative:icbfapp\\pages\\eps\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{97F72541-A725-45DF-A516-6EB1E50A0C83}|ICBFApp\\ICBFApp.csproj|b:\\projectos\\.net\\.net-icbf\\icbfapp\\pages\\usuario\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{97F72541-A725-45DF-A516-6EB1E50A0C83}|ICBFApp\\ICBFApp.csproj|solutionrelative:icbfapp\\pages\\usuario\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{97F72541-A725-45DF-A516-6EB1E50A0C83}|ICBFApp\\ICBFApp.csproj|b:\\projectos\\.net\\.net-icbf\\icbfapp\\pages\\rol\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{97F72541-A725-45DF-A516-6EB1E50A0C83}|ICBFApp\\ICBFApp.csproj|solutionrelative:icbfapp\\pages\\rol\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{97F72541-A725-45DF-A516-6EB1E50A0C83}|ICBFApp\\ICBFApp.csproj|b:\\projectos\\.net\\.net-icbf\\icbfapp\\pages\\ninio\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{97F72541-A725-45DF-A516-6EB1E50A0C83}|ICBFApp\\ICBFApp.csproj|solutionrelative:icbfapp\\pages\\ninio\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{97F72541-A725-45DF-A516-6EB1E50A0C83}|ICBFApp\\ICBFApp.csproj|b:\\projectos\\.net\\.net-icbf\\icbfapp\\pages\\jardin\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{97F72541-A725-45DF-A516-6EB1E50A0C83}|ICBFApp\\ICBFApp.csproj|solutionrelative:icbfapp\\pages\\jardin\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{97F72541-A725-45DF-A516-6EB1E50A0C83}|ICBFApp\\ICBFApp.csproj|b:\\projectos\\.net\\.net-icbf\\icbfapp\\pages\\jardin\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{97F72541-A725-45DF-A516-6EB1E50A0C83}|ICBFApp\\ICBFApp.csproj|solutionrelative:icbfapp\\pages\\jardin\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{97F72541-A725-45DF-A516-6EB1E50A0C83}|ICBFApp\\ICBFApp.csproj|b:\\projectos\\.net\\.net-icbf\\icbfapp\\pages\\eps\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{97F72541-A725-45DF-A516-6EB1E50A0C83}|ICBFApp\\ICBFApp.csproj|solutionrelative:icbfapp\\pages\\eps\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{97F72541-A725-45DF-A516-6EB1E50A0C83}|ICBFApp\\ICBFApp.csproj|b:\\projectos\\.net\\.net-icbf\\icbfapp\\pages\\avancesacademicos\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{97F72541-A725-45DF-A516-6EB1E50A0C83}|ICBFApp\\ICBFApp.csproj|solutionrelative:icbfapp\\pages\\avancesacademicos\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{97F72541-A725-45DF-A516-6EB1E50A0C83}|ICBFApp\\ICBFApp.csproj|b:\\projectos\\.net\\.net-icbf\\icbfapp\\pages\\asistencia\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{97F72541-A725-45DF-A516-6EB1E50A0C83}|ICBFApp\\ICBFApp.csproj|solutionrelative:icbfapp\\pages\\asistencia\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{97F72541-A725-45DF-A516-6EB1E50A0C83}|ICBFApp\\ICBFApp.csproj|b:\\projectos\\.net\\.net-icbf\\icbfapp\\pages\\asistencia\\delete.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{97F72541-A725-45DF-A516-6EB1E50A0C83}|ICBFApp\\ICBFApp.csproj|solutionrelative:icbfapp\\pages\\asistencia\\delete.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{97F72541-A725-45DF-A516-6EB1E50A0C83}|ICBFApp\\ICBFApp.csproj|b:\\projectos\\.net\\.net-icbf\\icbfapp\\pages\\asistencia\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{97F72541-A725-45DF-A516-6EB1E50A0C83}|ICBFApp\\ICBFApp.csproj|solutionrelative:icbfapp\\pages\\asistencia\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{97F72541-A725-45DF-A516-6EB1E50A0C83}|ICBFApp\\ICBFApp.csproj|b:\\projectos\\.net\\.net-icbf\\icbfapp\\pages\\tipodocumento\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{97F72541-A725-45DF-A516-6EB1E50A0C83}|ICBFApp\\ICBFApp.csproj|solutionrelative:icbfapp\\pages\\tipodocumento\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{97F72541-A725-45DF-A516-6EB1E50A0C83}|ICBFApp\\ICBFApp.csproj|b:\\projectos\\.net\\.net-icbf\\icbfapp\\pages\\tipodocumento\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{97F72541-A725-45DF-A516-6EB1E50A0C83}|ICBFApp\\ICBFApp.csproj|solutionrelative:icbfapp\\pages\\tipodocumento\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{97F72541-A725-45DF-A516-6EB1E50A0C83}|ICBFApp\\ICBFApp.csproj|b:\\projectos\\.net\\.net-icbf\\icbfapp\\pages\\rol\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{97F72541-A725-45DF-A516-6EB1E50A0C83}|ICBFApp\\ICBFApp.csproj|solutionrelative:icbfapp\\pages\\rol\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{97F72541-A725-45DF-A516-6EB1E50A0C83}|ICBFApp\\ICBFApp.csproj|b:\\projectos\\.net\\.net-icbf\\icbfapp\\pages\\asistencia\\create.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{97F72541-A725-45DF-A516-6EB1E50A0C83}|ICBFApp\\ICBFApp.csproj|solutionrelative:icbfapp\\pages\\asistencia\\create.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{97F72541-A725-45DF-A516-6EB1E50A0C83}|ICBFApp\\ICBFApp.csproj|b:\\projectos\\.net\\.net-icbf\\icbfapp\\pages\\avancesacademicos\\create.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{97F72541-A725-45DF-A516-6EB1E50A0C83}|ICBFApp\\ICBFApp.csproj|solutionrelative:icbfapp\\pages\\avancesacademicos\\create.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{97F72541-A725-45DF-A516-6EB1E50A0C83}|ICBFApp\\ICBFApp.csproj|b:\\projectos\\.net\\.net-icbf\\icbfapp\\pages\\asistencia\\edit.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{97F72541-A725-45DF-A516-6EB1E50A0C83}|ICBFApp\\ICBFApp.csproj|solutionrelative:icbfapp\\pages\\asistencia\\edit.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{97F72541-A725-45DF-A516-6EB1E50A0C83}|ICBFApp\\ICBFApp.csproj|b:\\projectos\\.net\\.net-icbf\\icbfapp\\pages\\ninio\\create.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{97F72541-A725-45DF-A516-6EB1E50A0C83}|ICBFApp\\ICBFApp.csproj|solutionrelative:icbfapp\\pages\\ninio\\create.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{97F72541-A725-45DF-A516-6EB1E50A0C83}|ICBFApp\\ICBFApp.csproj|b:\\projectos\\.net\\.net-icbf\\icbfapp\\pages\\avancesacademicos\\edit.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{97F72541-A725-45DF-A516-6EB1E50A0C83}|ICBFApp\\ICBFApp.csproj|solutionrelative:icbfapp\\pages\\avancesacademicos\\edit.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{97F72541-A725-45DF-A516-6EB1E50A0C83}|ICBFApp\\ICBFApp.csproj|b:\\projectos\\.net\\.net-icbf\\icbfapp\\pages\\ninio\\edit.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{97F72541-A725-45DF-A516-6EB1E50A0C83}|ICBFApp\\ICBFApp.csproj|solutionrelative:icbfapp\\pages\\ninio\\edit.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{97F72541-A725-45DF-A516-6EB1E50A0C83}|ICBFApp\\ICBFApp.csproj|b:\\projectos\\.net\\.net-icbf\\icbfapp\\pages\\ninio\\delete.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{97F72541-A725-45DF-A516-6EB1E50A0C83}|ICBFApp\\ICBFApp.csproj|solutionrelative:icbfapp\\pages\\ninio\\delete.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{97F72541-A725-45DF-A516-6EB1E50A0C83}|ICBFApp\\ICBFApp.csproj|b:\\projectos\\.net\\.net-icbf\\icbfapp\\pages\\tipodocumento\\create.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{97F72541-A725-45DF-A516-6EB1E50A0C83}|ICBFApp\\ICBFApp.csproj|solutionrelative:icbfapp\\pages\\tipodocumento\\create.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{97F72541-A725-45DF-A516-6EB1E50A0C83}|ICBFApp\\ICBFApp.csproj|b:\\projectos\\.net\\.net-icbf\\icbfapp\\pages\\tipodocumento\\edit.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{97F72541-A725-45DF-A516-6EB1E50A0C83}|ICBFApp\\ICBFApp.csproj|solutionrelative:icbfapp\\pages\\tipodocumento\\edit.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{97F72541-A725-45DF-A516-6EB1E50A0C83}|ICBFApp\\ICBFApp.csproj|b:\\projectos\\.net\\.net-icbf\\icbfapp\\pages\\usuario\\create.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{97F72541-A725-45DF-A516-6EB1E50A0C83}|ICBFApp\\ICBFApp.csproj|solutionrelative:icbfapp\\pages\\usuario\\create.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{97F72541-A725-45DF-A516-6EB1E50A0C83}|ICBFApp\\ICBFApp.csproj|b:\\projectos\\.net\\.net-icbf\\icbfapp\\pages\\usuario\\edit.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{97F72541-A725-45DF-A516-6EB1E50A0C83}|ICBFApp\\ICBFApp.csproj|solutionrelative:icbfapp\\pages\\usuario\\edit.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{97F72541-A725-45DF-A516-6EB1E50A0C83}|ICBFApp\\ICBFApp.csproj|b:\\projectos\\.net\\.net-icbf\\icbfapp\\pages\\avancesacademicos\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{97F72541-A725-45DF-A516-6EB1E50A0C83}|ICBFApp\\ICBFApp.csproj|solutionrelative:icbfapp\\pages\\avancesacademicos\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{97F72541-A725-45DF-A516-6EB1E50A0C83}|ICBFApp\\ICBFApp.csproj|b:\\projectos\\.net\\.net-icbf\\icbfapp\\pages\\avancesacademicos\\delete.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{97F72541-A725-45DF-A516-6EB1E50A0C83}|ICBFApp\\ICBFApp.csproj|solutionrelative:icbfapp\\pages\\avancesacademicos\\delete.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{97F72541-A725-45DF-A516-6EB1E50A0C83}|ICBFApp\\ICBFApp.csproj|b:\\projectos\\.net\\.net-icbf\\icbfapp\\pages\\rol\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{97F72541-A725-45DF-A516-6EB1E50A0C83}|ICBFApp\\ICBFApp.csproj|solutionrelative:icbfapp\\pages\\rol\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{97F72541-A725-45DF-A516-6EB1E50A0C83}|ICBFApp\\ICBFApp.csproj|b:\\projectos\\.net\\.net-icbf\\icbfapp\\pages\\jardin\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{97F72541-A725-45DF-A516-6EB1E50A0C83}|ICBFApp\\ICBFApp.csproj|solutionrelative:icbfapp\\pages\\jardin\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{97F72541-A725-45DF-A516-6EB1E50A0C83}|ICBFApp\\ICBFApp.csproj|b:\\projectos\\.net\\.net-icbf\\icbfapp\\pages\\eps\\delete.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{97F72541-A725-45DF-A516-6EB1E50A0C83}|ICBFApp\\ICBFApp.csproj|solutionrelative:icbfapp\\pages\\eps\\delete.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{97F72541-A725-45DF-A516-6EB1E50A0C83}|ICBFApp\\ICBFApp.csproj|b:\\projectos\\.net\\.net-icbf\\icbfapp\\pages\\avancesacademicos\\index.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{97F72541-A725-45DF-A516-6EB1E50A0C83}|ICBFApp\\ICBFApp.csproj|solutionrelative:icbfapp\\pages\\avancesacademicos\\index.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{97F72541-A725-45DF-A516-6EB1E50A0C83}|ICBFApp\\ICBFApp.csproj|b:\\projectos\\.net\\.net-icbf\\icbfapp\\appsettings.development.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
-      "RelativeMoniker": "D:0:0:{97F72541-A725-45DF-A516-6EB1E50A0C83}|ICBFApp\\ICBFApp.csproj|solutionrelative:icbfapp\\appsettings.development.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     }
   ],
   "DocumentGroupContainers": [
@@ -208,6 +24,10 @@
           "DockedWidth": 200,
           "SelectedChildIndex": 19,
           "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
+            },
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{eefa5220-e298-11d0-8f78-00a0c9110057}"
@@ -230,7 +50,7 @@
             },
             {
               "$type": "Bookmark",
-              "Name": "ST:129:0:{75188d03-9892-4ae2-abf1-207126247ce5}"
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
             },
             {
               "$type": "Bookmark",
@@ -238,7 +58,7 @@
             },
             {
               "$type": "Bookmark",
-              "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
+              "Name": "ST:129:0:{75188d03-9892-4ae2-abf1-207126247ce5}"
             },
             {
               "$type": "Bookmark",
@@ -278,609 +98,42 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "IGeneratePdfService.cs",
-              "DocumentMoniker": "B:\\Projectos\\.net\\.Net-ICBF\\ICBFApp\\Services\\IGeneratePdfService.cs",
-              "RelativeDocumentMoniker": "ICBFApp\\Services\\IGeneratePdfService.cs",
-              "ToolTip": "B:\\Projectos\\.net\\.Net-ICBF\\ICBFApp\\Services\\IGeneratePdfService.cs",
-              "RelativeToolTip": "ICBFApp\\Services\\IGeneratePdfService.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "DocumentIndex": 1,
+              "Title": "GeneratePdfService.cs",
+              "DocumentMoniker": "C:\\Users\\migue\\source\\repos\\.Net-ICBF\\ICBFApp\\Services\\GeneratePdfService.cs",
+              "RelativeDocumentMoniker": "ICBFApp\\Services\\GeneratePdfService.cs",
+              "ToolTip": "C:\\Users\\migue\\source\\repos\\.Net-ICBF\\ICBFApp\\Services\\GeneratePdfService.cs",
+              "RelativeToolTip": "ICBFApp\\Services\\GeneratePdfService.cs",
+              "ViewState": "AQIAAIkAAAAAAAAAAAAwwJIAAAA3AAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-24T03:41:20.747Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "Program.cs",
-              "DocumentMoniker": "B:\\Projectos\\.net\\.Net-ICBF\\ICBFApp\\Program.cs",
-              "RelativeDocumentMoniker": "ICBFApp\\Program.cs",
-              "ToolTip": "B:\\Projectos\\.net\\.Net-ICBF\\ICBFApp\\Program.cs",
-              "RelativeToolTip": "ICBFApp\\Program.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-24T03:41:44.925Z",
+              "WhenOpened": "2024-06-24T20:55:22.484Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 0,
               "Title": "GeneratePdfServiceAsistencia.cs",
-              "DocumentMoniker": "B:\\Projectos\\.net\\.Net-ICBF\\ICBFApp\\Services\\Asistencia\\GeneratePdfServiceAsistencia.cs",
+              "DocumentMoniker": "C:\\Users\\migue\\source\\repos\\.Net-ICBF\\ICBFApp\\Services\\Asistencia\\GeneratePdfServiceAsistencia.cs",
               "RelativeDocumentMoniker": "ICBFApp\\Services\\Asistencia\\GeneratePdfServiceAsistencia.cs",
-              "ToolTip": "B:\\Projectos\\.net\\.Net-ICBF\\ICBFApp\\Services\\Asistencia\\GeneratePdfServiceAsistencia.cs",
-              "RelativeToolTip": "ICBFApp\\Services\\Asistencia\\GeneratePdfServiceAsistencia.cs",
-              "ViewState": "AQIAAHUAAAAAAAAAAAAAAIMAAABUAAAA",
+              "ToolTip": "C:\\Users\\migue\\source\\repos\\.Net-ICBF\\ICBFApp\\Services\\Asistencia\\GeneratePdfServiceAsistencia.cs*",
+              "RelativeToolTip": "ICBFApp\\Services\\Asistencia\\GeneratePdfServiceAsistencia.cs*",
+              "ViewState": "AQIAAH4AAAAAAAAAAAAQwH8AAAA5AAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-24T03:47:08.245Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "GeneratePdfService.cs",
-              "DocumentMoniker": "B:\\Projectos\\.net\\.Net-ICBF\\ICBFApp\\Services\\GeneratePdfService.cs",
-              "RelativeDocumentMoniker": "ICBFApp\\Services\\GeneratePdfService.cs",
-              "ToolTip": "B:\\Projectos\\.net\\.Net-ICBF\\ICBFApp\\Services\\GeneratePdfService.cs",
-              "RelativeToolTip": "ICBFApp\\Services\\GeneratePdfService.cs",
-              "ViewState": "AQIAAH0AAAAAAAAAAAAAAKoAAACDAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-24T03:41:01.808Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "Index.cshtml.cs",
-              "DocumentMoniker": "B:\\Projectos\\.net\\.Net-ICBF\\ICBFApp\\Pages\\Usuario\\Index.cshtml.cs",
-              "RelativeDocumentMoniker": "ICBFApp\\Pages\\Usuario\\Index.cshtml.cs",
-              "ToolTip": "B:\\Projectos\\.net\\.Net-ICBF\\ICBFApp\\Pages\\Usuario\\Index.cshtml.cs",
-              "RelativeToolTip": "ICBFApp\\Pages\\Usuario\\Index.cshtml.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-24T03:45:28.85Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 12,
-              "Title": "_Layout.cshtml",
-              "DocumentMoniker": "B:\\Projectos\\.net\\.Net-ICBF\\ICBFApp\\Pages\\Shared\\_Layout.cshtml",
-              "RelativeDocumentMoniker": "ICBFApp\\Pages\\Shared\\_Layout.cshtml",
-              "ToolTip": "B:\\Projectos\\.net\\.Net-ICBF\\ICBFApp\\Pages\\Shared\\_Layout.cshtml",
-              "RelativeToolTip": "ICBFApp\\Pages\\Shared\\_Layout.cshtml",
-              "ViewState": "AQIAAAMAAAAAAAAAAAAAABwAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-06-24T02:04:02.483Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "Index.cshtml.cs",
-              "DocumentMoniker": "B:\\Projectos\\.net\\.Net-ICBF\\ICBFApp\\Pages\\Ninio\\Index.cshtml.cs",
-              "RelativeDocumentMoniker": "ICBFApp\\Pages\\Ninio\\Index.cshtml.cs",
-              "ToolTip": "B:\\Projectos\\.net\\.Net-ICBF\\ICBFApp\\Pages\\Ninio\\Index.cshtml.cs",
-              "RelativeToolTip": "ICBFApp\\Pages\\Ninio\\Index.cshtml.cs",
-              "ViewState": "AQIAAGUAAAAAAAAAAAAwwHUAAAAJAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-23T00:05:33.67Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 17,
-              "Title": "Create.cshtml",
-              "DocumentMoniker": "B:\\Projectos\\.net\\.Net-ICBF\\ICBFApp\\Pages\\EPS\\Create.cshtml",
-              "RelativeDocumentMoniker": "ICBFApp\\Pages\\EPS\\Create.cshtml",
-              "ToolTip": "B:\\Projectos\\.net\\.Net-ICBF\\ICBFApp\\Pages\\EPS\\Create.cshtml",
-              "RelativeToolTip": "ICBFApp\\Pages\\EPS\\Create.cshtml",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABAAAAAUAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-06-23T02:50:20.376Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "Index.cshtml",
-              "DocumentMoniker": "B:\\Projectos\\.net\\.Net-ICBF\\ICBFApp\\Pages\\Ninio\\Index.cshtml",
-              "RelativeDocumentMoniker": "ICBFApp\\Pages\\Ninio\\Index.cshtml",
-              "ToolTip": "B:\\Projectos\\.net\\.Net-ICBF\\ICBFApp\\Pages\\Ninio\\Index.cshtml",
-              "RelativeToolTip": "ICBFApp\\Pages\\Ninio\\Index.cshtml",
-              "ViewState": "AQIAAA8AAAAAAAAAAAAAAC0AAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-06-23T00:05:19.994Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "Index.cshtml",
-              "DocumentMoniker": "B:\\Projectos\\.net\\.Net-ICBF\\ICBFApp\\Pages\\Asistencia\\Index.cshtml",
-              "RelativeDocumentMoniker": "ICBFApp\\Pages\\Asistencia\\Index.cshtml",
-              "ToolTip": "B:\\Projectos\\.net\\.Net-ICBF\\ICBFApp\\Pages\\Asistencia\\Index.cshtml",
-              "RelativeToolTip": "ICBFApp\\Pages\\Asistencia\\Index.cshtml",
-              "ViewState": "AQIAAAkAAAAAAAAAAAAAAC4AAAA8AAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-06-23T00:25:53.361Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "Index.cshtml.cs",
-              "DocumentMoniker": "B:\\Projectos\\.net\\.Net-ICBF\\ICBFApp\\Pages\\Asistencia\\Index.cshtml.cs",
-              "RelativeDocumentMoniker": "ICBFApp\\Pages\\Asistencia\\Index.cshtml.cs",
-              "ToolTip": "B:\\Projectos\\.net\\.Net-ICBF\\ICBFApp\\Pages\\Asistencia\\Index.cshtml.cs",
-              "RelativeToolTip": "ICBFApp\\Pages\\Asistencia\\Index.cshtml.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-22T23:59:55.946Z",
+              "WhenOpened": "2024-06-24T20:49:33.029Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "IGeneratePdfServiceAsistencia.cs",
-              "DocumentMoniker": "B:\\Projectos\\.net\\.Net-ICBF\\ICBFApp\\Services\\Asistencia\\IGeneratePdfServiceAsistencia.cs",
-              "RelativeDocumentMoniker": "ICBFApp\\Services\\Asistencia\\IGeneratePdfServiceAsistencia.cs",
-              "ToolTip": "B:\\Projectos\\.net\\.Net-ICBF\\ICBFApp\\Services\\Asistencia\\IGeneratePdfServiceAsistencia.cs",
-              "RelativeToolTip": "ICBFApp\\Services\\Asistencia\\IGeneratePdfServiceAsistencia.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAQAAAAyAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-24T04:00:29.033Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 25,
-              "Title": "Edit.cshtml",
-              "DocumentMoniker": "B:\\Projectos\\.net\\.Net-ICBF\\ICBFApp\\Pages\\Asistencia\\Edit.cshtml",
-              "RelativeDocumentMoniker": "ICBFApp\\Pages\\Asistencia\\Edit.cshtml",
-              "ToolTip": "B:\\Projectos\\.net\\.Net-ICBF\\ICBFApp\\Pages\\Asistencia\\Edit.cshtml",
-              "RelativeToolTip": "ICBFApp\\Pages\\Asistencia\\Edit.cshtml",
-              "ViewState": "AQIAAAkAAAAAAAAAAAAAACQAAAA1AAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-06-23T01:34:41.956Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 22,
-              "Title": "Create.cshtml",
-              "DocumentMoniker": "B:\\Projectos\\.net\\.Net-ICBF\\ICBFApp\\Pages\\Jardin\\Create.cshtml",
-              "RelativeDocumentMoniker": "ICBFApp\\Pages\\Jardin\\Create.cshtml",
-              "ToolTip": "B:\\Projectos\\.net\\.Net-ICBF\\ICBFApp\\Pages\\Jardin\\Create.cshtml",
-              "RelativeToolTip": "ICBFApp\\Pages\\Jardin\\Create.cshtml",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABUAAABLAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-06-23T00:24:30.095Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 15,
-              "Title": "Create.cshtml",
-              "DocumentMoniker": "B:\\Projectos\\.net\\.Net-ICBF\\ICBFApp\\Pages\\AvancesAcademicos\\Create.cshtml",
-              "RelativeDocumentMoniker": "ICBFApp\\Pages\\AvancesAcademicos\\Create.cshtml",
-              "ToolTip": "B:\\Projectos\\.net\\.Net-ICBF\\ICBFApp\\Pages\\AvancesAcademicos\\Create.cshtml",
-              "RelativeToolTip": "ICBFApp\\Pages\\AvancesAcademicos\\Create.cshtml",
-              "ViewState": "AQIAAD8AAAAAAAAAAAAAAFkAAACiAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-06-23T00:40:21.716Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 23,
-              "Title": "Edit.cshtml",
-              "DocumentMoniker": "B:\\Projectos\\.net\\.Net-ICBF\\ICBFApp\\Pages\\EPS\\Edit.cshtml",
-              "RelativeDocumentMoniker": "ICBFApp\\Pages\\EPS\\Edit.cshtml",
-              "ToolTip": "B:\\Projectos\\.net\\.Net-ICBF\\ICBFApp\\Pages\\EPS\\Edit.cshtml",
-              "RelativeToolTip": "ICBFApp\\Pages\\EPS\\Edit.cshtml",
-              "ViewState": "AQIAAAYAAAAAAAAAAAAAABcAAABMAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-06-23T02:53:06.729Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 20,
-              "Title": "Edit.cshtml",
-              "DocumentMoniker": "B:\\Projectos\\.net\\.Net-ICBF\\ICBFApp\\Pages\\Ninio\\Edit.cshtml",
-              "RelativeDocumentMoniker": "ICBFApp\\Pages\\Ninio\\Edit.cshtml",
-              "ToolTip": "B:\\Projectos\\.net\\.Net-ICBF\\ICBFApp\\Pages\\Ninio\\Edit.cshtml",
-              "RelativeToolTip": "ICBFApp\\Pages\\Ninio\\Edit.cshtml",
-              "ViewState": "AQIAACEAAAAAAAAAAAAAADMAAAAiAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-06-23T00:32:02.586Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 19,
-              "Title": "Create.cshtml",
-              "DocumentMoniker": "B:\\Projectos\\.net\\.Net-ICBF\\ICBFApp\\Pages\\Rol\\Create.cshtml",
-              "RelativeDocumentMoniker": "ICBFApp\\Pages\\Rol\\Create.cshtml",
-              "ToolTip": "B:\\Projectos\\.net\\.Net-ICBF\\ICBFApp\\Pages\\Rol\\Create.cshtml",
-              "RelativeToolTip": "ICBFApp\\Pages\\Rol\\Create.cshtml",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABUAAABLAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-06-23T00:41:52.455Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 27,
-              "Title": "Create.cshtml",
-              "DocumentMoniker": "B:\\Projectos\\.net\\.Net-ICBF\\ICBFApp\\Pages\\Asistencia\\Create.cshtml",
-              "RelativeDocumentMoniker": "ICBFApp\\Pages\\Asistencia\\Create.cshtml",
-              "ToolTip": "B:\\Projectos\\.net\\.Net-ICBF\\ICBFApp\\Pages\\Asistencia\\Create.cshtml",
-              "RelativeToolTip": "ICBFApp\\Pages\\Asistencia\\Create.cshtml",
-              "ViewState": "AQIAAA8AAAAAAAAAAAAAACIAAAA1AAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-06-23T00:46:31.809Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "appsettings.json",
-              "DocumentMoniker": "B:\\Projectos\\.net\\.Net-ICBF\\ICBFApp\\appsettings.json",
-              "RelativeDocumentMoniker": "ICBFApp\\appsettings.json",
-              "ToolTip": "B:\\Projectos\\.net\\.Net-ICBF\\ICBFApp\\appsettings.json",
-              "RelativeToolTip": "ICBFApp\\appsettings.json",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAMAAAAEAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2024-06-22T23:51:52.841Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 26,
-              "Title": "Delete.cshtml",
-              "DocumentMoniker": "B:\\Projectos\\.net\\.Net-ICBF\\ICBFApp\\Pages\\Asistencia\\Delete.cshtml",
-              "RelativeDocumentMoniker": "ICBFApp\\Pages\\Asistencia\\Delete.cshtml",
-              "ToolTip": "B:\\Projectos\\.net\\.Net-ICBF\\ICBFApp\\Pages\\Asistencia\\Delete.cshtml",
-              "RelativeToolTip": "ICBFApp\\Pages\\Asistencia\\Delete.cshtml",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAIAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-06-22T23:59:26.47Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 13,
-              "Title": "site.css",
-              "DocumentMoniker": "B:\\Projectos\\.net\\.Net-ICBF\\ICBFApp\\wwwroot\\css\\site.css",
-              "RelativeDocumentMoniker": "ICBFApp\\wwwroot\\css\\site.css",
-              "ToolTip": "B:\\Projectos\\.net\\.Net-ICBF\\ICBFApp\\wwwroot\\css\\site.css",
-              "RelativeToolTip": "ICBFApp\\wwwroot\\css\\site.css",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABQAAAAWAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
-              "WhenOpened": "2024-06-23T00:24:25.72Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 24,
-              "Title": "Edit.cshtml",
-              "DocumentMoniker": "B:\\Projectos\\.net\\.Net-ICBF\\ICBFApp\\Pages\\AvancesAcademicos\\Edit.cshtml",
-              "RelativeDocumentMoniker": "ICBFApp\\Pages\\AvancesAcademicos\\Edit.cshtml",
-              "ToolTip": "B:\\Projectos\\.net\\.Net-ICBF\\ICBFApp\\Pages\\AvancesAcademicos\\Edit.cshtml",
-              "RelativeToolTip": "ICBFApp\\Pages\\AvancesAcademicos\\Edit.cshtml",
-              "ViewState": "AQIAAFoAAAAAAAAAAAAAAG8AAAAaAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-06-23T01:41:17.278Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 11,
-              "Title": "Create.cshtml",
-              "DocumentMoniker": "B:\\Projectos\\.net\\.Net-ICBF\\ICBFApp\\Pages\\Ninio\\Create.cshtml",
-              "RelativeDocumentMoniker": "ICBFApp\\Pages\\Ninio\\Create.cshtml",
-              "ToolTip": "B:\\Projectos\\.net\\.Net-ICBF\\ICBFApp\\Pages\\Ninio\\Create.cshtml",
-              "RelativeToolTip": "ICBFApp\\Pages\\Ninio\\Create.cshtml",
-              "ViewState": "AQIAABsAAAAAAAAAAAAAACgAAAAeAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-06-23T00:32:02.423Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 21,
-              "Title": "Edit.cshtml",
-              "DocumentMoniker": "B:\\Projectos\\.net\\.Net-ICBF\\ICBFApp\\Pages\\Jardin\\Edit.cshtml",
-              "RelativeDocumentMoniker": "ICBFApp\\Pages\\Jardin\\Edit.cshtml",
-              "ToolTip": "B:\\Projectos\\.net\\.Net-ICBF\\ICBFApp\\Pages\\Jardin\\Edit.cshtml",
-              "RelativeToolTip": "ICBFApp\\Pages\\Jardin\\Edit.cshtml",
-              "ViewState": "AQIAAAYAAAAAAAAAAAAAABUAAABLAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-06-22T04:28:38.099Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 16,
-              "Title": "Edit.cshtml",
-              "DocumentMoniker": "B:\\Projectos\\.net\\.Net-ICBF\\ICBFApp\\Pages\\Usuario\\Edit.cshtml",
-              "RelativeDocumentMoniker": "ICBFApp\\Pages\\Usuario\\Edit.cshtml",
-              "ToolTip": "B:\\Projectos\\.net\\.Net-ICBF\\ICBFApp\\Pages\\Usuario\\Edit.cshtml",
-              "RelativeToolTip": "ICBFApp\\Pages\\Usuario\\Edit.cshtml",
-              "ViewState": "AQIAABgAAAAAAAAAAAAAADcAAAAOAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-06-23T02:55:03.553Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 14,
-              "Title": "_ValidationScriptsPartial.cshtml",
-              "DocumentMoniker": "B:\\Projectos\\.net\\.Net-ICBF\\ICBFApp\\Pages\\Shared\\_ValidationScriptsPartial.cshtml",
-              "RelativeDocumentMoniker": "ICBFApp\\Pages\\Shared\\_ValidationScriptsPartial.cshtml",
-              "ToolTip": "B:\\Projectos\\.net\\.Net-ICBF\\ICBFApp\\Pages\\Shared\\_ValidationScriptsPartial.cshtml",
-              "RelativeToolTip": "ICBFApp\\Pages\\Shared\\_ValidationScriptsPartial.cshtml",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-06-24T02:05:24.932Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 29,
-              "Title": "Create.cshtml",
-              "DocumentMoniker": "B:\\Projectos\\.net\\.Net-ICBF\\ICBFApp\\Pages\\TipoDocumento\\Create.cshtml",
-              "RelativeDocumentMoniker": "ICBFApp\\Pages\\TipoDocumento\\Create.cshtml",
-              "ToolTip": "B:\\Projectos\\.net\\.Net-ICBF\\ICBFApp\\Pages\\TipoDocumento\\Create.cshtml",
-              "RelativeToolTip": "ICBFApp\\Pages\\TipoDocumento\\Create.cshtml",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABIAAAA1AAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-06-23T01:28:19.988Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 18,
-              "Title": "Create.cshtml",
-              "DocumentMoniker": "B:\\Projectos\\.net\\.Net-ICBF\\ICBFApp\\Pages\\Usuario\\Create.cshtml",
-              "RelativeDocumentMoniker": "ICBFApp\\Pages\\Usuario\\Create.cshtml",
-              "ToolTip": "B:\\Projectos\\.net\\.Net-ICBF\\ICBFApp\\Pages\\Usuario\\Create.cshtml",
-              "RelativeToolTip": "ICBFApp\\Pages\\Usuario\\Create.cshtml",
-              "ViewState": "AQIAABgAAAAAAAAAAAAAACkAAAAiAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-06-23T02:46:57.996Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 31,
-              "Title": "Create.cshtml.cs",
-              "DocumentMoniker": "B:\\Projectos\\.net\\.Net-ICBF\\ICBFApp\\Pages\\Asistencia\\Create.cshtml.cs",
-              "RelativeDocumentMoniker": "ICBFApp\\Pages\\Asistencia\\Create.cshtml.cs",
-              "ToolTip": "B:\\Projectos\\.net\\.Net-ICBF\\ICBFApp\\Pages\\Asistencia\\Create.cshtml.cs",
-              "RelativeToolTip": "ICBFApp\\Pages\\Asistencia\\Create.cshtml.cs",
-              "ViewState": "AQIAABwAAAAAAAAAAAAcwDoAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-22T23:58:37.111Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 33,
-              "Title": "Edit.cshtml.cs",
-              "DocumentMoniker": "B:\\Projectos\\.net\\.Net-ICBF\\ICBFApp\\Pages\\Asistencia\\Edit.cshtml.cs",
-              "RelativeDocumentMoniker": "ICBFApp\\Pages\\Asistencia\\Edit.cshtml.cs",
-              "ToolTip": "B:\\Projectos\\.net\\.Net-ICBF\\ICBFApp\\Pages\\Asistencia\\Edit.cshtml.cs",
-              "RelativeToolTip": "ICBFApp\\Pages\\Asistencia\\Edit.cshtml.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAAAmAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-22T23:59:32.501Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 35,
-              "Title": "Edit.cshtml.cs",
-              "DocumentMoniker": "B:\\Projectos\\.net\\.Net-ICBF\\ICBFApp\\Pages\\AvancesAcademicos\\Edit.cshtml.cs",
-              "RelativeDocumentMoniker": "ICBFApp\\Pages\\AvancesAcademicos\\Edit.cshtml.cs",
-              "ToolTip": "B:\\Projectos\\.net\\.Net-ICBF\\ICBFApp\\Pages\\AvancesAcademicos\\Edit.cshtml.cs",
-              "RelativeToolTip": "ICBFApp\\Pages\\AvancesAcademicos\\Edit.cshtml.cs",
-              "ViewState": "AQIAACcAAAAAAAAAAAAjwDAAAAAdAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-23T00:00:53.848Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 28,
-              "Title": "Edit.cshtml",
-              "DocumentMoniker": "B:\\Projectos\\.net\\.Net-ICBF\\ICBFApp\\Pages\\TipoDocumento\\Edit.cshtml",
-              "RelativeDocumentMoniker": "ICBFApp\\Pages\\TipoDocumento\\Edit.cshtml",
-              "ToolTip": "B:\\Projectos\\.net\\.Net-ICBF\\ICBFApp\\Pages\\TipoDocumento\\Edit.cshtml",
-              "RelativeToolTip": "ICBFApp\\Pages\\TipoDocumento\\Edit.cshtml",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABUAAAAjAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-06-23T02:54:50.025Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 30,
-              "Title": "Edit.cshtml",
-              "DocumentMoniker": "B:\\Projectos\\.net\\.Net-ICBF\\ICBFApp\\Pages\\Rol\\Edit.cshtml",
-              "RelativeDocumentMoniker": "ICBFApp\\Pages\\Rol\\Edit.cshtml",
-              "ToolTip": "B:\\Projectos\\.net\\.Net-ICBF\\ICBFApp\\Pages\\Rol\\Edit.cshtml",
-              "RelativeToolTip": "ICBFApp\\Pages\\Rol\\Edit.cshtml",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABUAAAAjAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-06-23T00:46:16.889Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 32,
-              "Title": "Create.cshtml.cs",
-              "DocumentMoniker": "B:\\Projectos\\.net\\.Net-ICBF\\ICBFApp\\Pages\\AvancesAcademicos\\Create.cshtml.cs",
-              "RelativeDocumentMoniker": "ICBFApp\\Pages\\AvancesAcademicos\\Create.cshtml.cs",
-              "ToolTip": "B:\\Projectos\\.net\\.Net-ICBF\\ICBFApp\\Pages\\AvancesAcademicos\\Create.cshtml.cs",
-              "RelativeToolTip": "ICBFApp\\Pages\\AvancesAcademicos\\Create.cshtml.cs",
-              "ViewState": "AQIAABsAAAAAAAAAAAAqwD8AAADGAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-22T23:52:53.819Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 34,
-              "Title": "Create.cshtml.cs",
-              "DocumentMoniker": "B:\\Projectos\\.net\\.Net-ICBF\\ICBFApp\\Pages\\Ninio\\Create.cshtml.cs",
-              "RelativeDocumentMoniker": "ICBFApp\\Pages\\Ninio\\Create.cshtml.cs",
-              "ToolTip": "B:\\Projectos\\.net\\.Net-ICBF\\ICBFApp\\Pages\\Ninio\\Create.cshtml.cs",
-              "RelativeToolTip": "ICBFApp\\Pages\\Ninio\\Create.cshtml.cs",
-              "ViewState": "AQIAAJEAAAAAAAAAAAAAAB8BAAAJAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-22T23:51:57.896Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 40,
-              "Title": "Create.cshtml.cs",
-              "DocumentMoniker": "B:\\Projectos\\.net\\.Net-ICBF\\ICBFApp\\Pages\\Usuario\\Create.cshtml.cs",
-              "RelativeDocumentMoniker": "ICBFApp\\Pages\\Usuario\\Create.cshtml.cs",
-              "ToolTip": "B:\\Projectos\\.net\\.Net-ICBF\\ICBFApp\\Pages\\Usuario\\Create.cshtml.cs",
-              "RelativeToolTip": "ICBFApp\\Pages\\Usuario\\Create.cshtml.cs",
-              "ViewState": "AQIAAGYAAAAAAAAAAAAAAHsAAAAQAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-23T02:26:28.317Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 41,
-              "Title": "Edit.cshtml.cs",
-              "DocumentMoniker": "B:\\Projectos\\.net\\.Net-ICBF\\ICBFApp\\Pages\\Usuario\\Edit.cshtml.cs",
-              "RelativeDocumentMoniker": "ICBFApp\\Pages\\Usuario\\Edit.cshtml.cs",
-              "ToolTip": "B:\\Projectos\\.net\\.Net-ICBF\\ICBFApp\\Pages\\Usuario\\Edit.cshtml.cs",
-              "RelativeToolTip": "ICBFApp\\Pages\\Usuario\\Edit.cshtml.cs",
-              "ViewState": "AQIAAJEAAAAAAAAAAAAAAKIAAAAYAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-23T02:30:17.477Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 38,
-              "Title": "Create.cshtml.cs",
-              "DocumentMoniker": "B:\\Projectos\\.net\\.Net-ICBF\\ICBFApp\\Pages\\TipoDocumento\\Create.cshtml.cs",
-              "RelativeDocumentMoniker": "ICBFApp\\Pages\\TipoDocumento\\Create.cshtml.cs",
-              "ToolTip": "B:\\Projectos\\.net\\.Net-ICBF\\ICBFApp\\Pages\\TipoDocumento\\Create.cshtml.cs",
-              "RelativeToolTip": "ICBFApp\\Pages\\TipoDocumento\\Create.cshtml.cs",
-              "ViewState": "AQIAAAYAAAAAAAAAAAAAABoAAAA0AAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-23T02:30:42.142Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 39,
-              "Title": "Edit.cshtml.cs",
-              "DocumentMoniker": "B:\\Projectos\\.net\\.Net-ICBF\\ICBFApp\\Pages\\TipoDocumento\\Edit.cshtml.cs",
-              "RelativeDocumentMoniker": "ICBFApp\\Pages\\TipoDocumento\\Edit.cshtml.cs",
-              "ToolTip": "B:\\Projectos\\.net\\.Net-ICBF\\ICBFApp\\Pages\\TipoDocumento\\Edit.cshtml.cs",
-              "RelativeToolTip": "ICBFApp\\Pages\\TipoDocumento\\Edit.cshtml.cs",
-              "ViewState": "AQIAAB4AAAAAAAAAAAAowDoAAABBAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-23T02:30:52.755Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 36,
-              "Title": "Edit.cshtml.cs",
-              "DocumentMoniker": "B:\\Projectos\\.net\\.Net-ICBF\\ICBFApp\\Pages\\Ninio\\Edit.cshtml.cs",
-              "RelativeDocumentMoniker": "ICBFApp\\Pages\\Ninio\\Edit.cshtml.cs",
-              "ToolTip": "B:\\Projectos\\.net\\.Net-ICBF\\ICBFApp\\Pages\\Ninio\\Edit.cshtml.cs",
-              "RelativeToolTip": "ICBFApp\\Pages\\Ninio\\Edit.cshtml.cs",
-              "ViewState": "AQIAAMYAAAAAAAAAAAAmwOEAAAANAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-23T02:31:19.208Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 37,
-              "Title": "Delete.cshtml",
-              "DocumentMoniker": "B:\\Projectos\\.net\\.Net-ICBF\\ICBFApp\\Pages\\Ninio\\Delete.cshtml",
-              "RelativeDocumentMoniker": "ICBFApp\\Pages\\Ninio\\Delete.cshtml",
-              "ToolTip": "B:\\Projectos\\.net\\.Net-ICBF\\ICBFApp\\Pages\\Ninio\\Delete.cshtml",
-              "RelativeToolTip": "ICBFApp\\Pages\\Ninio\\Delete.cshtml",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABoAAABfAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-06-23T00:05:07.319Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 45,
               "Title": "Index.cshtml",
-              "DocumentMoniker": "B:\\Projectos\\.net\\.Net-ICBF\\ICBFApp\\Pages\\Jardin\\Index.cshtml",
-              "RelativeDocumentMoniker": "ICBFApp\\Pages\\Jardin\\Index.cshtml",
-              "ToolTip": "B:\\Projectos\\.net\\.Net-ICBF\\ICBFApp\\Pages\\Jardin\\Index.cshtml",
-              "RelativeToolTip": "ICBFApp\\Pages\\Jardin\\Index.cshtml",
-              "ViewState": "AQIAABgAAAAAAAAAAAAAAFMAAABSAAAA",
+              "DocumentMoniker": "C:\\Users\\migue\\source\\repos\\.Net-ICBF\\ICBFApp\\Pages\\Asistencia\\Index.cshtml",
+              "RelativeDocumentMoniker": "ICBFApp\\Pages\\Asistencia\\Index.cshtml",
+              "ToolTip": "C:\\Users\\migue\\source\\repos\\.Net-ICBF\\ICBFApp\\Pages\\Asistencia\\Index.cshtml",
+              "RelativeToolTip": "ICBFApp\\Pages\\Asistencia\\Index.cshtml",
+              "ViewState": "AQIAAEgAAAAAAAAAAAAAAAoAAAABAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-06-22T04:21:58.258Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 42,
-              "Title": "Index.cshtml",
-              "DocumentMoniker": "B:\\Projectos\\.net\\.Net-ICBF\\ICBFApp\\Pages\\AvancesAcademicos\\Index.cshtml",
-              "RelativeDocumentMoniker": "ICBFApp\\Pages\\AvancesAcademicos\\Index.cshtml",
-              "ToolTip": "B:\\Projectos\\.net\\.Net-ICBF\\ICBFApp\\Pages\\AvancesAcademicos\\Index.cshtml",
-              "RelativeToolTip": "ICBFApp\\Pages\\AvancesAcademicos\\Index.cshtml",
-              "ViewState": "AQIAAB4AAAAAAAAAAAAAAEEAAAAJAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-06-23T00:24:04.037Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 47,
-              "Title": "Index.cshtml.cs",
-              "DocumentMoniker": "B:\\Projectos\\.net\\.Net-ICBF\\ICBFApp\\Pages\\AvancesAcademicos\\Index.cshtml.cs",
-              "RelativeDocumentMoniker": "ICBFApp\\Pages\\AvancesAcademicos\\Index.cshtml.cs",
-              "ToolTip": "B:\\Projectos\\.net\\.Net-ICBF\\ICBFApp\\Pages\\AvancesAcademicos\\Index.cshtml.cs",
-              "RelativeToolTip": "ICBFApp\\Pages\\AvancesAcademicos\\Index.cshtml.cs",
-              "ViewState": "AQIAAAYAAAAAAAAAAAAAACAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-23T00:01:04.273Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 43,
-              "Title": "Delete.cshtml",
-              "DocumentMoniker": "B:\\Projectos\\.net\\.Net-ICBF\\ICBFApp\\Pages\\AvancesAcademicos\\Delete.cshtml",
-              "RelativeDocumentMoniker": "ICBFApp\\Pages\\AvancesAcademicos\\Delete.cshtml",
-              "ToolTip": "B:\\Projectos\\.net\\.Net-ICBF\\ICBFApp\\Pages\\AvancesAcademicos\\Delete.cshtml",
-              "RelativeToolTip": "ICBFApp\\Pages\\AvancesAcademicos\\Delete.cshtml",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAUAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-06-23T00:01:51.219Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 44,
-              "Title": "Index.cshtml",
-              "DocumentMoniker": "B:\\Projectos\\.net\\.Net-ICBF\\ICBFApp\\Pages\\Rol\\Index.cshtml",
-              "RelativeDocumentMoniker": "ICBFApp\\Pages\\Rol\\Index.cshtml",
-              "ToolTip": "B:\\Projectos\\.net\\.Net-ICBF\\ICBFApp\\Pages\\Rol\\Index.cshtml",
-              "RelativeToolTip": "ICBFApp\\Pages\\Rol\\Index.cshtml",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-06-23T00:46:17.382Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 46,
-              "Title": "Delete.cshtml",
-              "DocumentMoniker": "B:\\Projectos\\.net\\.Net-ICBF\\ICBFApp\\Pages\\EPS\\Delete.cshtml",
-              "RelativeDocumentMoniker": "ICBFApp\\Pages\\EPS\\Delete.cshtml",
-              "ToolTip": "B:\\Projectos\\.net\\.Net-ICBF\\ICBFApp\\Pages\\EPS\\Delete.cshtml",
-              "RelativeToolTip": "ICBFApp\\Pages\\EPS\\Delete.cshtml",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAAAIAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-06-23T00:01:31.379Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 48,
-              "Title": "appsettings.Development.json",
-              "DocumentMoniker": "B:\\Projectos\\.net\\.Net-ICBF\\ICBFApp\\appsettings.Development.json",
-              "RelativeDocumentMoniker": "ICBFApp\\appsettings.Development.json",
-              "ToolTip": "B:\\Projectos\\.net\\.Net-ICBF\\ICBFApp\\appsettings.Development.json",
-              "RelativeToolTip": "ICBFApp\\appsettings.Development.json",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2024-06-22T23:51:49.819Z"
+              "WhenOpened": "2024-06-24T20:48:30.171Z",
+              "EditorCaption": ""
             }
           ]
         }

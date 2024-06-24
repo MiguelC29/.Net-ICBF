@@ -583,19 +583,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\ANGEL\\.nuget\\packages\\": {}
+    "C:\\Users\\migue\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "B:\\Projectos\\.net\\.Net-ICBF\\ICBFApp\\ICBFApp.csproj",
+      "projectUniqueName": "C:\\Users\\migue\\source\\repos\\.Net-ICBF\\ICBFApp\\ICBFApp.csproj",
       "projectName": "ICBFApp",
-      "projectPath": "B:\\Projectos\\.net\\.Net-ICBF\\ICBFApp\\ICBFApp.csproj",
-      "packagesPath": "C:\\Users\\ANGEL\\.nuget\\packages\\",
-      "outputPath": "B:\\Projectos\\.net\\.Net-ICBF\\ICBFApp\\obj\\",
+      "projectPath": "C:\\Users\\migue\\source\\repos\\.Net-ICBF\\ICBFApp\\ICBFApp.csproj",
+      "packagesPath": "C:\\Users\\migue\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\migue\\source\\repos\\.Net-ICBF\\ICBFApp\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\ANGEL\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\migue\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -646,24 +646,6 @@
         ],
         "assetTargetFallback": true,
         "warn": true,
-        "downloadDependencies": [
-          {
-            "name": "Microsoft.AspNetCore.App.Ref",
-            "version": "[6.0.28, 6.0.28]"
-          },
-          {
-            "name": "Microsoft.NETCore.App.Host.win-x64",
-            "version": "[6.0.28, 6.0.28]"
-          },
-          {
-            "name": "Microsoft.NETCore.App.Ref",
-            "version": "[6.0.28, 6.0.28]"
-          },
-          {
-            "name": "Microsoft.WindowsDesktop.App.Ref",
-            "version": "[6.0.28, 6.0.28]"
-          }
-        ],
         "frameworkReferences": {
           "Microsoft.AspNetCore.App": {
             "privateAssets": "none"
@@ -672,7 +654,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.202\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.204\\RuntimeIdentifierGraph.json"
       }
     }
   }

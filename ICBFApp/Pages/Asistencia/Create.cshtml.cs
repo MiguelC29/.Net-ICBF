@@ -25,8 +25,20 @@ namespace ICBFApp.Pages.Asistencia
             _connectionString = configuration.GetConnectionString("ConexionSQLServer");
         }
 
-        public void OnGet()
+        public IActionResult OnGet()
         {
+
+            // Validar la hora actual
+            var horaActual = DateTime.Now.TimeOfDay;
+            var horaInicio = new TimeSpan(8, 0, 0); // 8:00 AM
+            var horaFin = new TimeSpan(10, 0, 0);  // 10:00 AM
+
+            if (horaActual < horaInicio || horaActual > horaFin)
+            {
+                TempData["ErrorMessage"] = "Solo se permiten registros entre 8 AM y 10 AM";
+                return RedirectToPage("/Asistencia/Index"); // Retorna la misma página para mostrar el mensaje de error
+            }
+
             try
             {
                 using (SqlConnection connection = new SqlConnection(_connectionString))
@@ -77,10 +89,13 @@ namespace ICBFApp.Pages.Asistencia
                 Console.WriteLine("Exception: " + ex.ToString());
                 errorMessage = ex.Message;
             }
+
+            return Page();
         }
 
         public IActionResult OnPost()
         {
+
             string fecha = Request.Form["fecha"];
             string estadoNino = Request.Form["estadoNino"];
             string ninioIdString = Request.Form["ninio"];
@@ -89,6 +104,7 @@ namespace ICBFApp.Pages.Asistencia
             if (string.IsNullOrEmpty(fecha) || string.IsNullOrEmpty(estadoNino))
             {
                 errorMessage = "Todos los campos son obligatorios";
+                OnGet();
                 return Page();
             }
 

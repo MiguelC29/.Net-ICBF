@@ -10,12 +10,25 @@
     </div>
 }
 
+@if (!string.IsNullOrEmpty(Model.ErrorMessage))
+{
+    <div class="alert alert-warning alert-dismissible fade show" role="alert" id="error-message">
+        @Model.ErrorMessage
+    </div>
+}
+
 @section Scripts {
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <script>
         $(document).ready(function () {
             setTimeout(function () {
                 $("#success-message").fadeOut("slow");
+            }, 5000); // 5000 milisegundos = 5 segundos
+        });
+
+        $(document).ready(function () {
+            setTimeout(function () {
+                $("#error-message").fadeOut("slow");
             }, 5000); // 5000 milisegundos = 5 segundos
         });
 

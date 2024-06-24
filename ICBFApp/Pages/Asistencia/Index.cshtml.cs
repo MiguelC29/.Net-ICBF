@@ -15,6 +15,7 @@ namespace ICBFApp.Pages.Asistencia
         public List<AsistenciaInfo> listAsistenciaInfo = new List<AsistenciaInfo>();
 
         public string SuccessMessage { get; set; }
+        public string ErrorMessage { get; set; }
 
         private readonly IGeneratePdfServiceAsistencia _generatePdfServiceAsistencia;
         private readonly string _connectionString;
@@ -27,9 +28,10 @@ namespace ICBFApp.Pages.Asistencia
 
         public void OnGet()
         {
-            if (TempData.ContainsKey("SuccessMessage"))
+            if (TempData.ContainsKey("SuccessMessage") || TempData.ContainsKey("ErrorMessage"))
             {
                 SuccessMessage = TempData["SuccessMessage"] as string;
+                ErrorMessage = TempData["ErrorMessage"] as string;
             }
 
             try

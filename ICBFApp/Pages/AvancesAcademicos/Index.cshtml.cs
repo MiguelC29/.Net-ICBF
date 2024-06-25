@@ -37,7 +37,7 @@ namespace ICBFApp.Pages.AvancesAcademicos
                 using (SqlConnection connection = new SqlConnection(_connectionString))
                 {
                     connection.Open();
-                    String sqlSelect = "SELECT DatosBasicos.nombres, DatosBasicos.identificacion, AvancesAcademicos.nivel, AvancesAcademicos.notas, AvancesAcademicos.descripcion, AvancesAcademicos.fechaEntrega, AvancesAcademicos.anioEscolar, AvancesAcademicos.idAvanceAcademico " +
+                    String sqlSelect = "SELECT DatosBasicos.nombres, DatosBasicos.identificacion, AvancesAcademicos.nivel, AvancesAcademicos.notas, AvancesAcademicos.descripcion, AvancesAcademicos.fechaEntrega, AvancesAcademicos.idAvanceAcademico " +
                         "FROM AvancesAcademicos " +
                         "INNER JOIN Ninos ON AvancesAcademicos.idNino = Ninos.idNino " +
                         "INNER JOIN DatosBasicos ON Ninos.idDatosBasicos = DatosBasicos.idDatosBasicos;";
@@ -62,8 +62,7 @@ namespace ICBFApp.Pages.AvancesAcademicos
                                     avanceAcademicoInfo.notas = reader.GetString(3).ToString();  // Notas
                                     avanceAcademicoInfo.descripcion = reader.GetString(4).ToString();  // Descripción
                                     avanceAcademicoInfo.fechaEntrega = reader.GetDateTime(5).Date.ToShortDateString();
-                                    avanceAcademicoInfo.anioEscolar = reader.GetInt32(6).ToString();
-                                    avanceAcademicoInfo.idAvanceAcademico = reader.GetInt32(7).ToString();
+                                    avanceAcademicoInfo.idAvanceAcademico = reader.GetInt32(6).ToString();
 
                                     // Asignar datosBasicosInfo al avanceAcademicoInfo
                                     avanceAcademicoInfo.datosBasicosInfo = datosBasicosInfo;
@@ -90,7 +89,6 @@ namespace ICBFApp.Pages.AvancesAcademicos
         public class AvanceAcademicoInfo
         {
             public string idAvanceAcademico { get; set; }
-            public string anioEscolar { get; set; }
             public string nivel {  get; set; }
             public string notas { get; set; }
             public string descripcion { get; set; }

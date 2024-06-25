@@ -60,6 +60,7 @@ namespace ICBFApp.Pages.Asistencia
             if (string.IsNullOrEmpty(asistenciaInfo.fecha) || string.IsNullOrEmpty(asistenciaInfo.estadoNino))
             {
                 errorMessage = "Todos los campos son obligatorios";
+                OnGet();
                 return Page();
             }
 

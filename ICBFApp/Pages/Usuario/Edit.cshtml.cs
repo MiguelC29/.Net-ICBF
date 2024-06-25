@@ -167,18 +167,21 @@ namespace ICBFApp.Pages.Usuario
             if (!int.TryParse(rolIdString, out rolId))
             {
                 errorMessage = "Rol inválido seleccionado";
+                OnGet();
                 return Page();
             }
 
             if (!int.TryParse(tipoDocIdString, out tipoDocId))
             {
                 errorMessage = "Tipo Documento inválido seleccionado";
+                OnGet();
                 return Page();
             }
 
             if (edad < 18)
             {
                 errorMessage = "Debe ser mayor de edad";
+                OnGet();
                 return Page();
             }
 
@@ -237,7 +240,8 @@ namespace ICBFApp.Pages.Usuario
 
             if (!isValidDate)
             {
-                throw new ArgumentException("La fecha de nacimiento no está en un formato válido.");
+                errorMessage = "La fecha de nacimiento no está en un formato válido.";
+                OnGet();
             }
 
             DateTime today = DateTime.Today;

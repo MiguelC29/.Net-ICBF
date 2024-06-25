@@ -81,7 +81,6 @@ namespace ICBFApp.Pages.AvancesAcademicos
 
         public IActionResult OnPost()
         {
-            string anioEscolar = Request.Form["anioEscolar"];
             string nivel = Request.Form["nivel"];
             string notas = Request.Form["notas"];
             string descripcion = Request.Form["descripcion"];
@@ -89,7 +88,7 @@ namespace ICBFApp.Pages.AvancesAcademicos
             string ninioIdString = Request.Form["ninio"];
             int ninioId;
 
-            if (string.IsNullOrEmpty(anioEscolar) || string.IsNullOrEmpty(nivel) || string.IsNullOrEmpty(notas)
+            if (string.IsNullOrEmpty(nivel) || string.IsNullOrEmpty(notas)
                 || string.IsNullOrEmpty(fechaEntrega))
             {
                 errorMessage = "Todos los campos son obligatorios";
@@ -100,6 +99,7 @@ namespace ICBFApp.Pages.AvancesAcademicos
             if (!int.TryParse(ninioIdString, out ninioId))
             {
                 errorMessage = "Niño inválido seleccionado";
+                OnGet();
                 return Page();
             }
 
@@ -109,12 +109,11 @@ namespace ICBFApp.Pages.AvancesAcademicos
                 {
                     connection.Open();
 
-                    String sqlInsertAvanceAcademico = "INSERT INTO AvancesAcademicos (anioEscolar, nivel, notas, descripcion, fechaEntrega, idNino)" +
-                            "VALUES (@anioEscolar, @nivel, @notas, @descripcion, @fechaEntrega, @idNino);";
+                    String sqlInsertAvanceAcademico = "INSERT INTO AvancesAcademicos (nivel, notas, descripcion, fechaEntrega, idNino)" +
+                            "VALUES (@nivel, @notas, @descripcion, @fechaEntrega, @idNino);";
 
                     using (SqlCommand command2 = new SqlCommand(sqlInsertAvanceAcademico, connection))
                     {
-                        command2.Parameters.AddWithValue("@anioEscolar", anioEscolar);
                         command2.Parameters.AddWithValue("@nivel", nivel);
                         command2.Parameters.AddWithValue("@notas", notas);
                         command2.Parameters.AddWithValue("@descripcion", descripcion);

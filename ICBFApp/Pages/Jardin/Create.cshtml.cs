@@ -7,6 +7,7 @@ namespace ICBFApp.Pages.Jardin
 {
     public class CreateModel : PageModel
     {
+
         private readonly string _connectionString;
 
         public CreateModel(IConfiguration configuration)
@@ -30,6 +31,7 @@ namespace ICBFApp.Pages.Jardin
             if (jardinInfo.nombre.Length == 0 || jardinInfo.direccion.Length == 0)
             {
                 errorMessage = "Debe completar todos los campos";
+                OnGet();
                 return Page();
             }
 
@@ -49,6 +51,7 @@ namespace ICBFApp.Pages.Jardin
                         if (count > 0)
                         {
                             errorMessage = "El Jardín '" + jardinInfo.nombre + "' ya existe. Verifique la información e intente de nuevo.";
+                            OnGet();
                             return Page();
                         }
                     }

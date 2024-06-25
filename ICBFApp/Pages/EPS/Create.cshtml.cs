@@ -32,6 +32,7 @@ namespace ICBFApp.Pages.EPS
             if (epsInfo.nombre.Length == 0 || epsInfo.NIT.Length == 0 || epsInfo.direccion.Length == 0 || epsInfo.telefono.Length == 0)
             {
                 errorMessage = "Debe completar todos los campos";
+                OnGet();
                 return Page();
             }
 
@@ -52,6 +53,7 @@ namespace ICBFApp.Pages.EPS
                         if (count > 0)
                         {
                             errorMessage = "El nombre '" + epsInfo.nombre + "' ya existe. Verifique la información e intente de nuevo.";
+                            OnGet();
                             return Page();
                         }
                     }
@@ -67,6 +69,7 @@ namespace ICBFApp.Pages.EPS
                         if (count > 0)
                         {
                             errorMessage = "El NIT '" + epsInfo.NIT + "' ya existe. Verifique la información e intente de nuevo.";
+                            OnGet();
                             return Page();
                         }
                     }

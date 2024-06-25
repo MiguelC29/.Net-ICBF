@@ -32,32 +32,25 @@
 <form method="POST">
     <div class="row mb-3">
         <div class="col-md-6">
-            <label class="col-form-label-sm col-form-label" for="SelectedJardinId">Selecciona el año escolar:</label>
-            <select name="anioEscolar" value="@Model.avanceAcademicoInfo.anioEscolar" class="form-control">
-                <option value=""> Selecciona el año escolar </option>
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-                <option value="5">5</option>
-                <option value="6">6</option>
-                <option value="7">7</option>
-                <option value="8">8</option>
-                <option value="9">9</option>
-                <option value="10">10</option>
-                <option value="11">11</option>
+            <label class="col-form-label-sm col-form-label" for="SelectedJardinId">Nivel:</label>
+            <select name="nivel" value="@Model.avanceAcademicoInfo.nivel" class="form-control" required>
+                <option value="">Seleccione el nivel</option>
+                <option value="Prenatal: No aplica">Prenatal: No aplica</option>
+                <option value="Natal: No aplica">Natal: No aplica</option>
+                <option value="Párvulo: 2-3 años">Párvulo: 2-3 años</option>
+                <option value="Prejardín: 3-4 años">Prejardín: 3-4 años</option>
+                <option value="Jardín: 4-5 años">Jardín: 4-5 años</option>
             </select>
         </div>
 
         <div class="col-md-6">
-            <label class="col-form-label-sm col-form-label" for="SelectedJardinId">Nivel:</label>
-            <select name="nivel" value="@Model.avanceAcademicoInfo.nivel" class="form-control" required>
-                <option value="">Seleccione el nivel</option>
-                <option value="Natal">Natal</option>
-                <option value="Prenatal">Prenatal</option>
-                <option value="Párvulo">Párvulo</option>
-                <option value="Jardín">Jardín</option>
-                <option value="Pre-jardín">Pre-jardín</option>
+            <label class="col-form-label-sm col-form-label" for="ninio">Niño:</label>
+            <select id="ninio" name="ninio" class="form-control" required>
+                <option value="">Seleccione el niño</option>
+                @foreach (var ninio in Model.listaNinios)
+                {
+                    <option value="@ninio.idNinio">@ninio.datosBasicos.identificacion - @ninio.datosBasicos.nombres</option>
+                }
             </select>
         </div>
     </div>
@@ -75,7 +68,7 @@
 
         <div class="col-md-6">
             <label class="col-form-label-sm col-form-label">Descripción:</label>
-            <input type="text" class="form-control" name="descripcion" value="@Model.avanceAcademicoInfo.descripcion">
+            <input type="text" class="form-control" maxlength="150" name="descripcion" value="@Model.avanceAcademicoInfo.descripcion">
         </div>
     </div>
 
@@ -83,17 +76,6 @@
         <div class="col-md-6">
             <label class="col-form-label-sm col-form-label">Fecha de entrega:</label>
             <input type="date" class="form-control" name="fechaEntrega" value="@Model.avanceAcademicoInfo.fechaEntrega" max="@DateTime.Now.ToString("yyyy-MM-dd")" required>
-        </div>
-
-        <div class="col-md-6">
-            <label class="col-form-label-sm col-form-label" for="ninio">Niño:</label>
-            <select id="ninio" name="ninio" class="form-control" required>
-                <option value="">Seleccione el niño</option>
-                @foreach (var ninio in Model.listaNinios)
-                {
-                    <option value="@ninio.idNinio">@ninio.datosBasicos.identificacion - @ninio.datosBasicos.nombres</option>
-                }
-            </select>
         </div>
     </div>
 

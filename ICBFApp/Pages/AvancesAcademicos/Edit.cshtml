@@ -32,35 +32,6 @@
 <form method="POST">
     <input type="hidden" class="form-control" name="idAvanceAcademico" value="@Model.avanceAcademicoInfo.idAvanceAcademico" />
 
-    <div class="row mb-3">
-        <div class="col-md-6">
-            <label class="col-form-label-sm col-form-label">Selecciona el año escolar:</label>
-            <select id="anioEscolar" name="anioEscolar" class="form-control">
-                <option value="">Selecciona el año escolar:</option>
-                @foreach (var anioEscolar in Model.listaAño)
-                {
-                    // Convierte Model.avanceAcademicoInfo.anioEscolar a entero para comparar correctamente
-                    int anioEscolarInt = 0;
-                    if (int.TryParse(Model.avanceAcademicoInfo.anioEscolar, out anioEscolarInt))
-                    {
-                        if (anioEscolar == anioEscolarInt)
-                        {
-                            <option value="@anioEscolar" selected>@anioEscolar</option>
-                        }
-                        else
-                        {
-                            <option value="@anioEscolar">@anioEscolar</option>
-                        }
-                    }
-                    else
-                    {
-                        // En caso de que Model.avanceAcademicoInfo.anioEscolar no sea un número entero válido
-                        <option value="@anioEscolar">@anioEscolar</option>
-                    }
-                }
-            </select>
-        </div>
-
         <div class="col-md-6">
             <label class="col-form-label-sm col-form-label">Nivel:</label>
             <select id="nivel" name="nivel" class="form-control" required>
@@ -101,7 +72,7 @@
 
         <div class="col-md-6">
             <label class="col-form-label-sm col-form-label">Descripción:</label>
-            <input type="text" class="form-control" name="descripcion" value="@Model.avanceAcademicoInfo.descripcion">
+            <input type="text" class="form-control" maxlength="150" name="descripcion" value="@Model.avanceAcademicoInfo.descripcion">
         </div>
     </div>
 

@@ -20,7 +20,7 @@
         <div class="row mb-3 justify-content-center">
             <div class="col-sm-10">
                 <label class="col-form-label" for="nombre">Nombre EPS:</label>
-                <input type="text" class="form-control" pattern="[A-Za-z]+" id="nombre" name="nombre" value="@Model.epsInfo.nombre" required>
+                <input type="text" class="form-control" maxlength="50" pattern="[A-Za-zÁÉÍÓÚáéíóúüÜñÑ\s]+" id="nombre" name="nombre" value="@Model.epsInfo.nombre" required>
             </div>
         </div>
 
@@ -34,7 +34,7 @@
         <div class="row mb-3 justify-content-center">
             <div class="col-sm-10">
                 <label class="col-form-label" for="direccion">Dirección:</label>
-                <input type="text" class="form-control" id="direccion" name="direccion" value="@Model.epsInfo.direccion" required>
+                <input type="text" class="form-control" maxlength="80" id="direccion" name="direccion" value="@Model.epsInfo.direccion" required>
             </div>
         </div>
 

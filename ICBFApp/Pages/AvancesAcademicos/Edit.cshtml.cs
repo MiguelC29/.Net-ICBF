@@ -41,11 +41,10 @@ namespace ICBFApp.Pages.AvancesAcademicos
                             if (reader.Read())
                             {
                                 avanceAcademicoInfo.idAvanceAcademico = "" + reader.GetInt32(0);
-                                avanceAcademicoInfo.anioEscolar = reader.GetInt32(1).ToString();
-                                avanceAcademicoInfo.nivel = reader.GetString(2);
-                                avanceAcademicoInfo.notas = reader.GetString(3);
-                                avanceAcademicoInfo.descripcion = reader.GetString(4);
-                                avanceAcademicoInfo.fechaEntrega = reader.GetDateTime(5).ToString("yyyy-MM-dd");
+                                avanceAcademicoInfo.nivel = reader.GetString(1);
+                                avanceAcademicoInfo.notas = reader.GetString(2);
+                                avanceAcademicoInfo.descripcion = reader.GetString(3);
+                                avanceAcademicoInfo.fechaEntrega = reader.GetDateTime(4).ToString("yyyy-MM-dd");
                             }
                         }
                     }
@@ -60,14 +59,12 @@ namespace ICBFApp.Pages.AvancesAcademicos
         public IActionResult OnPost()
         {
             avanceAcademicoInfo.idAvanceAcademico = Request.Form["idAvanceAcademico"];
-            avanceAcademicoInfo.anioEscolar = Request.Form["anioEscolar"];
             avanceAcademicoInfo.nivel = Request.Form["nivel"];
             avanceAcademicoInfo.notas = Request.Form["notas"];
             avanceAcademicoInfo.descripcion = Request.Form["descripcion"];
             avanceAcademicoInfo.fechaEntrega = Request.Form["fechaEntrega"];
 
-            if (string.IsNullOrEmpty(avanceAcademicoInfo.anioEscolar) || string.IsNullOrEmpty(avanceAcademicoInfo.nivel) || string.IsNullOrEmpty(avanceAcademicoInfo.notas) ||
-                string.IsNullOrEmpty(avanceAcademicoInfo.descripcion) || string.IsNullOrEmpty(avanceAcademicoInfo.fechaEntrega))
+            if (string.IsNullOrEmpty(avanceAcademicoInfo.nivel) || string.IsNullOrEmpty(avanceAcademicoInfo.notas) || string.IsNullOrEmpty(avanceAcademicoInfo.fechaEntrega))
             {
                 errorMessage = "Todos los campos son obligatorios";
                 OnGet();
@@ -82,11 +79,10 @@ namespace ICBFApp.Pages.AvancesAcademicos
                     connection.Open();
 
                     // Espacio para validar que el jadin no exista
-                    String sqlUpdate = "UPDATE AvancesAcademicos SET anioEscolar = @anioescolar, nivel = @nivel, notas = @notas, descripcion = @descripcion, fechaEntrega = @fechaEntrega WHERE idAvanceAcademico = @idAvanceAcademico";
+                    String sqlUpdate = "UPDATE AvancesAcademicos SET nivel = @nivel, notas = @notas, descripcion = @descripcion, fechaEntrega = @fechaEntrega WHERE idAvanceAcademico = @idAvanceAcademico";
                     using (SqlCommand command = new SqlCommand(sqlUpdate, connection))
                     {
                         command.Parameters.AddWithValue("@idAvanceAcademico", avanceAcademicoInfo.idAvanceAcademico);
-                        command.Parameters.AddWithValue("@anioEscolar", avanceAcademicoInfo.anioEscolar);
                         command.Parameters.AddWithValue("@nivel", avanceAcademicoInfo.nivel);
                         command.Parameters.AddWithValue("@notas", avanceAcademicoInfo.notas);
                         command.Parameters.AddWithValue("@descripcion", avanceAcademicoInfo.descripcion);

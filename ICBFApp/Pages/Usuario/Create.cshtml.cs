@@ -128,18 +128,21 @@ namespace ICBFApp.Pages.Usuario
             if (!int.TryParse(rolIdString, out rolId))
             {
                 errorMessage = "Rol inválido seleccionado";
+                OnGet();
                 return Page();
             }
 
             if (!int.TryParse(tipoDocIdString, out tipoDocId))
             {
                 errorMessage = "Tipo Documento inválido seleccionado";
+                OnGet();
                 return Page();
             }
 
             if (edad < 18)
             {
                 errorMessage = "Debe ser mayor de edad";
+                OnGet();
                 return Page();
             }
 
@@ -161,6 +164,7 @@ namespace ICBFApp.Pages.Usuario
                         {
                             errorMessage = "El usuario " + nombres + " con identificación " + identificacion + " ya existe. " +
                                            "Verifique la información e intente de nuevo";
+                            OnGet();
                             return Page();
                         }
                     }
@@ -224,6 +228,7 @@ namespace ICBFApp.Pages.Usuario
             if (!isValidDate)
             {
                 errorMessage = "La fecha esta en un formato no valido.";
+                OnGet();
             }
 
             DateTime today = DateTime.Today;

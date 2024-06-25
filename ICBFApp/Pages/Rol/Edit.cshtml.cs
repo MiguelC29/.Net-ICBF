@@ -58,6 +58,7 @@ namespace ICBFApp.Pages.Rol
             if (rolInfo.idRol.Length == 0 || rolInfo.nombre.Length == 0)
             {
                 errorMessage = "Debe completar todos los campos";
+                OnGet();
                 return Page();
             }
 
@@ -77,6 +78,7 @@ namespace ICBFApp.Pages.Rol
                         if (count > 0)
                         {
                             errorMessage = "El Rol '" + rolInfo.nombre + "' ya existe. Verifique la información e intente de nuevo.";
+                            OnGet();
                             return Page();
                         }
                     }

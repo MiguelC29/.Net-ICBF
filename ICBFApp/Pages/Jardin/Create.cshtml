@@ -20,14 +20,14 @@
         <div class="row mb-3 justify-content-center">
             <div class="col-sm-10">
                 <label class="col-form-label" for="nombreJardin">Nombre:</label>
-                <input type="text" class="form-control" pattern="[A-Za-z]+" id="nombreJardin" name="nombreJardin" value="@Model.jardinInfo.nombre">
+                <input type="text" class="form-control" maxlength="50" pattern="[A-Za-zÁÉÍÓÚáéíóúüÜñÑ\s]+" id="nombreJardin" name="nombreJardin" value="@Model.jardinInfo.nombre">
             </div>
         </div>
 
         <div class="row mb-3 justify-content-center">
             <div class="col-sm-10">
                 <label class="col-form-label" for="direccionJardin">Dirección:</label>
-                <input type="text" class="form-control" id="direccionJardin" name="direccionJardin" value="@Model.jardinInfo.direccion" required>
+                <input type="text" class="form-control" maxlength="50" id="direccionJardin" name="direccionJardin" value="@Model.jardinInfo.direccion" required>
             </div>
         </div>
 

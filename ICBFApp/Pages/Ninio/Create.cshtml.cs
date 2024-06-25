@@ -217,30 +217,35 @@ namespace ICBFApp.Pages.Ninio
             if (!int.TryParse(acudienteIdString, out acudienteId))
             {
                 errorMessage = "Acudiente inválido seleccionado";
+                OnGet();
                 return Page();
             }
 
             if (!int.TryParse(madreComunitariaIdString, out madreComunitariaId))
             {
                 errorMessage = "Madre Comunitaria inválida seleccionada";
+                OnGet();
                 return Page();
             }
 
             if (!int.TryParse(jardinIdString, out jardinId))
             {
                 errorMessage = "Jardín inválido seleccionado";
+                OnGet();
                 return Page();
             }
 
             if (!int.TryParse(epsIdString, out epsId))
             {
                 errorMessage = "EPS inválido seleccionado";
+                OnGet();
                 return Page();
             }
 
             if (edad > 5)
             {
                 errorMessage = "La edad máxima permitida que es de 5 años";
+                OnGet();
                 return Page();
             }
 
@@ -261,6 +266,7 @@ namespace ICBFApp.Pages.Ninio
                         {
                             errorMessage = "El niño " + nombres + " con identificación " + identificacion + " ya existe. " +
                                            "Verifique la información e intente de nuevo";
+                            OnGet();
                             return Page();
                         }
                     }
@@ -342,6 +348,7 @@ namespace ICBFApp.Pages.Ninio
             if (!isValidDate)
             {
                 errorMessage = "La fecha de nacimiento esta en un formato no válido.";
+                OnGet();
             }
 
             DateTime today = DateTime.Today;

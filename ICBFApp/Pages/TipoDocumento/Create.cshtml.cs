@@ -28,6 +28,7 @@ namespace ICBFApp.Pages.TipoDocumento
             if (tipoDocInfo.tipo.Length == 0)
             {
                 errorMessage = "Debe completar todos los campos";
+                OnGet();
                 return Page();
             }
 
@@ -48,6 +49,7 @@ namespace ICBFApp.Pages.TipoDocumento
                         if (count > 0)
                         {
                             errorMessage = "El tipo de documento '" + tipoDocInfo.tipo + "' ya existe. Verifique la información e intente de nuevo.";
+                            OnGet();
                             return Page();
                         }
                     }

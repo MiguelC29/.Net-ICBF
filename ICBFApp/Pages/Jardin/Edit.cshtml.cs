@@ -61,6 +61,7 @@ namespace ICBFApp.Pages.Jardin
             if (jardinInfo.idJardin.Length == 0 || jardinInfo.nombre.Length == 0 || jardinInfo.direccion.Length == 0 || jardinInfo.estado.Length == 0)
             {
                 errorMessage = "Debe completar todos los campos";
+                OnGet();
                 return Page();
             }
 

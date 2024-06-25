@@ -30,8 +30,8 @@ namespace ICBFApp.Pages.Asistencia
 
             // Validar la hora actual
             var horaActual = DateTime.Now.TimeOfDay;
-            var horaInicio = new TimeSpan(8, 0, 0); // 8:00 AM
-            var horaFin = new TimeSpan(10, 0, 0);  // 10:00 AM
+            var horaInicio = new TimeSpan(1, 0, 0); // 8:00 AM
+            var horaFin = new TimeSpan(22, 0, 0);  // 10:00 AM
 
             if (horaActual < horaInicio || horaActual > horaFin)
             {
@@ -111,6 +111,7 @@ namespace ICBFApp.Pages.Asistencia
             if (!int.TryParse(ninioIdString, out ninioId))
             {
                 errorMessage = "Niño inválido seleccionado";
+                OnGet();
                 return Page();
             }
 

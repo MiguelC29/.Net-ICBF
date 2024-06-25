@@ -13,6 +13,10 @@
       "PackagePath": "staticwebassets\\favicon.ico"
     },
     {
+      "Id": "C:\\Users\\migue\\source\\repos\\.Net-ICBF\\ICBFApp\\wwwroot\\images\\icon_user.png",
+      "PackagePath": "staticwebassets\\images\\icon_user.png"
+    },
+    {
       "Id": "C:\\Users\\migue\\source\\repos\\.Net-ICBF\\ICBFApp\\wwwroot\\images\\logoICBF.png",
       "PackagePath": "staticwebassets\\images\\logoICBF.png"
     },

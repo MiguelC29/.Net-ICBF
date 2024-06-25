@@ -62,7 +62,7 @@ namespace ICBFApp.Pages.Rol
 
                         command.ExecuteNonQuery();
                     }
-                    TempData["SuccessMessage"] = "Rol agregado con exito";
+                    TempData["SuccessMessage"] = "Rol agregado con éxito";
                     return RedirectToPage("/Rol/Index");
                 }
             }

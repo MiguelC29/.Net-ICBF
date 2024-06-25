@@ -76,7 +76,6 @@ namespace ICBFApp.Pages.AvancesAcademicos
 
             try
             {
-
                 using (SqlConnection connection = new SqlConnection(_connectionString))
                 {
 
@@ -96,7 +95,7 @@ namespace ICBFApp.Pages.AvancesAcademicos
                         command.ExecuteNonQuery();
                     }
 
-                    TempData["SuccessMessage"] = "Avance Academico Editado exitosamente";
+                    TempData["SuccessMessage"] = "Avance académico editado exitosamente";
                     return RedirectToPage("/AvancesAcademicos/Index");
                 }
             }
@@ -105,7 +104,6 @@ namespace ICBFApp.Pages.AvancesAcademicos
                 errorMessage = ex.Message;
                 return Page();
             }
-
         }
     }
  }

@@ -205,7 +205,7 @@ namespace ICBFApp.Pages.Ninio
                             else
                             {
                                 Console.WriteLine("No hay filas en el resultado.");
-                                Console.WriteLine("No se encontraron datos en la tabla usuarios.");
+                                Console.WriteLine("No se encontraron datos en la tabla usuarios - acudiente.");
                             }
                         }
 
@@ -244,7 +244,7 @@ namespace ICBFApp.Pages.Ninio
                                 else
                                 {
                                     Console.WriteLine("No hay filas en el resultado.");
-                                    Console.WriteLine("No se encontraron datos en la tabla usuarios.");
+                                    Console.WriteLine("No se encontraron datos en la tabla usuarios - madre comunitaria.");
                                 }
                             }
                         }
@@ -360,7 +360,7 @@ namespace ICBFApp.Pages.Ninio
                         command2.ExecuteNonQuery();
                     }
                 }
-                TempData["SuccessMessage"] = "Niño Editado exitosamente";
+                TempData["SuccessMessage"] = "Niño editado exitosamente";
                 return RedirectToPage("/Ninio/Index");
             }
             catch (Exception ex)

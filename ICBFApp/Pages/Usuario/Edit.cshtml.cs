@@ -129,7 +129,7 @@ namespace ICBFApp.Pages.Usuario
                             else
                             {
                                 Console.WriteLine("No hay filas en el resultado.");
-                                Console.WriteLine("No se encontraron datos en la tabla tipoDocumento.");
+                                Console.WriteLine("No se encontraron datos en la tabla tipo de Documento.");
                             }
                         }
                     }
@@ -220,7 +220,7 @@ namespace ICBFApp.Pages.Usuario
                         command2.ExecuteNonQuery();
                     }
                 }
-                TempData["SuccessMessage"] = "Usuario Editado exitosamente";
+                TempData["SuccessMessage"] = "Usuario editado exitosamente";
                 return RedirectToPage("/Usuario/Index");
             }
             catch (Exception ex)

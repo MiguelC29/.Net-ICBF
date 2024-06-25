@@ -1,6 +1,7 @@
 ﻿@page
 @model ICBFApp.Pages.EPS.EditModel
 @{
+    ViewData["Title"] = "Editar EPS";
 }
 
 <br />
@@ -20,28 +21,28 @@
     <div class="container">
         <div class="row mb-3 justify-content-center">
             <div class="col-sm-10">
-                <label class="col-form-label" for="nombre">Nombre EPS</label>
+                <label class="col-form-label" for="nombre">Nombre EPS:</label>
                 <input type="text" class="form-control" pattern="[A-Za-z]+" id="nombre" name="nombre" value="@Model.epsInfo.nombre">
             </div>
         </div>
 
         <div class="row mb-3 justify-content-center">
             <div class="col-sm-10">
-                <label class="col-form-label" for="NIT">NIT</label>
+                <label class="col-form-label" for="NIT">NIT:</label>
                 <input type="text" class="form-control" pattern="[0-9]{9}" id="NIT" name="NIT" value="@Model.epsInfo.NIT">
             </div>
         </div>
 
         <div class="row mb-3 justify-content-center">
             <div class="col-sm-10">
-                <label class="col-form-label" for="direccion">Dirección</label>
-                <input type="text" class="form-control" id="direccion" name="direccion" value="@Model.epsInfo.direccion">
+                <label class="col-form-label" for="direccion">Dirección:</label>
+                <input type="text" class="form-control" id="direccion" name="direccion" value="@Model.epsInfo.direccion" required>
             </div>
         </div>
 
         <div class="row mb-3 justify-content-center">
             <div class="col-sm-10">
-                <label class="col-form-label" for="telefono">Teléfono</label>
+                <label class="col-form-label" for="telefono">Teléfono:</label>
                 <input type="tel" class="form-control" id="telefono" name="telefono" value="@Model.epsInfo.telefono"
                        maxlength="10" pattern="[0-9]{10}" title="Por favor ingrese un número de teléfono válido de 10 dígitos">
             </div>

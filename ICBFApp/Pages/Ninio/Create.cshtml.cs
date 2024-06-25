@@ -134,7 +134,7 @@ namespace ICBFApp.Pages.Ninio
                             else
                             {
                                 Console.WriteLine("No hay filas en el resultado.");
-                                Console.WriteLine("No se encontraron datos en la tabla usuarios.");
+                                Console.WriteLine("No se encontraron datos en la tabla usuarios-acudiente.");
                             }
                         }
                     }
@@ -173,7 +173,7 @@ namespace ICBFApp.Pages.Ninio
                             else
                             {
                                 Console.WriteLine("No hay filas en el resultado.");
-                                Console.WriteLine("No se encontraron datos en la tabla usuarios.");
+                                Console.WriteLine("No se encontraron datos en la tabla usuarios - madre comunitaria.");
                             }
                         }
                     }
@@ -341,7 +341,7 @@ namespace ICBFApp.Pages.Ninio
 
             if (!isValidDate)
             {
-                errorMessage = "La fecha de nacimiento esta en un formato no valido.";
+                errorMessage = "La fecha de nacimiento esta en un formato no válido.";
             }
 
             DateTime today = DateTime.Today;

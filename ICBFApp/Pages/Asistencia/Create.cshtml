@@ -1,6 +1,7 @@
 ﻿@page
 @model ICBFApp.Pages.Asistencia.CreateModel
 @{
+    ViewData["Title"] = "Registrar Asistencia";
 }
 
 <br>
@@ -29,37 +30,30 @@
 }
 
 <form method="POST">
-
     <div class="container">
-
         <div class="row mb-3 justify-content-center">
-
             <div class="col-sm-10">
-                <label class="col-form-label-sm col-form-label">Selecciona la fecha:</label>
-                <input type="date" class="form-control" name="fecha" id="fechaInput" value="@Model.asistenciaInfo.fecha" max="@DateTime.Now.ToString("yyyy-MM-dd")">
+                <label class="col-form-label-sm col-form-label">Fecha de la Asistencia:</label>
+                <input type="date" class="form-control" name="fecha" id="fechaInput" value="@Model.asistenciaInfo.fecha" max="@DateTime.Now.ToString("yyyy-MM-dd")" required>
             </div>
-
         </div>
 
         <div class="row mb-3 justify-content-center">
-
             <div class="col-sm-10">
-                <label class="col-form-label-sm col-form-label" for="SelectedJardinId">Selecciona el estado del Niño:</label>
-                <select name="estadoNino" value="@Model.asistenciaInfo.estadoNino" class="form-control">
-                    <option value=""> Selecciona el estado </option>
+                <label class="col-form-label-sm col-form-label" for="SelectedJardinId">Estado del Niño:</label>
+                <select name="estadoNino" value="@Model.asistenciaInfo.estadoNino" class="form-control" required>
+                    <option value=""> Seleccione el estado </option>
                     <option value="Enfermo">Enfermo</option>
                     <option value="Sano">Sano</option>
-                    <option value="Decaido">Decaido</option>
+                    <option value="Decaído">Decaído</option>
                 </select>
             </div>
-
         </div>
 
         <div class="row mb-3 justify-content-center">
-
             <div class="col-sm-10">
-                <label class="col-form-label-sm col-form-label" for="ninio">Selecciona el Niño:</label>
-                <select id="ninio" name="ninio" class="form-control">
+                <label class="col-form-label-sm col-form-label" for="ninio">Niño:</label>
+                <select id="ninio" name="ninio" class="form-control" required>
                     <option value="">Seleccione el niño</option>
                     @foreach (var ninio in Model.listaNinios)
                     {
@@ -68,16 +62,14 @@
                 </select>
             </div>
         </div>
+    </div>
 
+    <div class="row mb-3">
+        <div class="offset-sm-3 col-sm-3 d-grid">
+            <button type="submit" class="btn btn-primary">Agregar</button>
         </div>
-
-        <div class="row mb-3">
-            <div class="offset-sm-3 col-sm-3 d-grid">
-                <button type="submit" class="btn btn-primary">Agregar</button>
-            </div>
-            <div class="col-sm-3 d-grid">
-                <a class="btn btn-outline-danger" href="/Asistencia/Index" role="button">Cancelar</a>
-            </div>
+        <div class="col-sm-3 d-grid">
+            <a class="btn btn-outline-danger" href="/Asistencia/Index" role="button">Cancelar</a>
         </div>
-
+    </div>
 </form>

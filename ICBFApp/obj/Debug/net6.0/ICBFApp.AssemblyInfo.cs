@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("ICBFApp")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+805ac5e8b754765682495295140810b1eca8736f")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+e214a6cbb26be5a4c770cee82993d859e53b8053")]
 [assembly: System.Reflection.AssemblyProductAttribute("ICBFApp")]
 [assembly: System.Reflection.AssemblyTitleAttribute("ICBFApp")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

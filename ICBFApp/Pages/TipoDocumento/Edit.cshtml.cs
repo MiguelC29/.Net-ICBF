@@ -90,7 +90,7 @@ namespace ICBFApp.Pages.TipoDocumento
                         command.ExecuteNonQuery();
                     }
                 }
-                TempData["SuccessMessage"] = "Tipo de Documento Editado exitosamente";
+                TempData["SuccessMessage"] = "Tipo de Documento editado exitosamente";
                 return RedirectToPage("/TipoDocumento/Index");
             }
             catch (Exception ex)

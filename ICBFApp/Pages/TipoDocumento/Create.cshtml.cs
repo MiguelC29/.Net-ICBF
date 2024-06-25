@@ -61,7 +61,7 @@ namespace ICBFApp.Pages.TipoDocumento
 
                         command.ExecuteNonQuery();
                     }
-                    TempData["SuccessMessage"] = "Tipo Documento agregado con éxito";
+                    TempData["SuccessMessage"] = "Tipo de documento agregado con éxito";
                     return RedirectToPage("/TipoDocumento/Index");
                 }
             }

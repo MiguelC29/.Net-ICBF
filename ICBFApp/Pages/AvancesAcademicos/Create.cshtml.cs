@@ -2,8 +2,6 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using System.Data.SqlClient;
 using static ICBFApp.Pages.AvancesAcademicos.IndexModel;
-using static ICBFApp.Pages.EPS.IndexModel;
-using static ICBFApp.Pages.Jardin.IndexModel;
 using static ICBFApp.Pages.Ninio.IndexModel;
 using static ICBFApp.Pages.Usuario.IndexModel;
 
@@ -68,7 +66,7 @@ namespace ICBFApp.Pages.AvancesAcademicos
                                 else
                                 {
                                     Console.WriteLine("No hay filas en el resultado.");
-                                    Console.WriteLine("No se encontraron datos en la tabla jardines.");
+                                    Console.WriteLine("No se encontraron datos en la tabla avances académicos.");
                                 }
                             }
                         }
@@ -92,7 +90,7 @@ namespace ICBFApp.Pages.AvancesAcademicos
             int ninioId;
 
             if (string.IsNullOrEmpty(anioEscolar) || string.IsNullOrEmpty(nivel) || string.IsNullOrEmpty(notas)
-                || string.IsNullOrEmpty(descripcion) || string.IsNullOrEmpty(fechaEntrega))
+                || string.IsNullOrEmpty(fechaEntrega))
             {
                 errorMessage = "Todos los campos son obligatorios";
                 OnGet();
@@ -126,7 +124,7 @@ namespace ICBFApp.Pages.AvancesAcademicos
                         command2.ExecuteNonQuery();
                     }
                 }
-                TempData["SuccessMessage"] = "Avance academico creado exitosamente";
+                TempData["SuccessMessage"] = "Avance académico creado exitosamente";
                 return RedirectToPage("/AvancesAcademicos/Index");
             }
             catch (Exception ex)
@@ -135,6 +133,5 @@ namespace ICBFApp.Pages.AvancesAcademicos
                 return Page();
             }
         }
-
     }
 }

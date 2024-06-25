@@ -133,7 +133,7 @@ namespace ICBFApp.Pages.Asistencia
                     }
                 }
 
-                TempData["SuccessMessage"] = "Asistencia creado exitosamente";
+                TempData["SuccessMessage"] = "Asistencia creada exitosamente";
                 return RedirectToPage("/Asistencia/Index");
             }
             catch (Exception ex)

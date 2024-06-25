@@ -80,9 +80,8 @@ namespace ICBFApp.Pages.Asistencia
                         command.ExecuteNonQuery();
                     }
 
-                    TempData["SuccessMessage"] = "Asistencia Editado exitosamente";
+                    TempData["SuccessMessage"] = "Asistencia editada exitosamente";
                     return RedirectToPage("/Asistencia/Index");
-
                 }
             }
             catch (Exception ex)

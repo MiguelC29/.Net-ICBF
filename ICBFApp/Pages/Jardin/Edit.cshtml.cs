@@ -97,7 +97,7 @@ namespace ICBFApp.Pages.Jardin
                         command.ExecuteNonQuery();
                     }
                 }
-                TempData["SuccessMessage"] = "Jardín Editado exitosamente";
+                TempData["SuccessMessage"] = "Jardín editado exitosamente";
                 return RedirectToPage("/Jardin/Index");
             }
             catch (Exception ex)

@@ -91,7 +91,7 @@ namespace ICBFApp.Pages.Rol
                         command.ExecuteNonQuery();
                     }
                 }
-                TempData["SuccessMessage"] = "Rol Editado exitosamente";
+                TempData["SuccessMessage"] = "Rol editado exitosamente";
                 return RedirectToPage("/Rol/Index");
             }
             catch (Exception ex)

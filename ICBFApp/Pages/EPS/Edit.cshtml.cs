@@ -50,7 +50,6 @@ namespace ICBFApp.Pages.EPS
                 errorMessage = ex.Message;
                 return;
             }
-
         }
 
         public IActionResult OnPost() 
@@ -115,7 +114,7 @@ namespace ICBFApp.Pages.EPS
                         command.ExecuteNonQuery();
                     }
                 }
-                TempData["SuccessMessage"] = "EPS Editada exitosamente";
+                TempData["SuccessMessage"] = "EPS editada exitosamente";
                 return RedirectToPage("/EPS/Index");
             }
             catch (Exception ex)

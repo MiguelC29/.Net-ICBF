@@ -31,7 +31,7 @@
 
 <form method="POST">
     <input type="hidden" class="form-control" name="idAvanceAcademico" value="@Model.avanceAcademicoInfo.idAvanceAcademico" />
-
+    <div class="row mb-3">
         <div class="col-md-6">
             <label class="col-form-label-sm col-form-label">Nivel:</label>
             <select id="nivel" name="nivel" class="form-control" required>
@@ -49,9 +49,7 @@
                 }
             </select>
         </div>
-    </div>
 
-    <div class="row mb-3">
         <div class="col-md-6">
             <label class="col-form-label-sm col-form-label">Nota:</label>
             <select id="notas" name="notas" class="form-control" required>
@@ -69,14 +67,14 @@
                 }
             </select>
         </div>
-
-        <div class="col-md-6">
-            <label class="col-form-label-sm col-form-label">Descripción:</label>
-            <input type="text" class="form-control" maxlength="150" name="descripcion" value="@Model.avanceAcademicoInfo.descripcion">
-        </div>
     </div>
 
     <div class="row mb-3">
+        <div class="col-md-6">
+            <label class="col-form-label-sm col-form-label">Descripción:</label>
+            <input type="text" class="form-control" maxlength="150" name="descripcion" value="@Model.avanceAcademicoInfo.descripcion.Trim()">
+        </div>
+
         <div class="col-md-6">
             <label class="col-form-label-sm col-form-label">Fecha de entrega:</label>
             <input type="date" class="form-control" name="fechaEntrega" value="@Model.avanceAcademicoInfo.fechaEntrega" max="@DateTime.Now.ToString("yyyy-MM-dd")" required>

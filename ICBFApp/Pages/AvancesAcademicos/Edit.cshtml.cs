@@ -11,7 +11,7 @@ namespace ICBFApp.Pages.AvancesAcademicos
     {
         public AvanceAcademicoInfo avanceAcademicoInfo = new AvanceAcademicoInfo();
         public int[] listaAño { get; set; } = new int[] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11 };
-        public string[] listaNivel { get; set; } = new string[] { "Natal", "Prenatal", "Parvulo", "Jardin", "Pre-jardin" };
+        public string[] listaNivel { get; set; } = new string[] { "Prenatal", "Natal", "Párvulo", "Prejardín", "Jardín" };
         public string[] listaNota { get; set; } = new string[] { "S", "A", "B" };
         public string errorMessage = "";
         public string successMessage = "";

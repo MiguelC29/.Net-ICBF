@@ -27,11 +27,10 @@ namespace ICBFApp.Pages.Asistencia
 
         public IActionResult OnGet()
         {
-
             // Validar la hora actual
             var horaActual = DateTime.Now.TimeOfDay;
-            var horaInicio = new TimeSpan(1, 0, 0); // 8:00 AM
-            var horaFin = new TimeSpan(22, 0, 0);  // 10:00 AM
+            var horaInicio = new TimeSpan(8, 0, 0); // 8:00 AM
+            var horaFin = new TimeSpan(10, 0, 0);  // 10:00 AM
 
             if (horaActual < horaInicio || horaActual > horaFin)
             {
@@ -59,13 +58,14 @@ namespace ICBFApp.Pages.Asistencia
                                     var idNinio = reader.GetInt32(0).ToString();
                                     var identificacion = reader.GetString(1);
                                     var nombres = reader.GetString(2);
+
                                     DatosBasicosInfo datosNinios = new DatosBasicosInfo();
-                                    datosNinios.identificacion = reader.GetString(1);
-                                    datosNinios.nombres = reader.GetString(2);
+                                    datosNinios.identificacion = identificacion;
+                                    datosNinios.nombres = nombres;
 
                                     listaNinios.Add(new NinioInfo
                                     {
-                                        idNinio = reader.GetInt32(0).ToString(),
+                                        idNinio = idNinio,
                                         datosBasicos = datosNinios
                                     });
 
@@ -95,7 +95,6 @@ namespace ICBFApp.Pages.Asistencia
 
         public IActionResult OnPost()
         {
-
             string fecha = Request.Form["fecha"];
             string estadoNino = Request.Form["estadoNino"];
             string ninioIdString = Request.Form["ninio"];

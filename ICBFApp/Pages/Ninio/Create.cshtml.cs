@@ -49,8 +49,8 @@ namespace ICBFApp.Pages.Ninio
 
                                     listaJardines.Add(new JardinInfo
                                     {
-                                        idJardin = reader.GetInt32(0).ToString(),
-                                        nombre = reader.GetString(1)
+                                        idJardin = id,
+                                        nombre = nombreJardin
                                     });
 
                                     foreach (var jardin in listaJardines)
@@ -82,8 +82,8 @@ namespace ICBFApp.Pages.Ninio
 
                                     listaEps.Add(new EPSInfo
                                     {
-                                        idEps = reader.GetInt32(0).ToString(),
-                                        nombre = reader.GetString(1)
+                                        idEps = idEps,
+                                        nombre = nombre
                                     });
 
                                     foreach (var eps in listaEps)
@@ -115,13 +115,15 @@ namespace ICBFApp.Pages.Ninio
                                 {
                                     var idUsuario = reader.GetInt32(0).ToString();
                                     var identificacion = reader.GetString(1);
+                                    var nombres = reader.GetString(2);
+
                                     DatosBasicosInfo datosAcudiente = new DatosBasicosInfo();
-                                    datosAcudiente.identificacion = reader.GetString(1);
-                                    datosAcudiente.nombres = reader.GetString(2);
+                                    datosAcudiente.identificacion = identificacion;
+                                    datosAcudiente.nombres = nombres;
 
                                     listaAcudientes.Add(new UsuarioInfo
                                     {
-                                        idUsuario = reader.GetInt32(0).ToString(),
+                                        idUsuario = idUsuario,
                                         datosBasicos = datosAcudiente
                                     });
 
@@ -154,13 +156,15 @@ namespace ICBFApp.Pages.Ninio
                                 {
                                     var idUsuario = reader.GetInt32(0).ToString();
                                     var identificacion = reader.GetString(1);
+                                    var nombres = reader.GetString(2);
+
                                     DatosBasicosInfo datosMadreComunitaria = new DatosBasicosInfo();
-                                    datosMadreComunitaria.identificacion = reader.GetString(1);
-                                    datosMadreComunitaria.nombres = reader.GetString(2);
+                                    datosMadreComunitaria.identificacion = identificacion;
+                                    datosMadreComunitaria.nombres = nombres;
 
                                     listaMadresComunitarias.Add(new UsuarioInfo
                                     {
-                                        idUsuario = reader.GetInt32(0).ToString(),
+                                        idUsuario = idUsuario,
                                         datosBasicos = datosMadreComunitaria
                                     });
 

@@ -3,7 +3,6 @@ using static ICBFApp.Pages.Ninio.IndexModel;
 using static ICBFApp.Pages.Usuario.IndexModel;
 using System.Data.SqlClient;
 using ICBFApp.Services;
-using ICBFApp.Services.Asistencia;
 using Microsoft.AspNetCore.Mvc;
 using QuestPDF.Fluent;
 
@@ -17,10 +16,10 @@ namespace ICBFApp.Pages.Asistencia
         public string SuccessMessage { get; set; }
         public string ErrorMessage { get; set; }
 
-        private readonly IGeneratePdfServiceAsistencia _generatePdfServiceAsistencia;
+        private readonly IGeneratePdfService _generatePdfServiceAsistencia;
         private readonly string _connectionString;
 
-        public IndexModel(IConfiguration configuration, IGeneratePdfServiceAsistencia generatePdfServiceAsistencia)
+        public IndexModel(IConfiguration configuration, IGeneratePdfService generatePdfServiceAsistencia)
         {
             _generatePdfServiceAsistencia = generatePdfServiceAsistencia;
             _connectionString = configuration.GetConnectionString("ConexionSQLServer");
@@ -36,8 +35,6 @@ namespace ICBFApp.Pages.Asistencia
 
             try
             {
-                
-
                 using (SqlConnection connection = new SqlConnection(_connectionString))
                 {
                     connection.Open();

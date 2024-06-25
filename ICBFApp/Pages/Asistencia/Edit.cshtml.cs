@@ -69,7 +69,6 @@ namespace ICBFApp.Pages.Asistencia
 
                 using (SqlConnection connection = new SqlConnection(_connectionString))
                 {
-
                     connection.Open();
                     String sqlUpdate = "UPDATE Asistencias SET fecha = @fecha, estadoNino = @estadoNino WHERE idAsistencia = @idAsistencia";
                     using (SqlCommand command = new SqlCommand(sqlUpdate, connection))

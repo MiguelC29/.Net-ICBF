@@ -30,14 +30,14 @@
             <div class="col-sm-6">
                 <label class="col-form-label" for="identificacion">Identificación</label>
                 <input type="text" class="form-control" id="identificacion" name="identificacion" value="@Model.datosBasicos.identificacion"
-                       maxlength="10" pattern="[0-9]{10}" title="Por favor ingrese un número de documento válido de 10 dígitos">
+                    minlength="8" maxlength="10" pattern="[0-9]{8,10}" title="Por favor, ingrese un número de documento válido de 8 ó 10 dígitos">
             </div>
         </div>
 
         <div class="row mb-3">
             <div class="col-sm-6">
                 <label class="col-form-label" for="nombres">Nombres</label>
-                <input type="text" class="form-control" pattern="[A-Za-z]+" id="nombres" name="nombres" value="@Model.datosBasicos.nombres">
+                <input type="text" class="form-control" pattern="[A-Za-zÁÉÍÓÚáéíóúüÜñÑ\s]+" id="nombres" name="nombres" value="@Model.datosBasicos.nombres">
             </div>
             <div class="col-sm-6">
                 <label class="col-form-label" for="fechaNacimiento">Fecha de Nacimiento</label>

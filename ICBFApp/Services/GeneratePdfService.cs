@@ -31,19 +31,23 @@ namespace ICBFApp.Services
                     String sqlSelect = "SELECT identificacion, nombres, fechaNacimiento, j.nombre, " +
                         "(SELECT nombres FROM Usuarios as u " +
                         "INNER JOIN DatosBasicos as d ON u.idDatosBasicos = d.idDatosBasicos " +
-                        "WHERE idUsuario = n.idUsuario) as acudiente, " +
+                        "WHERE idUsuario = n.idAcudiente) as acudiente, " +
                         "(SELECT identificacion FROM Usuarios as u INNER JOIN DatosBasicos as d ON u.idDatosBasicos = d.idDatosBasicos " +
-                        "WHERE idUsuario = n.idUsuario) as identificacionAcudiente, " +
+                        "WHERE idUsuario = n.idAcudiente) as identificacionAcudiente, " +
                         "(SELECT tipo FROM Usuarios as u " +
                         "INNER JOIN DatosBasicos as d ON u.idDatosBasicos = d.idDatosBasicos " +
                         "INNER JOIN TipoDocumento as t ON d.idTipoDocumento = t.idTipoDoc " +
-                        "WHERE idUsuario = n.idUsuario) as tipoDocAcudiente, " +
+                        "WHERE idUsuario = n.idAcudiente) as tipoDocAcudiente, " +
+                        "(SELECT nombres FROM Usuarios as u " +
+                        "INNER JOIN DatosBasicos as d ON u.idDatosBasicos = d.idDatosBasicos " +
+                        "WHERE idUsuario = n.idMadreComunitaria) as madreCom, " +
                         "ciudadNacimiento, tipoSangre " +
                         "FROM Ninos as n " +
                         "INNER JOIN Jardines as j ON n.idJardin = j.idJardin " +
                         "INNER JOIN DatosBasicos as d ON n.idDatosBasicos = d.idDatosBasicos " +
                         "INNER JOIN TipoDocumento as t ON d.idTipoDocumento = t.idTipoDoc " +
-                        "INNER JOIN Usuarios as u ON n.idUsuario = u.idUsuario; ";
+                        "INNER JOIN Usuarios as acu ON n.idAcudiente = acu.idUsuario " +
+                        "INNER JOIN Usuarios as mad ON n.idMadreComunitaria = mad.idUsuario;";
 
                     using (SqlCommand command = new SqlCommand(sqlSelect, connection))
                     {
@@ -73,12 +77,19 @@ namespace ICBFApp.Services
                                     UsuarioInfo acudiente = new UsuarioInfo();
                                     acudiente.datosBasicos = datosAcudiente;
 
+                                    DatosBasicosInfo datosMadreComunitaria = new DatosBasicosInfo();
+                                    datosMadreComunitaria.nombres = reader.GetString(7);
+
+                                    UsuarioInfo madreComunitaria = new UsuarioInfo();
+                                    madreComunitaria.datosBasicos = datosMadreComunitaria;
+
                                     NinioInfo ninio = new NinioInfo();
-                                    ninio.ciudadNacimiento = reader.GetString(7);
-                                    ninio.tipoSangre = reader.GetString(8);
+                                    ninio.ciudadNacimiento = reader.GetString(8);
+                                    ninio.tipoSangre = reader.GetString(9);
                                     ninio.edad = calcularEdad(reader.GetDateTime(2).Date.ToShortDateString());
                                     ninio.jardin = jardin;
                                     ninio.acudiente = acudiente;
+                                    ninio.madreComunitaria = madreComunitaria;
                                     ninio.datosBasicos = datosBasicos;
 
                                     listNinio.Add(ninio);
@@ -149,7 +160,8 @@ namespace ICBFApp.Services
                                 columns.ConstantColumn(70);
                                 columns.ConstantColumn(80);
                                 columns.RelativeColumn(2);
-                                columns.RelativeColumn();
+                                columns.RelativeColumn(1.2f);
+                                columns.RelativeColumn(2);
                             });
 
                             table.Header(header =>
@@ -157,7 +169,7 @@ namespace ICBFApp.Services
                                 // Fila de títulos de sección
                                 header.Cell().ColumnSpan(5).Background(Colors.Green.Darken4).Border(0.5f).BorderColor(Colors.Black).AlignMiddle().Text("DATOS NIÑO").Bold().FontColor("#fff").AlignCenter();
                                 header.Cell().ColumnSpan(3).Background(Colors.Green.Darken4).Border(0.5f).BorderColor(Colors.Black).AlignMiddle().Text("DATOS ACUDIENTE").Bold().FontColor("#fff").AlignCenter();
-                                header.Cell().Background(Colors.Green.Darken4).Border(0.5f).BorderColor(Colors.Black).AlignMiddle().Text("DATOS JARDÍN").Bold().FontColor("#fff").AlignCenter();
+                                header.Cell().ColumnSpan(2).Background(Colors.Green.Darken4).Border(0.5f).BorderColor(Colors.Black).AlignMiddle().Text("DATOS JARDÍN").Bold().FontColor("#fff").AlignCenter();
 
                                 // Fila de encabezados de columnas
                                 header.Cell().Background("#212529").Border(0.5f).BorderColor(Colors.Black).AlignMiddle().Text("Identificación").FontColor("#fff").AlignCenter();
@@ -169,6 +181,7 @@ namespace ICBFApp.Services
                                 header.Cell().Background("#212529").Border(0.5f).BorderColor(Colors.Black).AlignMiddle().Text("Identificación").FontColor("#fff").AlignCenter();
                                 header.Cell().Background("#212529").Border(0.5f).BorderColor(Colors.Black).AlignMiddle().Text("Nombres").FontColor("#fff").AlignCenter();
                                 header.Cell().Background("#212529").Border(0.5f).BorderColor(Colors.Black).AlignMiddle().Text("Jardín").FontColor("#fff").AlignCenter();
+                                header.Cell().Background("#212529").Border(0.5f).BorderColor(Colors.Black).AlignMiddle().Text("MadreComunitaria").FontColor("#fff").AlignCenter();
                             });
 
 
@@ -183,6 +196,7 @@ namespace ICBFApp.Services
                                 table.Cell().Border(0.5f).BorderColor(Colors.Black).Text(nino.acudiente.datosBasicos.identificacion).AlignCenter();
                                 table.Cell().Border(0.5f).BorderColor(Colors.Black).Text(nino.acudiente.datosBasicos.nombres).AlignCenter();
                                 table.Cell().Border(0.5f).BorderColor(Colors.Black).Text(nino.jardin.nombre).AlignCenter();
+                                table.Cell().Border(0.5f).BorderColor(Colors.Black).Text(nino.madreComunitaria.datosBasicos.nombres).AlignCenter();
                             }
                         });
                     });

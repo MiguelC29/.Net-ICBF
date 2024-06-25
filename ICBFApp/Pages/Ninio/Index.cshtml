@@ -63,10 +63,11 @@
             <td>Edad</td>
             <td>Ciudad de Nacimiento</td>
             <td>Tipo de Sangre</td>
+            <td>EPS</td>
             <td>Identificación Acudiente</td>
             <td>Acudiente</td>
-            <td>EPS</td>
             <td>Jardin</td>
+            <td>Madre Comunitaria</td>
             <td>Acciones</td>
         </tr>
     </thead>
@@ -82,10 +83,11 @@
                 <td>@item.edad</td>
                 <td>@item.ciudadNacimiento</td>
                 <td>@item.tipoSangre</td>
+                <td>@item.eps.nombre</td>
                 <td>@item.acudiente.datosBasicos.identificacion</td>
                 <td>@item.acudiente.datosBasicos.nombres</td>
-                <td>@item.eps.nombre</td>
                 <td>@item.jardin.nombre</td>
+                <td>@item.madreComunitaria.datosBasicos.nombres</td>
                 <td>
                     <a class="btn btn-primary btn-sm" href="/Ninio/Edit?id=@item.idNinio">
                         <span class="material-symbols-outlined">edit_square</span>

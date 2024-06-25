@@ -36,7 +36,7 @@
     <div class="row mb-3">
         <div class="col-md-6">
             <label class="col-form-label" for="nombres">Nombres</label>
-            <input type="text" class="form-control" pattern="[A-Za-z]+" id="nombres" name="nombres" value="@Model.datosBasicos.nombres">
+            <input type="text" class="form-control" pattern="[A-Za-zÁÉÍÓÚáéíóúüÜñÑ\s]+" id="nombres" name="nombres" value="@Model.datosBasicos.nombres">
         </div>
         <div class="col-md-6">
             <label class="col-form-label" for="fechaNacimiento">Fecha de Nacimiento</label>
@@ -47,7 +47,7 @@
     <div class="row mb-3">
         <div class="col-md-6">
             <label class="col-form-label" for="ciudadNacimiento">Ciudad de Nacimiento</label>
-            <input type="text" class="form-control" pattern="[A-Za-z]+" id="ciudadNacimiento" name="ciudadNacimiento" value="@Model.ninio.ciudadNacimiento">
+            <input type="text" class="form-control" pattern="[A-Za-zÁÉÍÓÚáéíóúüÜñÑ\s]+" id="ciudadNacimiento" name="ciudadNacimiento" value="@Model.ninio.ciudadNacimiento">
         </div>
         <div class="col-md-6">
             <label class="col-form-label" for="celular">Teléfono</label>
@@ -61,13 +61,27 @@
             <label class="col-form-label" for="direccion">Dirección</label>
             <input type="text" class="form-control" id="direccion" name="direccion" value="@Model.datosBasicos.direccion">
         </div>
+
         <div class="col-md-6">
+            <label class="col-form-label" for="eps">EPS</label>
+            <select id="eps" name="eps" class="form-control">
+                <option value="">Seleccione una EPS</option>
+                @foreach (var eps in Model.listaEps)
+                {
+                    <option value="@eps.idEps">@eps.nombre</option>
+                }
+            </select>
+        </div>
+    </div>
+
+    <div class="row mb-3">
+        <div class="col-md-12">
             <label class="col-form-label" for="acudiente">Acudiente</label>
             <select id="acudiente" name="acudiente" class="form-control">
                 <option value="">Seleccione el acudiente</option>
                 @foreach (var acudiente in Model.listaAcudientes)
                 {
-                    <option value="@acudiente.idUsuario">@acudiente.datosBasicos.identificacion</option>
+                    <option value="@acudiente.idUsuario">@acudiente.datosBasicos.identificacion - @acudiente.datosBasicos.nombres</option>
                 }
             </select>
         </div>
@@ -84,13 +98,14 @@
                 }
             </select>
         </div>
+
         <div class="col-md-6">
-            <label class="col-form-label" for="eps">EPS</label>
-            <select id="eps" name="eps" class="form-control">
-                <option value="">Seleccione una EPS</option>
-                @foreach (var eps in Model.listaEps)
+            <label class="col-form-label" for="madreComunitaria">Madre Comunitaria</label>
+            <select id="madreComunitaria" name="madreComunitaria" class="form-control">
+                <option value="">Seleccione el madre comunitaria</option>
+                @foreach (var madreComunitaria in Model.listaMadresComunitarias)
                 {
-                    <option value="@eps.idEps">@eps.nombre</option>
+                    <option value="@madreComunitaria.idUsuario">@madreComunitaria.datosBasicos.identificacion - @madreComunitaria.datosBasicos.nombres</option>
                 }
             </select>
         </div>

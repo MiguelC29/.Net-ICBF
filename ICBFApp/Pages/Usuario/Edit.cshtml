@@ -23,36 +23,23 @@
         <div class="row mb-3">
             <div class="col-sm-6">
                 <label class="col-form-label" for="tipoDocumento">Tipo de Documento:</label>
-                <select id="tipoDocumento" name="tipoDocumento" class="form-control" required>
-                    <option value="">Seleccione un Tipo de Documento</option>
-                    @foreach (var tipoDoc in Model.tipoDocInfo)
-                    {
-                        if (tipoDoc.idTipoDoc.Trim().Equals(Model.tipoDocInfoSelected.idTipoDoc.Trim(), StringComparison.OrdinalIgnoreCase))
-                        {
-                            <option value="@tipoDoc.idTipoDoc" selected>@tipoDoc.tipo</option>
-                        }
-                        else
-                        {
-                            <option value="@tipoDoc.idTipoDoc">@tipoDoc.tipo</option>
-                        }
-                    }
-                </select>
+                <input type="text" class="form-control" id="tipoDocumento" name="tipoDocumento" value="@Model.tipoDocInfoSelected.tipo.Trim()" readonly />
             </div>
             <div class="col-sm-6">
                 <label class="col-form-label" for="identificacion">Identificación:</label>
                 <input type="text" class="form-control" id="identificacion" name="identificacion" value="@Model.datosBasicos.identificacion.Trim()"
-                       maxlength="10" pattern="[0-9]{8,10}" title="Por favor, ingrese un número de documento válido de 8 ó 10 dígitos">
+                       maxlength="10" pattern="[0-9]{8,10}" title="Por favor, ingrese un número de documento válido de 8 ó 10 dígitos" readonly>
             </div>
         </div>
 
         <div class="row mb-3">
             <div class="col-sm-6">
                 <label class="col-form-label" for="nombres">Nombres:</label>
-                <input type="text" class="form-control" maxlength="100" pattern="[A-Za-zÁÉÍÓÚáéíóúüÜñÑ\s]+" id="nombres" name="nombres" value="@Model.datosBasicos.nombres.Trim()">
+                <input type="text" class="form-control" maxlength="100" pattern="[A-Za-zÁÉÍÓÚáéíóúüÜñÑ\s]+" id="nombres" name="nombres" value="@Model.datosBasicos.nombres.Trim()" readonly>
             </div>
             <div class="col-sm-6">
                 <label class="col-form-label" for="fechaNacimiento">Fecha de Nacimiento:</label>
-                <input type="date" class="form-control" id="fechaNacimiento" name="fechaNacimiento" value="@Model.datosBasicos.fechaNacimiento" max="@DateTime.Now.ToString("yyyy-MM-dd")" required>
+                <input type="date" class="form-control" id="fechaNacimiento" name="fechaNacimiento" value="@Model.datosBasicos.fechaNacimiento" max="@DateTime.Now.ToString("yyyy-MM-dd")" required readonly>
             </div>
         </div>
 

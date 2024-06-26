@@ -5,6 +5,9 @@ namespace ICBFApp.Pages.TipoDocumento
 {
     public class IndexModel : PageModel
     {
+        /* ESTA VISTA Y TODO EL CRUD SOBRARIA, PORQUE LOS TIPOS DE DOC YA DEBERIAN 
+         * ESTAR QUEMADOS/DEFINIDOS A NIVEL BASE DE DATOS*/
+
         private readonly string _connectionString;
 
         public IndexModel(IConfiguration configuration)

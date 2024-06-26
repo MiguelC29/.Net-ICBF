@@ -24,7 +24,6 @@
 *.sqlite
 *.sqlite3
 *.db
-*.sql
 
 # Build directories
 bin/

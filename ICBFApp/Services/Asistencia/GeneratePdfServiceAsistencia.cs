@@ -1,4 +1,5 @@
 ﻿using System.Data.SqlClient;
+using ICBFApp.Services.Ninio;
 using QuestPDF.Fluent;
 using QuestPDF.Helpers;
 using static ICBFApp.Pages.Asistencia.IndexModel;
@@ -7,9 +8,9 @@ using static ICBFApp.Pages.Ninio.IndexModel;
 using static ICBFApp.Pages.Usuario.IndexModel;
 using static QuestPDF.Helpers.Colors;
 
-namespace ICBFApp.Services
+namespace ICBFApp.Services.Asistencia
 {
-    public class GeneratePdfServiceAsistencia : IGeneratePdfService
+    public class GeneratePdfServiceAsistencia : IGeneratePdfServiceAsistencia
     {
         private readonly IWebHostEnvironment _host;
         private readonly string _connectionString;

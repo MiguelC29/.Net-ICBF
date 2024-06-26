@@ -1,4 +1,5 @@
-using ICBFApp.Services;
+using ICBFApp.Services.Asistencia;
+using ICBFApp.Services.Ninio;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -10,7 +11,7 @@ QuestPDF.Settings.License = QuestPDF.Infrastructure.LicenseType.Community;
 builder.Services.AddTransient<IGeneratePdfService, GeneratePdfService>();
 
 //PDF Reporte Asistencia
-builder.Services.AddTransient<IGeneratePdfService, GeneratePdfServiceAsistencia>();
+builder.Services.AddTransient<IGeneratePdfServiceAsistencia, GeneratePdfServiceAsistencia>();
 
 var app = builder.Build();
 

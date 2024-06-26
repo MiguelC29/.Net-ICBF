@@ -1,4 +1,4 @@
-using ICBFApp.Services;
+using ICBFApp.Services.Ninio;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using QuestPDF.Fluent;

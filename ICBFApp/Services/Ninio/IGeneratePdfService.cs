@@ -1,6 +1,6 @@
 ﻿using QuestPDF.Fluent;
 
-namespace ICBFApp.Services
+namespace ICBFApp.Services.Ninio
 {
     public interface IGeneratePdfService
     {

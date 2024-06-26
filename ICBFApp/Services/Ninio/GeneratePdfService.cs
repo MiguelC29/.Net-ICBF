@@ -6,7 +6,7 @@ using static ICBFApp.Pages.Ninio.IndexModel;
 using static ICBFApp.Pages.TipoDocumento.IndexModel;
 using static ICBFApp.Pages.Usuario.IndexModel;
 
-namespace ICBFApp.Services
+namespace ICBFApp.Services.Ninio
 {
     public class GeneratePdfService : IGeneratePdfService
     {
@@ -28,7 +28,7 @@ namespace ICBFApp.Services
                 using (SqlConnection connection = new SqlConnection(_connectionString))
                 {
                     connection.Open();
-                    String sqlSelect = "SELECT identificacion, nombres, fechaNacimiento, j.nombre, " +
+                    string sqlSelect = "SELECT identificacion, nombres, fechaNacimiento, j.nombre, " +
                         "(SELECT nombres FROM Usuarios as u " +
                         "INNER JOIN DatosBasicos as d ON u.idDatosBasicos = d.idDatosBasicos " +
                         "WHERE idUsuario = n.idAcudiente) as acudiente, " +
@@ -125,10 +125,10 @@ namespace ICBFApp.Services
                     page.Header().Row(row =>
                     {
                         var rutaImgSena = Path.Combine(_host.WebRootPath, "images/logoSena.png");
-                        byte[] imageDataSena = System.IO.File.ReadAllBytes(rutaImgSena);
+                        byte[] imageDataSena = File.ReadAllBytes(rutaImgSena);
 
                         var rutaImgICBF = Path.Combine(_host.WebRootPath, "images/logoICBF.png");
-                        byte[] imageDataICBF = System.IO.File.ReadAllBytes(rutaImgICBF);
+                        byte[] imageDataICBF = File.ReadAllBytes(rutaImgICBF);
 
                         //row.ConstantItem(150).Height(60).Placeholder();
                         row.ConstantItem(75).AlignMiddle().Height(50).Image(imageDataSena);

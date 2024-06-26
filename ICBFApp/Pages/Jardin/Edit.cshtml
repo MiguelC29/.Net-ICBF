@@ -20,7 +20,7 @@
         <div class="row mb-3 justify-content-center">
             <div class="col-sm-10">
                 <label class="col-form-label" for="nombreJardin">Nombre:</label>
-                <input type="text" class="form-control" maxlength="50" pattern="[A-Za-zÁÉÍÓÚáéíóúüÜñÑ\s]+" id="nombreJardin" name="nombreJardin" value="@Model.jardinInfo.nombre.Trim()">
+                <input type="text" class="form-control" maxlength="50" pattern="[A-Za-zÁÉÍÓÚáéíóúüÜñÑ\s]+" id="nombreJardin" name="nombreJardin" value="@Model.jardinInfo.nombre.Trim()" readonly>
             </div>
         </div>
 
